@@ -1,0 +1,37 @@
+MPASM 5.74                      EJEMPLO3.ASM   5-3-2023  12:35:03         PAGE  1
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+                      00001 ;PROGRAMA PARA SUMAR EN BINARIO 2 Y 3 RESULTADO GUARDADO EN 0X0D
+                      00002   
+                      00003     LIST P=16F84
+Warning[207]: Found label after column 1. (SUMA1)
+  0000000C            00004     SUMA1 EQU 0X0C
+Warning[207]: Found label after column 1. (RESUL)
+  0000000D            00005     RESUL EQU 0X0D
+                      00006  
+                      00007     ORG 0
+                      00008     
+0000   3002           00009     MOVLW b'0010'  ; PONEMOS 2 EN W
+0001   008C           00010     MOVWF SUMA1 ; PASAMOS W A SUMA 1
+0002   3003           00011     MOVLW b'0011' ;PONEMOS 3 EN W
+0003   070C           00012     ADDWF SUMA1,0 ;SUMAMOS W COM SUMA 1 Y RESULTADO EN W
+0004   008D           00013     MOVWF RESUL; PASAMOS W->F RESUL=5
+                      00014     END
+MPASM 5.74                      EJEMPLO3.ASM   5-3-2023  12:35:03         PAGE  2
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+RESUL                             0000000D
+SUMA1                             0000000C
+__16F84A                          00000001
+
+Errors   :     0
+Warnings :     2 reported,     0 suppressed
+Messages :     0 reported,     0 suppressed
+
+

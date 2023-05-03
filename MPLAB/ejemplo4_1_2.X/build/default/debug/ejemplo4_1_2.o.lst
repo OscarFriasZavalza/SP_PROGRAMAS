@@ -1,0 +1,76 @@
+MPASM 5.74                  EJEMPLO4_1_2.ASM   5-3-2023  9:49:33         PAGE  1
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+                      00001 ;4.1.2- Sumar tres números y almacenar los números y el resultado en las 
+                      00002 ;direcciones 0x0c 0x0d 0x0e 0x0f
+Warning[205]: Found directive in column 1. (LIST)
+                      00003 LIST P=16F84
+  0000000C            00004 VAR1 EQU 0X0C
+  0000000D            00005 VAR2 EQU 0X0D
+  0000000E            00006 VAR3 EQU 0X0E
+  0000000F            00007 RES1 EQU 0X0F
+                      00008 
+Warning[205]: Found directive in column 1. (ORG)
+0000                  00009 ORG 0
+                      00010 ;INICIO
+0000                  00011 INICIO
+                      00012 
+Warning[203]: Found opcode in column 1. (MOVLW)
+0000   3001           00013 MOVLW D'1';1->W
+Warning[203]: Found opcode in column 1. (MOVWF)
+0001   008C           00014 MOVWF VAR1;W->VAR1
+Warning[203]: Found opcode in column 1. (MOVLW)
+0002   3002           00015 MOVLW D'2';2->W
+Warning[203]: Found opcode in column 1. (MOVWF)
+0003   008D           00016 MOVWF VAR2;W->VAR2
+Warning[203]: Found opcode in column 1. (MOVLW)
+0004   3003           00017 MOVLW D'3';3->W
+Warning[203]: Found opcode in column 1. (MOVWF)
+0005   008E           00018 MOVWF VAR3;W->VAR3
+Warning[203]: Found opcode in column 1. (CLRW)
+0006   0103           00019 CLRW;LIMPIAMOS 2
+Warning[203]: Found opcode in column 1. (MOVF)
+0007   080E           00020 MOVF VAR3,0;VAR->W
+Warning[203]: Found opcode in column 1. (ADDWF)
+0008   070D           00021 ADDWF VAR2,0;W+VAR2
+Warning[203]: Found opcode in column 1. (ADDWF)
+0009   070C           00022 ADDWF VAR1,0;W+VAR1
+Warning[203]: Found opcode in column 1. (MOVWF)
+000A   008F           00023 MOVWF RES1;RESULTADO=6
+                      00024 
+Warning[205]: Found directive in column 1. (END)
+                      00025 END
+MPASM 5.74                  EJEMPLO4_1_2.ASM   5-3-2023  9:49:33         PAGE  2
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+INICIO                            00000000
+RES1                              0000000F
+VAR1                              0000000C
+VAR2                              0000000D
+VAR3                              0000000E
+__16F84A                          00000001
+__DEBUG                           
+__MPLAB_DEBUGGER_SIMULATOR        1
+
+
+MEMORY USAGE MAP ('X' = Used,  '-' = Unused)
+
+0000 : XXXXXXXXXXX----- ---------------- ---------------- ----------------
+
+All other memory blocks unused.
+
+Program Memory Words Used:    11
+Program Memory Words Free:  1013
+
+
+Errors   :     0
+Warnings :    14 reported,     0 suppressed
+Messages :     0 reported,     0 suppressed
+
+

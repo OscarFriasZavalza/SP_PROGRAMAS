@@ -1,0 +1,68 @@
+MPASM 5.74                  EJEMPLO4_2_1.ASM   5-3-2023  10:07:31         PAGE  1
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+                      00001 ;4.2.1 Restar dos números binarios 
+                      00002 ;y almacenar el resultado en la dirección 0x10
+Warning[205]: Found directive in column 1. (LIST)
+                      00003 LIST P=16F84
+                      00004 
+  0000000A            00005 VAL1 EQU 0X0A
+  0000000B            00006 VAL2 EQU 0X0B
+  00000010            00007 RES1 EQU 0X10
+                      00008 
+Warning[205]: Found directive in column 1. (ORG)
+0000                  00009 ORG 0
+                      00010 
+                      00011 ;INICIO
+0000                  00012 INICIO
+                      00013 
+Warning[203]: Found opcode in column 1. (MOVLW)
+0000   3003           00014 MOVLW B'0011';0011->W
+Warning[203]: Found opcode in column 1. (MOVWF)
+0001   008A           00015 MOVWF VAL1;W->VAL1
+Warning[203]: Found opcode in column 1. (MOVLW)
+0002   3002           00016 MOVLW B'0010';0010->W
+Warning[203]: Found opcode in column 1. (MOVWF)
+0003   008B           00017 MOVWF VAL2;W->VAL2
+Warning[203]: Found opcode in column 1. (MOVF)
+0004   080B           00018 MOVF VAL2,W;VAL2->W
+Warning[203]: Found opcode in column 1. (SUBWF)
+0005   020A           00019 SUBWF VAL1,W;VAL1-W 
+Warning[203]: Found opcode in column 1. (MOVWF)
+0006   0090           00020 MOVWF RES1;RES1=1
+                      00021 
+Warning[205]: Found directive in column 1. (END)
+                      00022 END
+MPASM 5.74                  EJEMPLO4_2_1.ASM   5-3-2023  10:07:31         PAGE  2
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+INICIO                            00000000
+RES1                              00000010
+VAL1                              0000000A
+VAL2                              0000000B
+__16F84A                          00000001
+__DEBUG                           
+__MPLAB_DEBUGGER_SIMULATOR        1
+
+
+MEMORY USAGE MAP ('X' = Used,  '-' = Unused)
+
+0000 : XXXXXXX--------- ---------------- ---------------- ----------------
+
+All other memory blocks unused.
+
+Program Memory Words Used:     7
+Program Memory Words Free:  1017
+
+
+Errors   :     0
+Warnings :    10 reported,     0 suppressed
+Messages :     0 reported,     0 suppressed
+
+

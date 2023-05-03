@@ -1,0 +1,46 @@
+MPLINK 5.08, LINKER
+Linker Map File - Created Mon May 01 17:04:21 2023
+
+                                 Section Info
+                  Section       Type    Address   Location Size(Bytes)
+                ---------  ---------  ---------  ---------  ---------
+                   .org_0       code   0x000000    program   0x000032
+                   .cinit    romdata   0x000019    program   0x000004
+.config_2007_BUILD/DEFAULT/PRODUCTION/RETARDO       code   0x002007    program   0x000002
+
+
+
+                              Program Memory Usage 
+                               Start         End      
+                           ---------   ---------      
+                            0x000000    0x00001a      
+                            0x002007    0x002007      
+            28 out of 1094 program addresses used, program memory utilization is 2%
+
+
+
+                              Symbols - Sorted by Name
+                     Name    Address   Location    Storage File                     
+                ---------  ---------  ---------  --------- ---------                
+                   INICIO   0x000000    program     static C:\MPLAB\RETARDOS.X\retardos.asm
+            RETARDO_100ms   0x00000e    program     static C:\MPLAB\RETARDOS.X\retardos.asm
+            RETARDO_200ms   0x00000c    program     static C:\MPLAB\RETARDOS.X\retardos.asm
+           Regresa_Cuenta   0x000013    program     static C:\MPLAB\RETARDOS.X\retardos.asm
+         Regresa_Cuenta_2   0x000011    program     static C:\MPLAB\RETARDOS.X\retardos.asm
+              Retardos_ms   0x000010    program     static C:\MPLAB\RETARDOS.X\retardos.asm
+                    START   0x000005    program     static C:\MPLAB\RETARDOS.X\retardos.asm
+
+
+
+                              Symbols - Sorted by Address
+                     Name    Address   Location    Storage File                     
+                ---------  ---------  ---------  --------- ---------                
+                   INICIO   0x000000    program     static C:\MPLAB\RETARDOS.X\retardos.asm
+                    START   0x000005    program     static C:\MPLAB\RETARDOS.X\retardos.asm
+            RETARDO_200ms   0x00000c    program     static C:\MPLAB\RETARDOS.X\retardos.asm
+            RETARDO_100ms   0x00000e    program     static C:\MPLAB\RETARDOS.X\retardos.asm
+              Retardos_ms   0x000010    program     static C:\MPLAB\RETARDOS.X\retardos.asm
+         Regresa_Cuenta_2   0x000011    program     static C:\MPLAB\RETARDOS.X\retardos.asm
+           Regresa_Cuenta   0x000013    program     static C:\MPLAB\RETARDOS.X\retardos.asm
+
+

@@ -1,0 +1,3 @@
+build/default/production/PROGRAMA_PRINCIPAL.o:  \
+	C:/MPLAB/COMPARADOR.X/PROGRAMA_PRINCIPAL.asm  \
+

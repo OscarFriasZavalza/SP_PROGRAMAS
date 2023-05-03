@@ -1,0 +1,245 @@
+MPASM 5.74                      RETARDOS.ASM   5-1-2023  17:04:20         PAGE  1
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+                      00001 ;**************** THE WELS THEORY ******************
+                      00002 ;Descripci?n: El LED conectado al PORTB-RB7 se enciende
+                      00003 ;durante 300ms y se apaga durante 400ms.
+                      00004 ; 200 ms + 100ms -> 2x200ms
+                      00005 ;Para m?s informaci?n visita: www.thewelstheory.com
+                      00006 ;Y sigueme en www.facebook.com/WelsTheory
+                      00007 
+Warning[205]: Found directive in column 1. (List)
+                      00008 List P=16F84A ; Procesador PIC16f84A
+                      00009 #include "p16f84a.inc" ;Incluye las librerias 
+                      00001         LIST
+                      00002 
+                      00003 ;==========================================================================
+                      00004 ; Build date : May 17 2017
+                      00005 ;  MPASM PIC16F84A processor include
+                      00006 ; 
+                      00007 ;  (c) Copyright 1999-2017 Microchip Technology, All rights reserved
+                      00008 ;==========================================================================
+                      00009 
+                      00209         LIST
+                      00010     
+                      00011 ; CONFIGURACION DEL PIC16F84A
+2007   3FF1           00012  __CONFIG _FOSC_XT & _WDTE_OFF & _PWRTE_ON & _CP_OFF
+                      00013 
+                      00014 ;Variables
+Warning[205]: Found directive in column 1. (CBLOCK)
+                      00015 CBLOCK   0X0C       ;RAM USUARIOS
+Warning[205]: Found directive in column 1. (ENDC)
+                      00016 ENDC      
+                      00017  
+                      00018  
+                      00019 ;CODIGO
+                      00020     ORG     0
+0000                  00021 INICIO
+0000   1683           00022     BSF     STATUS,RP0
+Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
+0001   0186           00023     CLRF    TRISB       ;PORTB todo como salida
+0002   301F           00024     MOVLW   B'00011111'
+Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
+0003   0085           00025     MOVWF   TRISA       ; PORTA todo como entrada
+0004   1283           00026     BCF     STATUS,RP0
+                      00027 
+0005                  00028 START
+0005   1786           00029     BSF     PORTB,7
+0006   2???           00030     CALL    RETARDO_200ms
+0007   2???           00031     CALL    RETARDO_100ms
+0008   1386           00032     BCF     PORTB,7
+0009   2???           00033     CALL    RETARDO_200ms
+000A   2???           00034     CALL    RETARDO_200ms
+000B   2???           00035     GOTO    START
+                      00036     
+                      00037     
+                      00038 ;     
+MPASM 5.74                      RETARDOS.ASM   5-1-2023  17:04:20         PAGE  2
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+                      00039 ;Retardo                        ;call 2cm
+                      00040  ; MOVLW   d'X' ;1cm 
+                      00041   ; MOVWF   Contador    ;1cm            
+                      00042 ;RegresaCuenta   
+                      00043  ;  NOP                 ;1cm    
+                      00044   ; DECFSZ  Contador,F  ;1cm - 2cm      
+                      00045   ; GOTO    RegresaCuenta ;2cm CALL RETURN btfsc                
+                      00046   ; RETURN              ;2cm 
+                      00047    
+                      00048    ; Tiempo = 4*(1/f)*1cm = 4*(4MHz)*1 = 1us -> 1cm = 1us 
+                      00049    ; 2cm + 1cm + 1cm + 10*1 + (10-1)*1 + 2cm + 2cm*(10-1) + 2cm = 45cm = 45us
+                      00050    ; 2cm + 1cm + 1cm + x + (x-1)* + 2cm + 2cm(x-1) + 2cm = 5 + 4x 
+                      00051    ; Tiempo = 4x + 5 -> 1ms = 1000us = 5 + 4x -> 248,7 = 249
+                      00052    ; 4(249)+5 = 1001cm = 1001us = 1ms 
+                      00053  
+                      00054     
+Warning[205]: Found directive in column 1. (CBLOCK)
+                      00055 CBLOCK 
+  0000000C            00056     Contador
+  0000000D            00057     Contador_2
+Warning[205]: Found directive in column 1. (ENDC)
+                      00058 ENDC
+                      00059     
+000C                  00060 RETARDO_200ms                   
+000C   30C8           00061     MOVLW   d'200'              ; X             
+000D   2???           00062     GOTO    Retardos_ms 
+000E                  00063 RETARDO_100ms                   
+000E   3064           00064     MOVLW   d'100'              
+000F   2???           00065     GOTO    Retardos_ms 
+                      00066     
+0010                  00067 Retardos_ms   
+0010   008D           00068     MOVWF   Contador_2          
+0011                  00069 Regresa_Cuenta_2
+0011   30F9           00070     MOVLW   d'249'              ; Y              
+0012   008C           00071     MOVWF   Contador                    
+0013                  00072 Regresa_Cuenta
+0013   0000           00073     NOP                         
+0014   0B8C           00074     DECFSZ  Contador,F          
+0015   2???           00075     GOTO    Regresa_Cuenta              
+0016   0B8D           00076     DECFSZ  Contador_2,F                
+0017   2???           00077     GOTO    Regresa_Cuenta_2    
+0018   0008           00078     RETURN
+                      00079     
+                      00080 ; 2cm + 1cm + 2cm + (2+ 4x + 4xy) -> x=100 y=249
+                      00081 ; 5 + ( 2 + 400 + 99600) = 100007cm = 100ms 
+                      00082 ; 5 + (2 + 800 + 199200) = 200007cm = 200ms 
+                      00083 
+                      00084 
+3FF1                  00085    END
+MPASM 5.74                      RETARDOS.ASM   5-1-2023  17:04:20         PAGE  3
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+C                                 00000000
+Contador                          0000000C
+Contador_2                        0000000D
+DC                                00000001
+EEADR                             00000009
+EECON1                            00000088
+EECON2                            00000089
+EEDATA                            00000008
+EEIE                              00000006
+EEIF                              00000004
+F                                 00000001
+FSR                               00000004
+GIE                               00000007
+INDF                              00000000
+INICIO                            00000000
+INTCON                            0000000B
+INTE                              00000004
+INTEDG                            00000006
+INTF                              00000001
+IRP                               00000007
+NOT_PD                            00000003
+NOT_RBPU                          00000007
+NOT_TO                            00000004
+OPTION_REG                        00000081
+PCL                               00000002
+PCLATH                            0000000A
+PORTA                             00000005
+PORTB                             00000006
+PS0                               00000000
+PS1                               00000001
+PS2                               00000002
+PSA                               00000003
+RA0                               00000000
+RA1                               00000001
+RA2                               00000002
+RA3                               00000003
+RA4                               00000004
+RB0                               00000000
+RB1                               00000001
+RB2                               00000002
+RB3                               00000003
+RB4                               00000004
+RB5                               00000005
+RB6                               00000006
+RB7                               00000007
+RBIE                              00000003
+RBIF                              00000000
+RD                                00000000
+RETARDO_100ms                     0000000E
+RETARDO_200ms                     0000000C
+RP0                               00000005
+RP1                               00000006
+Regresa_Cuenta                    00000013
+MPASM 5.74                      RETARDOS.ASM   5-1-2023  17:04:20         PAGE  4
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+Regresa_Cuenta_2                  00000011
+Retardos_ms                       00000010
+START                             00000005
+STATUS                            00000003
+T0CS                              00000005
+T0IE                              00000005
+T0IF                              00000002
+T0SE                              00000004
+TMR0                              00000001
+TMR0IE                            00000005
+TMR0IF                            00000002
+TRISA                             00000085
+TRISA0                            00000000
+TRISA1                            00000001
+TRISA2                            00000002
+TRISA3                            00000003
+TRISA4                            00000004
+TRISB                             00000086
+TRISB0                            00000000
+TRISB1                            00000001
+TRISB2                            00000002
+TRISB3                            00000003
+TRISB4                            00000004
+TRISB5                            00000005
+TRISB6                            00000006
+TRISB7                            00000007
+W                                 00000000
+WR                                00000001
+WREN                              00000002
+WRERR                             00000003
+Z                                 00000002
+_CONFIG                           00002007
+_CP_OFF                           00003FFF
+_CP_ON                            0000000F
+_DEVID1                           00002006
+_FOSC_EXTRC                       00003FFF
+_FOSC_HS                          00003FFE
+_FOSC_LP                          00003FFC
+_FOSC_XT                          00003FFD
+_HS_OSC                           00003FFE
+_IDLOC0                           00002000
+_IDLOC1                           00002001
+_IDLOC2                           00002002
+_IDLOC3                           00002003
+_LP_OSC                           00003FFC
+_PWRTE_OFF                        00003FFF
+_PWRTE_ON                         00003FF7
+_RC_OSC                           00003FFF
+_WDTE_OFF                         00003FFB
+_WDTE_ON                          00003FFF
+_WDT_OFF                          00003FFB
+_WDT_ON                           00003FFF
+_XT_OSC                           00003FFD
+MPASM 5.74                      RETARDOS.ASM   5-1-2023  17:04:20         PAGE  5
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+__16F84A                          00000001
+
+Errors   :     0
+Warnings :     5 reported,     0 suppressed
+Messages :     2 reported,     0 suppressed
+
+

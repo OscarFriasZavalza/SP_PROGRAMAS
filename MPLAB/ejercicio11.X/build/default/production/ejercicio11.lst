@@ -1,0 +1,57 @@
+MPASM 5.74                   EJERCICIO11.ASM   5-1-2023  16:49:03         PAGE  1
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+                      00001 ; -----------------------------------
+                      00002 ; -- Programa para leer entradas
+                      00003 ; -- y obtener salidas complementadas
+                      00004 ; ------------------------------------
+Warning[205]: Found directive in column 1. (list)
+                      00005 list p=16f84
+  00000003            00006 status equ h'03'
+  00000005            00007 porta equ h'05'
+  00000006            00008 portb equ h'06'
+Warning[205]: Found directive in column 1. (org)
+                      00009 org 0
+                      00010 ; -- configuramos porta y portb -----
+Warning[203]: Found opcode in column 1. (bsf)
+0000   1683           00011 bsf status,5 ;accedemos banco 1
+Warning[203]: Found opcode in column 1. (movlw)
+0001   30FF           00012 movlw b'11111111' ;entradas
+Warning[203]: Found opcode in column 1. (movwf)
+0002   0085           00013 movwf porta ;al puerto A
+Warning[203]: Found opcode in column 1. (movlw)
+0003   3000           00014 movlw b'00000000' ;salidas
+Warning[203]: Found opcode in column 1. (movwf)
+0004   0086           00015 movwf portb ;al puerto B
+Warning[203]: Found opcode in column 1. (bcf)
+0005   1283           00016 bcf status,5 ;accedemos al banco 0
+                      00017 ; -- programa principal -------------
+0006                  00018 inicio 
+Warning[203]: Found opcode in column 1. (comf)
+0006   0905           00019 comf porta,0 ;leemos portA y complementamos
+Warning[203]: Found opcode in column 1. (movwf)
+0007   0086           00020 movwf portb ;pasamos los datos a la salida
+Warning[203]: Found opcode in column 1. (goto)
+0008   2???           00021 goto inicio ;bucle
+Warning[205]: Found directive in column 1. (end)
+                      00022 end
+MPASM 5.74                   EJERCICIO11.ASM   5-1-2023  16:49:03         PAGE  2
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+__16F84A                          00000001
+inicio                            00000006
+porta                             00000005
+portb                             00000006
+status                            00000003
+
+Errors   :     0
+Warnings :    12 reported,     0 suppressed
+Messages :     0 reported,     0 suppressed
+
+

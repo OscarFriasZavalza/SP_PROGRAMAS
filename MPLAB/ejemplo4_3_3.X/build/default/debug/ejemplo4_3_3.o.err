@@ -1,0 +1,7 @@
+Warning[205] C:\MPLAB\EJEMPLO4_3_3.X\EJEMPLO4_3_3.ASM 5 : Found directive in column 1. (LIST)
+Warning[205] C:\MPLAB\EJEMPLO4_3_3.X\EJEMPLO4_3_3.ASM 10 : Found directive in column 1. (ORG)
+Warning[203] C:\MPLAB\EJEMPLO4_3_3.X\EJEMPLO4_3_3.ASM 15 : Found opcode in column 1. (MOVLW)
+Warning[203] C:\MPLAB\EJEMPLO4_3_3.X\EJEMPLO4_3_3.ASM 16 : Found opcode in column 1. (MOVWF)
+Warning[203] C:\MPLAB\EJEMPLO4_3_3.X\EJEMPLO4_3_3.ASM 17 : Found opcode in column 1. (SWAPF)
+Warning[203] C:\MPLAB\EJEMPLO4_3_3.X\EJEMPLO4_3_3.ASM 18 : Found opcode in column 1. (MOVWF)
+Warning[205] C:\MPLAB\EJEMPLO4_3_3.X\EJEMPLO4_3_3.ASM 20 : Found directive in column 1. (END)

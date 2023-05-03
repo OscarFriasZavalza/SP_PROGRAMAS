@@ -1,0 +1,69 @@
+MPASM 5.74                  EJEMPLO4_3_2.ASM   5-3-2023  10:13:56         PAGE  1
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+                      00001 ;4.3.2 Realizar una OR Exclusiva de 
+                      00002 ;val1='00110101' y val2='10100110'
+                      00003 
+Warning[205]: Found directive in column 1. (LIST)
+                      00004 LIST P = 16F84
+                      00005 
+  0000000B            00006 VAL1 EQU 0X0B
+  0000000C            00007 VAL2 EQU 0X0C
+  0000000D            00008 RESUL EQU 0X0D
+                      00009 
+Warning[205]: Found directive in column 1. (ORG)
+0000                  00010 ORG 0
+                      00011 
+                      00012 ;INICIO
+0000                  00013 INICIO
+                      00014 
+Warning[203]: Found opcode in column 1. (MOVLW)
+0000   3035           00015 MOVLW B'00110101';MOVEMOS EL BINARIO A W
+Warning[203]: Found opcode in column 1. (MOVWF)
+0001   008B           00016 MOVWF VAL1;MOVEMOS W AL VAL1
+Warning[203]: Found opcode in column 1. (MOVLW)
+0002   30A6           00017 MOVLW B'10100110';MOVEMOS EL BINARIO A W
+Warning[203]: Found opcode in column 1. (MOVWF)
+0003   008C           00018 MOVWF VAL2;MOVEMOS W AL VAL2
+Warning[203]: Found opcode in column 1. (IORWF)
+0004   040B           00019 IORWF VAL1,0;XOR ENTRE W Y F, RESULTADO EN W;  RESULTADO =10010011:147:93
+Warning[203]: Found opcode in column 1. (MOVWF)
+0005   008D           00020 MOVWF RESUL;RESULTADO 
+                      00021  
+                      00022 
+                      00023 
+Warning[205]: Found directive in column 1. (END)
+                      00024 END
+MPASM 5.74                  EJEMPLO4_3_2.ASM   5-3-2023  10:13:56         PAGE  2
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+INICIO                            00000000
+RESUL                             0000000D
+VAL1                              0000000B
+VAL2                              0000000C
+__16F84A                          00000001
+__DEBUG                           
+__MPLAB_DEBUGGER_SIMULATOR        1
+
+
+MEMORY USAGE MAP ('X' = Used,  '-' = Unused)
+
+0000 : XXXXXX---------- ---------------- ---------------- ----------------
+
+All other memory blocks unused.
+
+Program Memory Words Used:     6
+Program Memory Words Free:  1018
+
+
+Errors   :     0
+Warnings :     9 reported,     0 suppressed
+Messages :     0 reported,     0 suppressed
+
+

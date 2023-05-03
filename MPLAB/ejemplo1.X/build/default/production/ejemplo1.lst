@@ -1,0 +1,56 @@
+MPASM 5.74                      EJEMPLO1.ASM   5-3-2023  12:25:53         PAGE  1
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+                      00001 ;****************************************************************
+                      00002 ;EJEMPLO 1: SUMA 05 Y 02
+                      00003 ;***************************************************************
+Warning[205]: Found directive in column 1. (LIST)
+                      00004 LIST P = 16f84 ;Modelo de pic
+                      00005 
+  0000000C            00006 SUMA1 EQU 0X0C ;DIRECCION HEXADECIMAL DEL OPERANDO 1
+  0000000D            00007 SUMA2 EQU 0X0D ;DIRECCION HEXADECIMAL DEL OPERANDO 2
+  0000000E            00008 RESUL EQU 0X0E ;DIRECCION DEL RESULTADO
+                      00009 
+                      00010 ;**********************************************
+Warning[205]: Found directive in column 1. (ORG)
+                      00011 ORG 0
+                      00012 ;---------------------------------------
+                      00013 ;ORIGEN DE LAS INSTRUCCIONES EN EL PROGRAM MEMORY MAP
+                      00014 ;DIRECTIVA DE COMPILACION
+                      00015 ;****************************************
+Warning[203]: Found opcode in column 1. (MOVLW)
+0000   3005           00016 MOVLW 0X05 ;PONEMOS 05 EN HEXADESIMAL EN W
+Warning[203]: Found opcode in column 1. (MOVWF)
+0001   008C           00017 MOVWF SUMA1 ;PASAMOS W A LA MEMORIA SUMA1
+Warning[203]: Found opcode in column 1. (MOVLW)
+0002   3002           00018 MOVLW 0X02 ;PASAMOS 02 EN HEXADECIMAL EN W
+Warning[203]: Found opcode in column 1. (MOVWF)
+0003   008D           00019 MOVWF SUMA2 ;PASAMOS W A LA MEMORIA SUMA2
+Warning[204]: Found pseudo-op in column 1. (MOVFW)
+0004   080C           00020 MOVFW SUMA1 ;PONEMOS EN W SUMA1 =05
+Warning[203]: Found opcode in column 1. (ADDWF)
+0005   070D           00021 ADDWF SUMA2,0 ;SUMAMOS W+SUMA2 Y EL RESULTADO EN W
+Warning[203]: Found opcode in column 1. (MOVWF)
+0006   008E           00022 MOVWF RESUL ;PONEMOS VALOR ACUMULADOR EN RESUL=7
+                      00023 
+Warning[205]: Found directive in column 1. (END)
+                      00024 END ;FIN DE PROGRAMA
+MPASM 5.74                      EJEMPLO1.ASM   5-3-2023  12:25:53         PAGE  2
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+RESUL                             0000000E
+SUMA1                             0000000C
+SUMA2                             0000000D
+__16F84A                          00000001
+
+Errors   :     0
+Warnings :    10 reported,     0 suppressed
+Messages :     0 reported,     0 suppressed
+
+

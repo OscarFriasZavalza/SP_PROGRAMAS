@@ -1,0 +1,62 @@
+MPASM 5.74                  EJEMPLO4_3_3.ASM   5-3-2023  10:17:28         PAGE  1
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+                      00001 ;4.3.3 Intercambiar los 4 bits menos significativos por 
+                      00002 ;los cuatro más significativos 
+                      00003 ;del valor b'00111010', almacenarlos en un registro 
+                      00004 
+Warning[205]: Found directive in column 1. (LIST)
+                      00005 LIST P = 16F84
+                      00006 
+  0000000B            00007 VAR1 EQU 0X0B
+  0000000C            00008 VAR2 EQU 0X0C
+                      00009 
+Warning[205]: Found directive in column 1. (ORG)
+0000                  00010 ORG 0
+                      00011 
+                      00012 ;INICIO
+0000                  00013 INICIO
+                      00014 
+Warning[203]: Found opcode in column 1. (MOVLW)
+0000   303A           00015 MOVLW B'00111010';MOVER EL BINARIO A W
+Warning[203]: Found opcode in column 1. (MOVWF)
+0001   008B           00016 MOVWF VAR1;MOVER W A VAR 1
+Warning[203]: Found opcode in column 1. (SWAPF)
+0002   0E0B           00017 SWAPF VAR1,0;LOS BITS DE MAYOR PESO SE CAMBIAN POR LOS DE MENOR Y GUARDAMOS EN W
+Warning[203]: Found opcode in column 1. (MOVWF)
+0003   008C           00018 MOVWF VAR2;MOVEMOS W A F
+                      00019 
+Warning[205]: Found directive in column 1. (END)
+                      00020 END
+MPASM 5.74                  EJEMPLO4_3_3.ASM   5-3-2023  10:17:28         PAGE  2
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+INICIO                            00000000
+VAR1                              0000000B
+VAR2                              0000000C
+__16F84A                          00000001
+__DEBUG                           
+__MPLAB_DEBUGGER_SIMULATOR        1
+
+
+MEMORY USAGE MAP ('X' = Used,  '-' = Unused)
+
+0000 : XXXX------------ ---------------- ---------------- ----------------
+
+All other memory blocks unused.
+
+Program Memory Words Used:     4
+Program Memory Words Free:  1020
+
+
+Errors   :     0
+Warnings :     7 reported,     0 suppressed
+Messages :     0 reported,     0 suppressed
+
+

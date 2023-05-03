@@ -1,0 +1,20 @@
+;4.3.3 Intercambiar los 4 bits menos significativos por 
+;los cuatro más significativos 
+;del valor b'00111010', almacenarlos en un registro 
+
+LIST P = 16F84
+
+VAR1 EQU 0X0B
+VAR2 EQU 0X0C
+
+ORG 0
+
+;INICIO
+INICIO
+
+MOVLW B'00111010';MOVER EL BINARIO A W
+MOVWF VAR1;MOVER W A VAR 1
+SWAPF VAR1,0;LOS BITS DE MAYOR PESO SE CAMBIAN POR LOS DE MENOR Y GUARDAMOS EN W
+MOVWF VAR2;MOVEMOS W A F
+
+END

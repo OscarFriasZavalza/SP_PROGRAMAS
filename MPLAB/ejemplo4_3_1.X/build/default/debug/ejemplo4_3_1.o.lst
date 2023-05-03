@@ -1,0 +1,73 @@
+MPASM 5.74                  EJEMPLO4_3_1.ASM   5-3-2023  10:11:58         PAGE  1
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+                      00001 ;4.3.1 Realizar una rotación 4 veces hacia la derecha de un 
+                      00002 ;registro de valor '10110000'
+                      00003 
+Warning[205]: Found directive in column 1. (LIST)
+                      00004 LIST P = 16F84
+                      00005 
+  0000000B            00006 VAL1 EQU 0X0B
+  0000000C            00007 COUNT EQU 0X0C
+                      00008 
+Warning[205]: Found directive in column 1. (ORG)
+0000                  00009 ORG 0
+                      00010 
+                      00011 ;INICIO
+0000                  00012 INICIO
+                      00013 
+Warning[203]: Found opcode in column 1. (MOVLW)
+0000   30B0           00014 MOVLW B'10110000';MOVEMOS EL BINARIO A W
+Warning[203]: Found opcode in column 1. (MOVWF)
+0001   008B           00015 MOVWF VAL1;MOVEMOS W A VAL1
+Warning[203]: Found opcode in column 1. (MOVLW)
+0002   3004           00016 MOVLW D'4';MOVEMOS 4 A W
+Warning[203]: Found opcode in column 1. (MOVWF)
+0003   008C           00017 MOVWF COUNT;MOVEMOS W A COUNT
+                      00018         
+0004                  00019 LOOP
+Warning[203]: Found opcode in column 1. (RRF)
+0004   0C8B           00020 RRF VAL1,1;ROTACION A LA DERECHA Y GUARDAMOS EN VAL1
+Warning[203]: Found opcode in column 1. (DECFSZ)
+0005   0B8C           00021 DECFSZ COUNT,1;DECREMENTA COUNT Y LO GUARDA DONDE MISMO. SI COUN=0 SALTA INSTRUCCION, SINO SE EJECUTA NO
+                            RMAL
+Warning[203]: Found opcode in column 1. (GOTO)
+0006   2804           00022 GOTO LOOP;NOS MANDA AL LOOP
+                      00023  
+                      00024 ;RESULTADO 00001011=11
+                      00025 
+Warning[205]: Found directive in column 1. (END)
+                      00026 END
+MPASM 5.74                  EJEMPLO4_3_1.ASM   5-3-2023  10:11:58         PAGE  2
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+COUNT                             0000000C
+INICIO                            00000000
+LOOP                              00000004
+VAL1                              0000000B
+__16F84A                          00000001
+__DEBUG                           
+__MPLAB_DEBUGGER_SIMULATOR        1
+
+
+MEMORY USAGE MAP ('X' = Used,  '-' = Unused)
+
+0000 : XXXXXXX--------- ---------------- ---------------- ----------------
+
+All other memory blocks unused.
+
+Program Memory Words Used:     7
+Program Memory Words Free:  1017
+
+
+Errors   :     0
+Warnings :    10 reported,     0 suppressed
+Messages :     0 reported,     0 suppressed
+
+

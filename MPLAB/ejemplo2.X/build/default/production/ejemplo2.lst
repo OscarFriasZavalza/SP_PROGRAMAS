@@ -1,0 +1,43 @@
+MPASM 5.74                      EJEMPLO2.ASM   5-3-2023  12:26:45         PAGE  1
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+                      00001 ;SUMAR 0001 Y 0010 Y EL RESULTADO GUARDARLO EN 0X0C
+Warning[205]: Found directive in column 1. (LIST)
+                      00002 LIST P=16F84 ; Modelo de PIC
+  0000000C            00003 SUMA1 EQU 0X0C 
+  0000000D            00004 RESUL EQU 0X0D 
+                      00005 
+Warning[205]: Found directive in column 1. (ORG)
+                      00006 ORG 0
+                      00007 
+Warning[203]: Found opcode in column 1. (movlw)
+0000   3001           00008 movlw b'0001' ; PONEMOS 0001 EN W
+Warning[203]: Found opcode in column 1. (movwf)
+0001   008C           00009 movwf SUMA1 ; PASAMOS W A LA MEMORIA SUMA1
+Warning[203]: Found opcode in column 1. (movlw)
+0002   3002           00010 movlw b'0010' ; PONEMOS 0010 EN W
+Warning[203]: Found opcode in column 1. (addwf)
+0003   078C           00011 addwf SUMA1, 1 ; SUMA W AL CONTENIDO DE SUMA1, RESULTADO EN W
+Warning[203]: Found opcode in column 1. (movwf)
+0004   008D           00012 movwf RESUL ; MOVER W A RESUL
+                      00013 
+Warning[205]: Found directive in column 1. (END)
+                      00014 END ;
+MPASM 5.74                      EJEMPLO2.ASM   5-3-2023  12:26:45         PAGE  2
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+RESUL                             0000000D
+SUMA1                             0000000C
+__16F84A                          00000001
+
+Errors   :     0
+Warnings :     8 reported,     0 suppressed
+Messages :     0 reported,     0 suppressed
+
+

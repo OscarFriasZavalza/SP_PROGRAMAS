@@ -1,0 +1,77 @@
+MPASM 5.74                  EJEMPLO4_2_2.ASM   5-3-2023  10:09:25         PAGE  1
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+                      00001 ;4.2.2 Decrementar el valor 10 cinco veces 
+                      00002 ;y almacenarlo en la dirección 0x2b
+Warning[205]: Found directive in column 1. (LIST)
+                      00003 LIST P= 16F84
+                      00004 
+  0000000B            00005 COUNT EQU 0X0B
+  0000000C            00006 VAL1 EQU 0X0C
+  0000002B            00007 VAL2 EQU 0X2B
+                      00008 
+Warning[205]: Found directive in column 1. (ORG)
+0000                  00009 ORG 0
+                      00010 
+                      00011 ;INICIO
+0000                  00012 INICIO
+                      00013 
+Warning[203]: Found opcode in column 1. (MOVLW)
+0000   300A           00014 MOVLW D'10';10->W
+Warning[203]: Found opcode in column 1. (MOVWF)
+0001   008C           00015 MOVWF VAL1;W->VAL1
+Warning[203]: Found opcode in column 1. (MOVLW)
+0002   3005           00016 MOVLW D'5';5->W
+Warning[203]: Found opcode in column 1. (MOVWF)
+0003   008B           00017 MOVWF COUNT;W->COUNT
+                      00018 
+0004                  00019 LOOP
+Warning[203]: Found opcode in column 1. (DECF)
+0004   038C           00020 DECF VAL1,1;VAL1 SE DECREMENTA EN UNA UNIDAD Y SE GUARDA EN VAR1
+Warning[203]: Found opcode in column 1. (DECFSZ)
+0005   0B8B           00021 DECFSZ COUNT,1;DECREMENTA COUNT, SI RESULTADO ES CERO EL PROGRAMA SALTA UNA INSTRUCCION, SI ES DIFERENTE
+                             A CERO SE EJECUTA NORMAL
+Warning[203]: Found opcode in column 1. (GOTO)
+0006   2804           00022 GOTO LOOP;NOS MANDA AL CICLO LOOP
+                      00023 
+Warning[203]: Found opcode in column 1. (MOVF)
+0007   080C           00024 MOVF VAL1,0;EL CONTENIDO DE VAL1 SE CARGA A W
+Warning[203]: Found opcode in column 1. (MOVWF)
+0008   00AB           00025 MOVWF VAL2;EL CONTENIDO DE W SE CARGA EN VAL2
+                      00026 
+Warning[205]: Found directive in column 1. (END)
+                      00027 END
+MPASM 5.74                  EJEMPLO4_2_2.ASM   5-3-2023  10:09:25         PAGE  2
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+COUNT                             0000000B
+INICIO                            00000000
+LOOP                              00000004
+VAL1                              0000000C
+VAL2                              0000002B
+__16F84A                          00000001
+__DEBUG                           
+__MPLAB_DEBUGGER_SIMULATOR        1
+
+
+MEMORY USAGE MAP ('X' = Used,  '-' = Unused)
+
+0000 : XXXXXXXXX------- ---------------- ---------------- ----------------
+
+All other memory blocks unused.
+
+Program Memory Words Used:     9
+Program Memory Words Free:  1015
+
+
+Errors   :     0
+Warnings :    12 reported,     0 suppressed
+Messages :     0 reported,     0 suppressed
+
+

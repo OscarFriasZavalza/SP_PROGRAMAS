@@ -1,0 +1,58 @@
+MPASM 5.74                 EJEMPLO_4_1_1.ASM   5-3-2023  9:40:56         PAGE  1
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+                      00001 ;SUMAR CUATRO NUMEROS EN BINARIO 0,1,2,3
+                      00002     LIST P=16F84
+Warning[207]: Found label after column 1. (SUMA1)
+  0000000C            00003     SUMA1 EQU 0X0C
+Warning[207]: Found label after column 1. (SUMA2)
+  00000001            00004     SUMA2 EQU 0X01
+Warning[207]: Found label after column 1. (RESUL)
+  0000000D            00005     RESUL EQU 0X0D
+                      00006  
+0000                  00007     ORG 0
+                      00008     
+0000   3000           00009     MOVLW b'0000'  ; PONEMOS 2 EN W
+0001   008C           00010     MOVWF SUMA1 ; PASAMOS W A SUMA 1
+0002   3001           00011     MOVLW b'0001' ;PONEMOS 3 EN W
+0003   078C           00012     ADDWF SUMA1,1 ;SUMAMOS W COM SUMA 1 Y RESULTADO EN W
+                      00013     ;HASTA ESTE PUNTO YA TENEMOS LA SUMA DE 2 NUEMROS
+0004   3002           00014     MOVLW b'0010' ; W->0001
+0005   0081           00015     MOVWF SUMA2 ;SUMA2->W
+0006   3003           00016     MOVLW B'0011';W->0100
+0007   0701           00017     ADDWF SUMA2,0;W+SUMA2 RESULTADO EN W
+0008   070C           00018     ADDWF SUMA1,0;W+SUMA1 RESULTADO EN W
+0009   008D           00019     MOVWF RESUL; PASAMOS W->F RESUL=6
+                      00020     END
+MPASM 5.74                 EJEMPLO_4_1_1.ASM   5-3-2023  9:40:56         PAGE  2
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+RESUL                             0000000D
+SUMA1                             0000000C
+SUMA2                             00000001
+__16F84A                          00000001
+__DEBUG                           
+__MPLAB_DEBUGGER_SIMULATOR        1
+
+
+MEMORY USAGE MAP ('X' = Used,  '-' = Unused)
+
+0000 : XXXXXXXXXX------ ---------------- ---------------- ----------------
+
+All other memory blocks unused.
+
+Program Memory Words Used:    10
+Program Memory Words Free:  1014
+
+
+Errors   :     0
+Warnings :     3 reported,     0 suppressed
+Messages :     0 reported,     0 suppressed
+
+

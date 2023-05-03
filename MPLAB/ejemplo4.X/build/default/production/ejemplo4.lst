@@ -1,0 +1,36 @@
+MPASM 5.74                      EJEMPLO4.ASM   5-3-2023  12:44:29         PAGE  1
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+                      00001 ;Suma de los números 3 y 5 en decimal y almacenamos el resultado en
+                      00002 ;0x12.
+                      00003     LIST P=16F84
+Warning[207]: Found label after column 1. (SUM)
+  00000010            00004     SUM EQU 0X10
+Warning[207]: Found label after column 1. (RESUL)
+  00000012            00005     RESUL EQU 0X12
+                      00006     ORG 0
+                      00007     
+0000   3003           00008     MOVLW D'3';3->W
+0001   0090           00009     MOVWF SUM;W->SUM
+0002   3005           00010     MOVLW D'5';5->W
+0003   0710           00011     ADDWF SUM,0 ;W+SUM RESULTADO EN W
+0004   0092           00012     MOVWF RESUL ;W->RESUL RESUL=8
+                      00013     END;
+MPASM 5.74                      EJEMPLO4.ASM   5-3-2023  12:44:29         PAGE  2
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+RESUL                             00000012
+SUM                               00000010
+__16F84A                          00000001
+
+Errors   :     0
+Warnings :     2 reported,     0 suppressed
+Messages :     0 reported,     0 suppressed
+
+

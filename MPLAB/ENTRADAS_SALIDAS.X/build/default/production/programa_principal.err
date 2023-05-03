@@ -1,0 +1,3 @@
+Warning[205] C:\MPLAB\ENTRADAS_SALIDAS.X\PROGRAMA_PRINCIPAL.ASM 2 : Found directive in column 1. (List)
+Message[302] C:\MPLAB\ENTRADAS_SALIDAS.X\PROGRAMA_PRINCIPAL.ASM 13 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\MPLAB\ENTRADAS_SALIDAS.X\PROGRAMA_PRINCIPAL.ASM 15 : Register in operand not in bank 0.  Ensure that bank bits are correct.
