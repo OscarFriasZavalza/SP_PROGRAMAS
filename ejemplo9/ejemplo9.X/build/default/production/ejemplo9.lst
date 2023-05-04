@@ -1,0 +1,38 @@
+MPASM 5.74                      EJEMPLO9.ASM   5-3-2023  16:34:51         PAGE  1
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+Warning[205]: Found directive in column 1. (list)
+                      00001 list p=16f84
+  0000000B            00002 reg equ 0x0b
+                      00003 
+                      00004  ORG 0
+                      00005 ;-----------------------------------------------
+0000                  00006 inicio
+Warning[203]: Found opcode in column 1. (movlw)
+0000   300E           00007 movlw b'00001110'
+Warning[203]: Found opcode in column 1. (movwf)
+0001   008B           00008 movwf reg
+Warning[203]: Found opcode in column 1. (rlf)
+0002   0D8B           00009 rlf reg,1
+Warning[203]: Found opcode in column 1. (rlf)
+0003   0D8B           00010 rlf reg,1
+Warning[205]: Found directive in column 1. (end)
+                      00011 end
+MPASM 5.74                      EJEMPLO9.ASM   5-3-2023  16:34:51         PAGE  2
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+__16F84A                          00000001
+inicio                            00000000
+reg                               0000000B
+
+Errors   :     0
+Warnings :     6 reported,     0 suppressed
+Messages :     0 reported,     0 suppressed
+
+

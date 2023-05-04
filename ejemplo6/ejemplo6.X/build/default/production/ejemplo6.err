@@ -1,0 +1,6 @@
+Warning[205] C:\SP_PROGRAMAS_UNIDAD4\MPLAB\EJEMPLO6.X\EJEMPLO6.ASM 4 : Found directive in column 1. (LIST)
+Warning[205] C:\SP_PROGRAMAS_UNIDAD4\MPLAB\EJEMPLO6.X\EJEMPLO6.ASM 6 : Found directive in column 1. (org)
+Warning[203] C:\SP_PROGRAMAS_UNIDAD4\MPLAB\EJEMPLO6.X\EJEMPLO6.ASM 8 : Found opcode in column 1. (movlw)
+Warning[203] C:\SP_PROGRAMAS_UNIDAD4\MPLAB\EJEMPLO6.X\EJEMPLO6.ASM 9 : Found opcode in column 1. (movwf)
+Warning[203] C:\SP_PROGRAMAS_UNIDAD4\MPLAB\EJEMPLO6.X\EJEMPLO6.ASM 10 : Found opcode in column 1. (decf)
+Warning[203] C:\SP_PROGRAMAS_UNIDAD4\MPLAB\EJEMPLO6.X\EJEMPLO6.ASM 11 : Found opcode in column 1. (decf)

@@ -1,3 +1,0 @@
-Message[302] C:\MPLAB\EJERCICIO_5_4.X\EJERCICIO_5_4.ASM 23 : Register in operand not in bank 0.  Ensure that bank bits are correct.
-Message[302] C:\MPLAB\EJERCICIO_5_4.X\EJERCICIO_5_4.ASM 25 : Register in operand not in bank 0.  Ensure that bank bits are correct.
-Warning[205] C:\MPLAB\EJERCICIO_5_4.X\EJERCICIO_5_4.ASM 51 : Found directive in column 1. (end)

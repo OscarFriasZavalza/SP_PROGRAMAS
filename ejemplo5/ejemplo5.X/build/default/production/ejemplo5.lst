@@ -1,0 +1,33 @@
+MPASM 5.74                      EJEMPLO5.ASM   5-3-2023  15:04:11         PAGE  1
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+Warning[205]: Found directive in column 1. (LIST)
+                      00001 LIST P = 16f84 ;Modelo de pic
+                      00002 
+  0000001A            00003 VALOR EQU 1AH
+Warning[205]: Found directive in column 1. (ORG)
+                      00004 ORG 0
+Warning[207]: Found label after column 1. (INICIO)
+0000                  00005  INICIO
+0000   3005           00006  MOVLW H'5';CARGAMOS 5 EN W
+0001   009A           00007  MOVWF VALOR;MOVEMOS EL VALOR DE W A VALOR
+0002   0A9A           00008  INCF VALOR,1;INCREMENTAMOS VALOR Y GUARDAMOS EN VALOR
+                      00009  END
+MPASM 5.74                      EJEMPLO5.ASM   5-3-2023  15:04:11         PAGE  2
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+INICIO                            00000000
+VALOR                             0000001A
+__16F84A                          00000001
+
+Errors   :     0
+Warnings :     3 reported,     0 suppressed
+Messages :     0 reported,     0 suppressed
+
+

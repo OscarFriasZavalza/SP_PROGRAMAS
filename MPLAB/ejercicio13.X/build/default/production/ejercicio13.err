@@ -1,5 +1,0 @@
-Warning[207] C:\MPLAB\EJERCICIO13.X\EJERCICIO13.ASM 5 : Found label after column 1. (CONTA)
-Warning[207] C:\MPLAB\EJERCICIO13.X\EJERCICIO13.ASM 12 : Found label after column 1. (INICIO)
-Message[302] C:\MPLAB\EJERCICIO13.X\EJERCICIO13.ASM 14 : Register in operand not in bank 0.  Ensure that bank bits are correct.
-Warning[207] C:\MPLAB\EJERCICIO13.X\EJERCICIO13.ASM 18 : Found label after column 1. (CONTAR)
-Message[302] C:\MPLAB\EJERCICIO13.X\EJERCICIO13.ASM 19 : Register in operand not in bank 0.  Ensure that bank bits are correct.

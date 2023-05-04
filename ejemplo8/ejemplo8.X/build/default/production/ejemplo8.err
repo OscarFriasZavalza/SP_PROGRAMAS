@@ -1,0 +1,5 @@
+Warning[205] C:\SP_PROGRAMAS_UNIDAD4\MPLAB\EJEMPLO8.X\EJEMPLO8.ASM 6 : Found directive in column 1. (LIST)
+Warning[205] C:\SP_PROGRAMAS_UNIDAD4\MPLAB\EJEMPLO8.X\EJEMPLO8.ASM 10 : Found directive in column 1. (ORG)
+Message[302] C:\SP_PROGRAMAS_UNIDAD4\MPLAB\EJEMPLO8.X\EJEMPLO8.ASM 14 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\SP_PROGRAMAS_UNIDAD4\MPLAB\EJEMPLO8.X\EJEMPLO8.ASM 18 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Warning[205] C:\SP_PROGRAMAS_UNIDAD4\MPLAB\EJEMPLO8.X\EJEMPLO8.ASM 20 : Found directive in column 1. (END)

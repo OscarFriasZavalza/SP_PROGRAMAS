@@ -1,0 +1,58 @@
+MPASM 5.74                     EJEMPLO14.ASM   5-3-2023  17:35:26         PAGE  1
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+                      00001 ; -------------------------
+                      00002 ; -- programa contador ----
+                      00003 ; -- visualizar por leds --
+                      00004 ; -- la cuenta en PORTB ---
+                      00005 ; -------------------------
+Warning[205]: Found directive in column 1. (LIST)
+                      00006 LIST p=16f84
+  00000001            00007 TMRO EQU H'01' ;Registro de configuración y contador
+  00000003            00008 STATUS EQU H'03' ;Registro de STATUS
+  00000006            00009 PORTB EQU H'06' ;Registro Puerto B de salida
+Warning[205]: Found directive in column 1. (org)
+                      00010 org 0
+                      00011 ; -- CONFIGURACION DEL CONTADOR Y EL PUERTO SALIDA
+Warning[203]: Found opcode in column 1. (BSF)
+0000   1683           00012 BSF STATUS,5 ;Acceso al banco 1
+Warning[203]: Found opcode in column 1. (MOVLW)
+0001   3038           00013 MOVLW b'00111000' ;Configuramos TMRO como contador
+Warning[203]: Found opcode in column 1. (MOVWF)
+0002   0081           00014 MOVWF TMRO ;por flanco ascendente
+Warning[203]: Found opcode in column 1. (MOVLW)
+0003   3000           00015 MOVLW b'00000000' ;configuramos como salida
+Warning[203]: Found opcode in column 1. (MOVWF)
+0004   0086           00016 MOVWF PORTB ;el puerto B
+Warning[203]: Found opcode in column 1. (BCF)
+0005   1283           00017 BCF STATUS,5 ;Pasamos al banco 0
+Warning[203]: Found opcode in column 1. (CLRF)
+0006   0181           00018 CLRF TMRO ;iniciamos el contador a 0
+                      00019 ;-- Programa principal ---
+0007   0801           00020 inicio MOVF TMRO,0 ;Cargamos el contador en w
+Warning[203]: Found opcode in column 1. (MOVWF)
+0008   0086           00021 MOVWF PORTB ;Pasamos el valor cuenta al PORTB
+Warning[203]: Found opcode in column 1. (GOTO)
+0009   2???           00022 GOTO inicio ;Bucle
+Warning[205]: Found directive in column 1. (END)
+                      00023 END ;Final de programa
+MPASM 5.74                     EJEMPLO14.ASM   5-3-2023  17:35:26         PAGE  2
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+PORTB                             00000006
+STATUS                            00000003
+TMRO                              00000001
+__16F84A                          00000001
+inicio                            00000007
+
+Errors   :     0
+Warnings :    12 reported,     0 suppressed
+Messages :     0 reported,     0 suppressed
+
+

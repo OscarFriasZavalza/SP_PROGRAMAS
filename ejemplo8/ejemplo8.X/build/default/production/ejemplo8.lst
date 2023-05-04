@@ -1,0 +1,47 @@
+MPASM 5.74                      EJEMPLO8.ASM   5-3-2023  15:07:13         PAGE  1
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+                      00001 ; Realizar operación OR entre un registro y un literal
+                      00002 ; Cargar un valor literal en el registro
+                      00003 ; Realizar la operación OR con otro valor literal
+                      00004 ; Almacenar el resultado en otro registro
+                      00005 
+Warning[205]: Found directive in column 1. (LIST)
+                      00006 LIST p=16F84
+  000000A0            00007 REG1 EQU 0xA0
+  000000A1            00008 REG2 EQU 0xA1
+                      00009 
+Warning[205]: Found directive in column 1. (ORG)
+                      00010 ORG 0
+                      00011 
+0000                  00012 INICIO
+0000   300C           00013     MOVLW B'00001100' ; Cargar un valor literal en el acumulador (W)
+Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
+0001   00A0           00014     MOVWF REG1 ; Mover el valor del acumulador a REG1
+                      00015 
+0002   3830           00016     IORLW B'00110000' ; Realizar operación OR entre REG1 y el valor literal del acumulador (W)
+                      00017 
+Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
+0003   00A1           00018     MOVWF REG2 ; Mover el resultado de la operación OR a REG2
+                      00019 
+Warning[205]: Found directive in column 1. (END)
+                      00020 END
+MPASM 5.74                      EJEMPLO8.ASM   5-3-2023  15:07:13         PAGE  2
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+INICIO                            00000000
+REG1                              000000A0
+REG2                              000000A1
+__16F84A                          00000001
+
+Errors   :     0
+Warnings :     3 reported,     0 suppressed
+Messages :     2 reported,     0 suppressed
+
+

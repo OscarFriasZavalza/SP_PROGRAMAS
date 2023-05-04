@@ -1,0 +1,55 @@
+MPASM 5.74                    EJEMPLO6_1.ASM   5-3-2023  16:45:22         PAGE  1
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+                      00001 ;Ej 6.1 Realizar un decrementador de 255 a 0 
+Warning[205]: Found directive in column 1. (LIST)
+                      00002 LIST P =16F84A
+                      00003 
+  0000000B            00004 COUNT EQU 0X0B
+  0000000C            00005 VAR1 EQU 0X0C
+  00000006            00006 PORTB EQU H'06'
+                      00007 
+Warning[205]: Found directive in column 1. (ORG)
+                      00008 ORG 0
+                      00009 
+0000   1683           00010         BSF H'03',5
+0001   3000           00011         MOVLW B'00000000'
+0002   0086           00012         MOVWF PORTB
+0003   1283           00013         BCF H'03',5
+                      00014         
+0004                  00015 INICIO
+                      00016 
+0004   30FF           00017         MOVLW B'11111111'
+0005   008C           00018         MOVWF VAR1
+                      00019 
+0006                  00020 LOOP
+                      00021 
+0006   038C           00022         DECF VAR1,1
+0007   0F8B           00023         INCFSZ COUNT,1
+0008   080C           00024         MOVF VAR1,0
+0009   0086           00025         MOVWF PORTB
+000A   2???           00026         GOTO LOOP
+                      00027 
+Warning[205]: Found directive in column 1. (END)
+                      00028 END
+MPASM 5.74                    EJEMPLO6_1.ASM   5-3-2023  16:45:22         PAGE  2
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+COUNT                             0000000B
+INICIO                            00000004
+LOOP                              00000006
+PORTB                             00000006
+VAR1                              0000000C
+__16F84A                          00000001
+
+Errors   :     0
+Warnings :     3 reported,     0 suppressed
+Messages :     0 reported,     0 suppressed
+
+

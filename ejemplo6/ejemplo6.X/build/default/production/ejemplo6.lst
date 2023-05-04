@@ -1,0 +1,39 @@
+MPASM 5.74                      EJEMPLO6.ASM   5-3-2023  15:05:22         PAGE  1
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+                      00001 ; Decrementador de registro
+                      00002 ; Cargamos el valor 5 en 0x0a
+                      00003 ; Decrementamos 2 veces hasta 3
+Warning[205]: Found directive in column 1. (LIST)
+                      00004 LIST p=16F84
+  0000000A            00005 v equ 0x0a
+Warning[205]: Found directive in column 1. (org)
+                      00006 org 0
+0000                  00007 iniciO
+Warning[203]: Found opcode in column 1. (movlw)
+0000   3005           00008 movlw 0x05;MOVEMOS L A W
+Warning[203]: Found opcode in column 1. (movwf)
+0001   008A           00009 movwf v;MOVEMOS W A F
+Warning[203]: Found opcode in column 1. (decf)
+0002   038A           00010 decf v,1;DECREMENTAMOS V Y GUARDAMOS EN V
+Warning[203]: Found opcode in column 1. (decf)
+0003   038A           00011 decf v,1;DECREMENTAMOS V Y GUARDAMOS EN V
+                      00012  END
+MPASM 5.74                      EJEMPLO6.ASM   5-3-2023  15:05:22         PAGE  2
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+__16F84A                          00000001
+iniciO                            00000000
+v                                 0000000A
+
+Errors   :     0
+Warnings :     6 reported,     0 suppressed
+Messages :     0 reported,     0 suppressed
+
+
