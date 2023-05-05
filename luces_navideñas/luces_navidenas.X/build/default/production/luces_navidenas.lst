@@ -1,0 +1,742 @@
+MPASM 5.74               LUCES_NAVIDENAS.ASM   5-5-2023  10:33:56         PAGE  1
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+Warning[205]: Found directive in column 1. (list)
+                      00001 list p=16f84
+                      00002 ;INICIALIZACIÓN DE VARIABLES
+  00000006            00003 portb equ h'06'
+  00000005            00004 porta equ h'05'
+  00000001            00005 timer equ h'01'
+  00000003            00006 estatus equ h'03'
+Warning[205]: Found directive in column 1. (org)
+                      00007 org 0
+Warning[203]: Found opcode in column 1. (bsf)
+0000   1683           00008 bsf estatus,5
+                      00009 ;INDICAMOS LOS PARÁMETROS DEL TIMER
+Warning[203]: Found opcode in column 1. (movlw)
+0001   30D6           00010 movlw b'11010110'
+Warning[203]: Found opcode in column 1. (movwf)
+0002   0081           00011 movwf timer
+                      00012 ;PUERTOS B COMO SALIDAS
+Warning[203]: Found opcode in column 1. (movlw)
+0003   3000           00013 movlw b'00000000'
+Warning[203]: Found opcode in column 1. (movwf)
+0004   0086           00014 movwf portb
+                      00015 ;PUERTOS A COMO ENTRADAS
+Warning[203]: Found opcode in column 1. (movlw)
+0005   300F           00016 movlw b'1111'
+0006   0085           00017  movwf porta
+Warning[203]: Found opcode in column 1. (bcf)
+0007   1283           00018 bcf estatus,5
+Warning[203]: Found opcode in column 1. (clrf)
+0008   0186           00019 clrf portb
+0009                  00020 inicio
+                      00021 ;PRIMERA SECUENCIA
+0009                  00022 primera
+Warning[203]: Found opcode in column 1. (bsf)
+0009   1406           00023 bsf portb,0
+Warning[203]: Found opcode in column 1. (bcf)
+000A   1086           00024 bcf portb,1
+Warning[203]: Found opcode in column 1. (bcf)
+000B   1106           00025 bcf portb,2
+Warning[203]: Found opcode in column 1. (bcf)
+000C   1186           00026 bcf portb,3
+Warning[203]: Found opcode in column 1. (bcf)
+000D   1206           00027 bcf portb,4
+Warning[203]: Found opcode in column 1. (bcf)
+000E   1286           00028 bcf portb,5
+Warning[203]: Found opcode in column 1. (bcf)
+000F   1306           00029 bcf portb,6
+Warning[203]: Found opcode in column 1. (bcf)
+0010   1386           00030 bcf portb,7
+Warning[203]: Found opcode in column 1. (call)
+0011   2???           00031 call temp
+Warning[203]: Found opcode in column 1. (call)
+0012   2???           00032 call temp
+Warning[203]: Found opcode in column 1. (call)
+MPASM 5.74               LUCES_NAVIDENAS.ASM   5-5-2023  10:33:56         PAGE  2
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+0013   2???           00033 call temp
+Warning[203]: Found opcode in column 1. (call)
+0014   2???           00034 call temp
+Warning[203]: Found opcode in column 1. (bcf)
+0015   1006           00035 bcf portb,0
+Warning[203]: Found opcode in column 1. (bsf)
+0016   1486           00036 bsf portb,1
+Warning[203]: Found opcode in column 1. (bcf)
+0017   1106           00037 bcf portb,2
+Warning[203]: Found opcode in column 1. (bcf)
+0018   1186           00038 bcf portb,3
+Warning[203]: Found opcode in column 1. (bcf)
+0019   1206           00039 bcf portb,4
+Warning[203]: Found opcode in column 1. (bcf)
+001A   1286           00040 bcf portb,5
+Warning[203]: Found opcode in column 1. (bcf)
+001B   1306           00041 bcf portb,6
+Warning[203]: Found opcode in column 1. (bcf)
+001C   1386           00042 bcf portb,7
+Warning[203]: Found opcode in column 1. (call)
+001D   2???           00043 call temp
+Warning[203]: Found opcode in column 1. (call)
+001E   2???           00044 call temp
+Warning[203]: Found opcode in column 1. (call)
+001F   2???           00045 call temp
+Warning[203]: Found opcode in column 1. (call)
+0020   2???           00046 call temp
+Warning[203]: Found opcode in column 1. (bcf)
+0021   1006           00047 bcf portb,0
+Warning[203]: Found opcode in column 1. (bcf)
+0022   1086           00048 bcf portb,1
+Warning[203]: Found opcode in column 1. (bsf)
+0023   1506           00049 bsf portb,2
+Warning[203]: Found opcode in column 1. (bcf)
+0024   1186           00050 bcf portb,3
+Warning[203]: Found opcode in column 1. (bcf)
+0025   1206           00051 bcf portb,4
+Warning[203]: Found opcode in column 1. (bcf)
+0026   1286           00052 bcf portb,5
+Warning[203]: Found opcode in column 1. (bcf)
+0027   1306           00053 bcf portb,6
+Warning[203]: Found opcode in column 1. (bcf)
+0028   1386           00054 bcf portb,7
+Warning[203]: Found opcode in column 1. (call)
+0029   2???           00055 call temp
+002A   2???           00056  call temp
+Warning[203]: Found opcode in column 1. (call)
+002B   2???           00057 call temp
+Warning[203]: Found opcode in column 1. (call)
+002C   2???           00058 call temp
+Warning[203]: Found opcode in column 1. (bcf)
+002D   1006           00059 bcf portb,0
+Warning[203]: Found opcode in column 1. (bcf)
+MPASM 5.74               LUCES_NAVIDENAS.ASM   5-5-2023  10:33:56         PAGE  3
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+002E   1086           00060 bcf portb,1
+Warning[203]: Found opcode in column 1. (bcf)
+002F   1106           00061 bcf portb,2
+Warning[203]: Found opcode in column 1. (bsf)
+0030   1586           00062 bsf portb,3
+Warning[203]: Found opcode in column 1. (bcf)
+0031   1206           00063 bcf portb,4
+Warning[203]: Found opcode in column 1. (bcf)
+0032   1286           00064 bcf portb,5
+Warning[203]: Found opcode in column 1. (bcf)
+0033   1306           00065 bcf portb,6
+Warning[203]: Found opcode in column 1. (bcf)
+0034   1386           00066 bcf portb,7
+Warning[203]: Found opcode in column 1. (call)
+0035   2???           00067 call temp
+Warning[203]: Found opcode in column 1. (call)
+0036   2???           00068 call temp
+Warning[203]: Found opcode in column 1. (call)
+0037   2???           00069 call temp
+Warning[203]: Found opcode in column 1. (call)
+0038   2???           00070 call temp
+Warning[203]: Found opcode in column 1. (bcf)
+0039   1006           00071 bcf portb,0
+Warning[203]: Found opcode in column 1. (bcf)
+003A   1086           00072 bcf portb,1
+Warning[203]: Found opcode in column 1. (bcf)
+003B   1106           00073 bcf portb,2
+Warning[203]: Found opcode in column 1. (bcf)
+003C   1186           00074 bcf portb,3
+Warning[203]: Found opcode in column 1. (bsf)
+003D   1606           00075 bsf portb,4
+Warning[203]: Found opcode in column 1. (bcf)
+003E   1286           00076 bcf portb,5
+Warning[203]: Found opcode in column 1. (bcf)
+003F   1306           00077 bcf portb,6
+Warning[203]: Found opcode in column 1. (bcf)
+0040   1386           00078 bcf portb,7
+Warning[203]: Found opcode in column 1. (call)
+0041   2???           00079 call temp
+Warning[203]: Found opcode in column 1. (call)
+0042   2???           00080 call temp
+Warning[203]: Found opcode in column 1. (call)
+0043   2???           00081 call temp
+Warning[203]: Found opcode in column 1. (call)
+0044   2???           00082 call temp
+Warning[203]: Found opcode in column 1. (bcf)
+0045   1006           00083 bcf portb,0
+Warning[203]: Found opcode in column 1. (bcf)
+0046   1086           00084 bcf portb,1
+Warning[203]: Found opcode in column 1. (bcf)
+0047   1106           00085 bcf portb,2
+Warning[203]: Found opcode in column 1. (bcf)
+0048   1186           00086 bcf portb,3
+MPASM 5.74               LUCES_NAVIDENAS.ASM   5-5-2023  10:33:56         PAGE  4
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+Warning[203]: Found opcode in column 1. (bcf)
+0049   1206           00087 bcf portb,4
+Warning[203]: Found opcode in column 1. (bsf)
+004A   1686           00088 bsf portb,5
+Warning[203]: Found opcode in column 1. (bcf)
+004B   1306           00089 bcf portb,6
+Warning[203]: Found opcode in column 1. (bcf)
+004C   1386           00090 bcf portb,7
+Warning[203]: Found opcode in column 1. (call)
+004D   2???           00091 call temp
+Warning[203]: Found opcode in column 1. (call)
+004E   2???           00092 call temp
+Warning[203]: Found opcode in column 1. (call)
+004F   2???           00093 call temp
+Warning[203]: Found opcode in column 1. (call)
+0050   2???           00094 call temp
+Warning[203]: Found opcode in column 1. (bcf)
+0051   1006           00095 bcf portb,0
+0052   1086           00096  bcf portb,1
+Warning[203]: Found opcode in column 1. (bcf)
+0053   1106           00097 bcf portb,2
+Warning[203]: Found opcode in column 1. (bcf)
+0054   1186           00098 bcf portb,3
+Warning[203]: Found opcode in column 1. (bcf)
+0055   1206           00099 bcf portb,4
+Warning[203]: Found opcode in column 1. (bcf)
+0056   1286           00100 bcf portb,5
+Warning[203]: Found opcode in column 1. (bsf)
+0057   1706           00101 bsf portb,6
+Warning[203]: Found opcode in column 1. (bcf)
+0058   1386           00102 bcf portb,7
+Warning[203]: Found opcode in column 1. (call)
+0059   2???           00103 call temp
+Warning[203]: Found opcode in column 1. (call)
+005A   2???           00104 call temp
+Warning[203]: Found opcode in column 1. (call)
+005B   2???           00105 call temp
+Warning[203]: Found opcode in column 1. (call)
+005C   2???           00106 call temp
+Warning[203]: Found opcode in column 1. (bcf)
+005D   1006           00107 bcf portb,0
+Warning[203]: Found opcode in column 1. (bcf)
+005E   1086           00108 bcf portb,1
+Warning[203]: Found opcode in column 1. (bcf)
+005F   1106           00109 bcf portb,2
+Warning[203]: Found opcode in column 1. (bcf)
+0060   1186           00110 bcf portb,3
+Warning[203]: Found opcode in column 1. (bcf)
+0061   1206           00111 bcf portb,4
+Warning[203]: Found opcode in column 1. (bcf)
+0062   1286           00112 bcf portb,5
+Warning[203]: Found opcode in column 1. (bcf)
+0063   1306           00113 bcf portb,6
+MPASM 5.74               LUCES_NAVIDENAS.ASM   5-5-2023  10:33:56         PAGE  5
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+Warning[203]: Found opcode in column 1. (bsf)
+0064   1786           00114 bsf portb,7
+Warning[203]: Found opcode in column 1. (call)
+0065   2???           00115 call temp
+Warning[203]: Found opcode in column 1. (call)
+0066   2???           00116 call temp
+Warning[203]: Found opcode in column 1. (call)
+0067   2???           00117 call temp
+Warning[203]: Found opcode in column 1. (call)
+0068   2???           00118 call temp
+Warning[203]: Found opcode in column 1. (BTFSC)
+0069   1805           00119 BTFSC porta,0
+Warning[203]: Found opcode in column 1. (call)
+006A   2???           00120 call primera
+Warning[203]: Found opcode in column 1. (BTFSC)
+006B   1885           00121 BTFSC porta,1
+Warning[203]: Found opcode in column 1. (call)
+006C   2???           00122 call segunda
+Warning[203]: Found opcode in column 1. (BTFSC)
+006D   1905           00123 BTFSC porta,2
+Warning[203]: Found opcode in column 1. (call)
+006E   2???           00124 call tercera
+Warning[203]: Found opcode in column 1. (BTFSC)
+006F   1985           00125 BTFSC porta,3
+Warning[203]: Found opcode in column 1. (call)
+0070   2???           00126 call cuarta
+Warning[203]: Found opcode in column 1. (call)
+0071   2???           00127 call inicio
+                      00128 ;SEGUNDA SECUENCIA
+0072                  00129 segunda
+Warning[203]: Found opcode in column 1. (bcf)
+0072   1006           00130 bcf portb,0
+Warning[203]: Found opcode in column 1. (bcf)
+0073   1086           00131 bcf portb,1
+Warning[203]: Found opcode in column 1. (bcf)
+0074   1106           00132 bcf portb,2
+Warning[203]: Found opcode in column 1. (bcf)
+0075   1186           00133 bcf portb,3
+Warning[203]: Found opcode in column 1. (bsf)
+0076   1606           00134 bsf portb,4
+Warning[203]: Found opcode in column 1. (bcf)
+0077   1286           00135 bcf portb,5
+0078   1306           00136  bcf portb,6
+Warning[203]: Found opcode in column 1. (bcf)
+0079   1386           00137 bcf portb,7
+Warning[203]: Found opcode in column 1. (call)
+007A   2???           00138 call temp
+Warning[203]: Found opcode in column 1. (call)
+007B   2???           00139 call temp
+Warning[203]: Found opcode in column 1. (call)
+007C   2???           00140 call temp
+Warning[203]: Found opcode in column 1. (call)
+007D   2???           00141 call temp
+MPASM 5.74               LUCES_NAVIDENAS.ASM   5-5-2023  10:33:56         PAGE  6
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+Warning[203]: Found opcode in column 1. (bcf)
+007E   1006           00142 bcf portb,0
+Warning[203]: Found opcode in column 1. (bcf)
+007F   1086           00143 bcf portb,1
+Warning[203]: Found opcode in column 1. (bcf)
+0080   1106           00144 bcf portb,2
+Warning[203]: Found opcode in column 1. (bsf)
+0081   1586           00145 bsf portb,3
+Warning[203]: Found opcode in column 1. (bcf)
+0082   1206           00146 bcf portb,4
+Warning[203]: Found opcode in column 1. (bsf)
+0083   1686           00147 bsf portb,5
+Warning[203]: Found opcode in column 1. (bcf)
+0084   1306           00148 bcf portb,6
+Warning[203]: Found opcode in column 1. (bcf)
+0085   1386           00149 bcf portb,7
+Warning[203]: Found opcode in column 1. (call)
+0086   2???           00150 call temp
+Warning[203]: Found opcode in column 1. (call)
+0087   2???           00151 call temp
+Warning[203]: Found opcode in column 1. (call)
+0088   2???           00152 call temp
+Warning[203]: Found opcode in column 1. (call)
+0089   2???           00153 call temp
+Warning[203]: Found opcode in column 1. (bcf)
+008A   1006           00154 bcf portb,0
+Warning[203]: Found opcode in column 1. (bcf)
+008B   1086           00155 bcf portb,1
+Warning[203]: Found opcode in column 1. (bsf)
+008C   1506           00156 bsf portb,2
+Warning[203]: Found opcode in column 1. (bcf)
+008D   1186           00157 bcf portb,3
+Warning[203]: Found opcode in column 1. (bcf)
+008E   1206           00158 bcf portb,4
+Warning[203]: Found opcode in column 1. (bcf)
+008F   1286           00159 bcf portb,5
+Warning[203]: Found opcode in column 1. (bsf)
+0090   1706           00160 bsf portb,6
+Warning[203]: Found opcode in column 1. (bcf)
+0091   1386           00161 bcf portb,7
+Warning[203]: Found opcode in column 1. (call)
+0092   2???           00162 call temp
+Warning[203]: Found opcode in column 1. (call)
+0093   2???           00163 call temp
+Warning[203]: Found opcode in column 1. (call)
+0094   2???           00164 call temp
+Warning[203]: Found opcode in column 1. (call)
+0095   2???           00165 call temp
+Warning[203]: Found opcode in column 1. (bsf)
+0096   1406           00166 bsf portb,0
+Warning[203]: Found opcode in column 1. (bsf)
+0097   1486           00167 bsf portb,1
+Warning[203]: Found opcode in column 1. (bcf)
+MPASM 5.74               LUCES_NAVIDENAS.ASM   5-5-2023  10:33:56         PAGE  7
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+0098   1106           00168 bcf portb,2
+Warning[203]: Found opcode in column 1. (bcf)
+0099   1186           00169 bcf portb,3
+Warning[203]: Found opcode in column 1. (bcf)
+009A   1206           00170 bcf portb,4
+Warning[203]: Found opcode in column 1. (bcf)
+009B   1286           00171 bcf portb,5
+Warning[203]: Found opcode in column 1. (bcf)
+009C   1306           00172 bcf portb,6
+Warning[203]: Found opcode in column 1. (bsf)
+009D   1786           00173 bsf portb,7
+Warning[203]: Found opcode in column 1. (call)
+009E   2???           00174 call temp
+Warning[203]: Found opcode in column 1. (call)
+009F   2???           00175 call temp
+00A0   2???           00176  call temp
+Warning[203]: Found opcode in column 1. (call)
+00A1   2???           00177 call temp
+Warning[203]: Found opcode in column 1. (BTFSC)
+00A2   1805           00178 BTFSC porta,0
+Warning[203]: Found opcode in column 1. (call)
+00A3   2???           00179 call primera
+Warning[203]: Found opcode in column 1. (BTFSC)
+00A4   1885           00180 BTFSC porta,1
+Warning[203]: Found opcode in column 1. (call)
+00A5   2???           00181 call segunda
+Warning[203]: Found opcode in column 1. (BTFSC)
+00A6   1905           00182 BTFSC porta,2
+Warning[203]: Found opcode in column 1. (call)
+00A7   2???           00183 call tercera
+Warning[203]: Found opcode in column 1. (BTFSC)
+00A8   1985           00184 BTFSC porta,3
+Warning[203]: Found opcode in column 1. (call)
+00A9   2???           00185 call cuarta
+Warning[203]: Found opcode in column 1. (call)
+00AA   2???           00186 call inicio
+                      00187 ;TERCER SECUENCIA
+00AB                  00188 tercera
+Warning[203]: Found opcode in column 1. (bsf)
+00AB   1406           00189 bsf portb,0
+Warning[203]: Found opcode in column 1. (bsf)
+00AC   1486           00190 bsf portb,1
+Warning[203]: Found opcode in column 1. (bcf)
+00AD   1106           00191 bcf portb,2
+Warning[203]: Found opcode in column 1. (bcf)
+00AE   1186           00192 bcf portb,3
+Warning[203]: Found opcode in column 1. (bcf)
+00AF   1206           00193 bcf portb,4
+Warning[203]: Found opcode in column 1. (bcf)
+00B0   1286           00194 bcf portb,5
+Warning[203]: Found opcode in column 1. (bcf)
+00B1   1306           00195 bcf portb,6
+Warning[203]: Found opcode in column 1. (bsf)
+MPASM 5.74               LUCES_NAVIDENAS.ASM   5-5-2023  10:33:56         PAGE  8
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+00B2   1786           00196 bsf portb,7
+Warning[203]: Found opcode in column 1. (call)
+00B3   2???           00197 call temp
+Warning[203]: Found opcode in column 1. (call)
+00B4   2???           00198 call temp
+Warning[203]: Found opcode in column 1. (call)
+00B5   2???           00199 call temp
+Warning[203]: Found opcode in column 1. (call)
+00B6   2???           00200 call temp
+Warning[203]: Found opcode in column 1. (bcf)
+00B7   1006           00201 bcf portb,0
+Warning[203]: Found opcode in column 1. (bcf)
+00B8   1086           00202 bcf portb,1
+Warning[203]: Found opcode in column 1. (bsf)
+00B9   1506           00203 bsf portb,2
+Warning[203]: Found opcode in column 1. (bcf)
+00BA   1186           00204 bcf portb,3
+Warning[203]: Found opcode in column 1. (bcf)
+00BB   1206           00205 bcf portb,4
+Warning[203]: Found opcode in column 1. (bcf)
+00BC   1286           00206 bcf portb,5
+Warning[203]: Found opcode in column 1. (bsf)
+00BD   1706           00207 bsf portb,6
+Warning[203]: Found opcode in column 1. (bcf)
+00BE   1386           00208 bcf portb,7
+Warning[203]: Found opcode in column 1. (call)
+00BF   2???           00209 call temp
+Warning[203]: Found opcode in column 1. (call)
+00C0   2???           00210 call temp
+Warning[203]: Found opcode in column 1. (call)
+00C1   2???           00211 call temp
+Warning[203]: Found opcode in column 1. (call)
+00C2   2???           00212 call temp
+Warning[203]: Found opcode in column 1. (bcf)
+00C3   1006           00213 bcf portb,0
+Warning[203]: Found opcode in column 1. (bcf)
+00C4   1086           00214 bcf portb,1
+Warning[203]: Found opcode in column 1. (bcf)
+00C5   1106           00215 bcf portb,2
+00C6   1586           00216  bsf portb,3
+Warning[203]: Found opcode in column 1. (bcf)
+00C7   1206           00217 bcf portb,4
+Warning[203]: Found opcode in column 1. (bsf)
+00C8   1686           00218 bsf portb,5
+Warning[203]: Found opcode in column 1. (bcf)
+00C9   1306           00219 bcf portb,6
+Warning[203]: Found opcode in column 1. (bcf)
+00CA   1386           00220 bcf portb,7
+Warning[203]: Found opcode in column 1. (call)
+00CB   2???           00221 call temp
+Warning[203]: Found opcode in column 1. (call)
+00CC   2???           00222 call temp
+Warning[203]: Found opcode in column 1. (call)
+MPASM 5.74               LUCES_NAVIDENAS.ASM   5-5-2023  10:33:56         PAGE  9
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+00CD   2???           00223 call temp
+Warning[203]: Found opcode in column 1. (call)
+00CE   2???           00224 call temp
+Warning[203]: Found opcode in column 1. (bcf)
+00CF   1006           00225 bcf portb,0
+Warning[203]: Found opcode in column 1. (bcf)
+00D0   1086           00226 bcf portb,1
+Warning[203]: Found opcode in column 1. (bcf)
+00D1   1106           00227 bcf portb,2
+Warning[203]: Found opcode in column 1. (bcf)
+00D2   1186           00228 bcf portb,3
+Warning[203]: Found opcode in column 1. (bsf)
+00D3   1606           00229 bsf portb,4
+Warning[203]: Found opcode in column 1. (bcf)
+00D4   1286           00230 bcf portb,5
+Warning[203]: Found opcode in column 1. (bcf)
+00D5   1306           00231 bcf portb,6
+Warning[203]: Found opcode in column 1. (bcf)
+00D6   1386           00232 bcf portb,7
+Warning[203]: Found opcode in column 1. (call)
+00D7   2???           00233 call temp
+Warning[203]: Found opcode in column 1. (call)
+00D8   2???           00234 call temp
+Warning[203]: Found opcode in column 1. (call)
+00D9   2???           00235 call temp
+Warning[203]: Found opcode in column 1. (call)
+00DA   2???           00236 call temp
+Warning[203]: Found opcode in column 1. (BTFSC)
+00DB   1805           00237 BTFSC porta,0
+Warning[203]: Found opcode in column 1. (call)
+00DC   2???           00238 call primera
+Warning[203]: Found opcode in column 1. (BTFSC)
+00DD   1885           00239 BTFSC porta,1
+Warning[203]: Found opcode in column 1. (call)
+00DE   2???           00240 call segunda
+Warning[203]: Found opcode in column 1. (BTFSC)
+00DF   1905           00241 BTFSC porta,2
+Warning[203]: Found opcode in column 1. (call)
+00E0   2???           00242 call tercera
+Warning[203]: Found opcode in column 1. (BTFSC)
+00E1   1985           00243 BTFSC porta,3
+Warning[203]: Found opcode in column 1. (call)
+00E2   2???           00244 call cuarta
+Warning[203]: Found opcode in column 1. (call)
+00E3   2???           00245 call inicio
+                      00246 ;CUARTA SECUENCIA
+00E4                  00247 cuarta
+Warning[203]: Found opcode in column 1. (bcf)
+00E4   1006           00248 bcf portb,0
+Warning[203]: Found opcode in column 1. (bcf)
+00E5   1086           00249 bcf portb,1
+Warning[203]: Found opcode in column 1. (bcf)
+00E6   1106           00250 bcf portb,2
+MPASM 5.74               LUCES_NAVIDENAS.ASM   5-5-2023  10:33:56         PAGE 10
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+Warning[203]: Found opcode in column 1. (bcf)
+00E7   1186           00251 bcf portb,3
+Warning[203]: Found opcode in column 1. (bsf)
+00E8   1606           00252 bsf portb,4
+Warning[203]: Found opcode in column 1. (bsf)
+00E9   1686           00253 bsf portb,5
+Warning[203]: Found opcode in column 1. (bsf)
+00EA   1706           00254 bsf portb,6
+Warning[203]: Found opcode in column 1. (bsf)
+00EB   1786           00255 bsf portb,7
+00EC   2???           00256  call temp
+Warning[203]: Found opcode in column 1. (call)
+00ED   2???           00257 call temp
+Warning[203]: Found opcode in column 1. (call)
+00EE   2???           00258 call temp
+Warning[203]: Found opcode in column 1. (call)
+00EF   2???           00259 call temp
+Warning[203]: Found opcode in column 1. (bsf)
+00F0   1406           00260 bsf portb,0
+Warning[203]: Found opcode in column 1. (bsf)
+00F1   1486           00261 bsf portb,1
+Warning[203]: Found opcode in column 1. (bsf)
+00F2   1506           00262 bsf portb,2
+Warning[203]: Found opcode in column 1. (bsf)
+00F3   1586           00263 bsf portb,3
+Warning[203]: Found opcode in column 1. (bcf)
+00F4   1206           00264 bcf portb,4
+Warning[203]: Found opcode in column 1. (bcf)
+00F5   1286           00265 bcf portb,5
+Warning[203]: Found opcode in column 1. (bcf)
+00F6   1306           00266 bcf portb,6
+Warning[203]: Found opcode in column 1. (bcf)
+00F7   1386           00267 bcf portb,7
+Warning[203]: Found opcode in column 1. (call)
+00F8   2???           00268 call temp
+Warning[203]: Found opcode in column 1. (call)
+00F9   2???           00269 call temp
+Warning[203]: Found opcode in column 1. (call)
+00FA   2???           00270 call temp
+Warning[203]: Found opcode in column 1. (call)
+00FB   2???           00271 call temp
+Warning[203]: Found opcode in column 1. (bcf)
+00FC   1006           00272 bcf portb,0
+Warning[203]: Found opcode in column 1. (bcf)
+00FD   1086           00273 bcf portb,1
+Warning[203]: Found opcode in column 1. (bcf)
+00FE   1106           00274 bcf portb,2
+Warning[203]: Found opcode in column 1. (bcf)
+00FF   1186           00275 bcf portb,3
+Warning[203]: Found opcode in column 1. (bsf)
+0100   1606           00276 bsf portb,4
+Warning[203]: Found opcode in column 1. (bsf)
+0101   1686           00277 bsf portb,5
+MPASM 5.74               LUCES_NAVIDENAS.ASM   5-5-2023  10:33:56         PAGE 11
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+Warning[203]: Found opcode in column 1. (bsf)
+0102   1706           00278 bsf portb,6
+Warning[203]: Found opcode in column 1. (bsf)
+0103   1786           00279 bsf portb,7
+Warning[203]: Found opcode in column 1. (call)
+0104   2???           00280 call temp
+Warning[203]: Found opcode in column 1. (call)
+0105   2???           00281 call temp
+Warning[203]: Found opcode in column 1. (call)
+0106   2???           00282 call temp
+Warning[203]: Found opcode in column 1. (call)
+0107   2???           00283 call temp
+Warning[203]: Found opcode in column 1. (bsf)
+0108   1406           00284 bsf portb,0
+Warning[203]: Found opcode in column 1. (bsf)
+0109   1486           00285 bsf portb,1
+Warning[203]: Found opcode in column 1. (bsf)
+010A   1506           00286 bsf portb,2
+Warning[203]: Found opcode in column 1. (bsf)
+010B   1586           00287 bsf portb,3
+Warning[203]: Found opcode in column 1. (bcf)
+010C   1206           00288 bcf portb,4
+Warning[203]: Found opcode in column 1. (bcf)
+010D   1286           00289 bcf portb,5
+Warning[203]: Found opcode in column 1. (bcf)
+010E   1306           00290 bcf portb,6
+Warning[203]: Found opcode in column 1. (bcf)
+010F   1386           00291 bcf portb,7
+Warning[203]: Found opcode in column 1. (call)
+0110   2???           00292 call temp
+Warning[203]: Found opcode in column 1. (call)
+0111   2???           00293 call temp
+Warning[203]: Found opcode in column 1. (call)
+0112   2???           00294 call temp
+Warning[203]: Found opcode in column 1. (call)
+0113   2???           00295 call temp
+0114   1006           00296  bcf portb,0
+Warning[203]: Found opcode in column 1. (bcf)
+0115   1086           00297 bcf portb,1
+Warning[203]: Found opcode in column 1. (bcf)
+0116   1106           00298 bcf portb,2
+Warning[203]: Found opcode in column 1. (bcf)
+0117   1186           00299 bcf portb,3
+Warning[203]: Found opcode in column 1. (bsf)
+0118   1606           00300 bsf portb,4
+Warning[203]: Found opcode in column 1. (bsf)
+0119   1686           00301 bsf portb,5
+Warning[203]: Found opcode in column 1. (bsf)
+011A   1706           00302 bsf portb,6
+Warning[203]: Found opcode in column 1. (bsf)
+011B   1786           00303 bsf portb,7
+Warning[203]: Found opcode in column 1. (call)
+011C   2???           00304 call temp
+MPASM 5.74               LUCES_NAVIDENAS.ASM   5-5-2023  10:33:56         PAGE 12
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+Warning[203]: Found opcode in column 1. (call)
+011D   2???           00305 call temp
+Warning[203]: Found opcode in column 1. (call)
+011E   2???           00306 call temp
+Warning[203]: Found opcode in column 1. (call)
+011F   2???           00307 call temp
+Warning[203]: Found opcode in column 1. (bsf)
+0120   1406           00308 bsf portb,0
+Warning[203]: Found opcode in column 1. (bsf)
+0121   1486           00309 bsf portb,1
+Warning[203]: Found opcode in column 1. (bsf)
+0122   1506           00310 bsf portb,2
+Warning[203]: Found opcode in column 1. (bsf)
+0123   1586           00311 bsf portb,3
+Warning[203]: Found opcode in column 1. (bcf)
+0124   1206           00312 bcf portb,4
+Warning[203]: Found opcode in column 1. (bcf)
+0125   1286           00313 bcf portb,5
+Warning[203]: Found opcode in column 1. (bcf)
+0126   1306           00314 bcf portb,6
+Warning[203]: Found opcode in column 1. (bcf)
+0127   1386           00315 bcf portb,7
+Warning[203]: Found opcode in column 1. (call)
+0128   2???           00316 call temp
+Warning[203]: Found opcode in column 1. (call)
+0129   2???           00317 call temp
+Warning[203]: Found opcode in column 1. (call)
+012A   2???           00318 call temp
+Warning[203]: Found opcode in column 1. (call)
+012B   2???           00319 call temp
+Warning[203]: Found opcode in column 1. (BTFSC)
+012C   1805           00320 BTFSC porta,0
+Warning[203]: Found opcode in column 1. (call)
+012D   2???           00321 call primera
+Warning[203]: Found opcode in column 1. (BTFSC)
+012E   1885           00322 BTFSC porta,1
+Warning[203]: Found opcode in column 1. (call)
+012F   2???           00323 call segunda
+Warning[203]: Found opcode in column 1. (BTFSC)
+0130   1905           00324 BTFSC porta,2
+Warning[203]: Found opcode in column 1. (call)
+0131   2???           00325 call tercera
+Warning[203]: Found opcode in column 1. (BTFSC)
+0132   1985           00326 BTFSC porta,3
+Warning[203]: Found opcode in column 1. (call)
+0133   2???           00327 call cuarta
+Warning[203]: Found opcode in column 1. (call)
+0134   2???           00328 call inicio
+                      00329 ;TIMER
+0135   0181           00330 temp clrf timer
+0136   1F81           00331 bucle btfss timer,7
+Warning[203]: Found opcode in column 1. (goto)
+0137   2???           00332 goto bucle
+MPASM 5.74               LUCES_NAVIDENAS.ASM   5-5-2023  10:33:56         PAGE 13
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+Warning[203]: Found opcode in column 1. (return)
+0138   0008           00333 return
+Warning[205]: Found directive in column 1. (end)
+                      00334 end
+MPASM 5.74               LUCES_NAVIDENAS.ASM   5-5-2023  10:33:56         PAGE 14
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+__16F84A                          00000001
+bucle                             00000136
+cuarta                            000000E4
+estatus                           00000003
+inicio                            00000009
+porta                             00000005
+portb                             00000006
+primera                           00000009
+segunda                           00000072
+temp                              00000135
+tercera                           000000AB
+timer                             00000001
+
+Errors   :     0
+Warnings :   306 reported,     0 suppressed
+Messages :     0 reported,     0 suppressed
+
+

@@ -1,0 +1,172 @@
+MPASM 5.74                      SEMAFORO.ASM   5-4-2023  16:32:42         PAGE  1
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+Warning[205]: Found directive in column 1. (list)
+                      00001 list p=16f84
+                      00002 ;INICIALIZACIÓN DE VARIABLES
+  00000006            00003 portb equ h'06'
+  00000001            00004 timer equ h'01'
+  00000003            00005 estatus equ h'03'
+Warning[205]: Found directive in column 1. (org)
+                      00006 org 0
+                      00007 ;SE INICIALIZAN LOS PARÁMETROS CON LOS QUE FUNCIONARÁ EL TIMER
+                      00008 ;Y SE DEFINEN LOS PUERTOS B COMO SALIDAS
+Warning[203]: Found opcode in column 1. (bsf)
+0000   1683           00009 bsf estatus,5
+Warning[203]: Found opcode in column 1. (movlw)
+0001   30D6           00010 movlw b'11010110'
+Warning[203]: Found opcode in column 1. (movwf)
+0002   0081           00011 movwf timer
+Warning[203]: Found opcode in column 1. (movlw)
+0003   3000           00012 movlw b'00000000'
+Warning[203]: Found opcode in column 1. (movwf)
+0004   0086           00013 movwf portb
+Warning[203]: Found opcode in column 1. (bcf)
+0005   1283           00014 bcf estatus,5
+Warning[203]: Found opcode in column 1. (clrf)
+0006   0186           00015 clrf portb
+0007                  00016 inicio
+                      00017 ;ENCENDEMOS EL LED VERDE
+Warning[203]: Found opcode in column 1. (bsf)
+0007   1506           00018 bsf portb,2
+Warning[203]: Found opcode in column 1. (bcf)
+0008   1186           00019 bcf portb,3
+Warning[203]: Found opcode in column 1. (bcf)
+0009   1206           00020 bcf portb,4
+                      00021 ;DEJAMOS PASAR EL TIEMPO
+Warning[203]: Found opcode in column 1. (call)
+000A   2???           00022 call temp
+Warning[203]: Found opcode in column 1. (call)
+000B   2???           00023 call temp
+Warning[203]: Found opcode in column 1. (call)
+000C   2???           00024 call temp
+Warning[203]: Found opcode in column 1. (call)
+000D   2???           00025 call temp
+Warning[203]: Found opcode in column 1. (call)
+000E   2???           00026 call temp
+Warning[203]: Found opcode in column 1. (call)
+000F   2???           00027 call temp
+Warning[203]: Found opcode in column 1. (call)
+0010   2???           00028 call temp
+Warning[203]: Found opcode in column 1. (call)
+0011   2???           00029 call temp
+Warning[203]: Found opcode in column 1. (call)
+0012   2???           00030 call temp
+Warning[203]: Found opcode in column 1. (call)
+0013   2???           00031 call temp
+MPASM 5.74                      SEMAFORO.ASM   5-4-2023  16:32:42         PAGE  2
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+Warning[203]: Found opcode in column 1. (call)
+0014   2???           00032 call temp
+Warning[203]: Found opcode in column 1. (call)
+0015   2???           00033 call temp
+Warning[203]: Found opcode in column 1. (call)
+0016   2???           00034 call temp
+Warning[203]: Found opcode in column 1. (call)
+0017   2???           00035 call temp
+Warning[203]: Found opcode in column 1. (call)
+0018   2???           00036 call temp
+Warning[203]: Found opcode in column 1. (call)
+0019   2???           00037 call temp
+Warning[203]: Found opcode in column 1. (call)
+001A   2???           00038 call temp
+Warning[203]: Found opcode in column 1. (call)
+001B   2???           00039 call temp
+                      00040 ;ENCENDEMOS EL LED AMARILLO
+Warning[203]: Found opcode in column 1. (bcf)
+001C   1106           00041 bcf portb,2
+Warning[203]: Found opcode in column 1. (bsf)
+001D   1586           00042 bsf portb,3
+                      00043 ;DEJAMOS PASAR EL TIEMPO
+Warning[203]: Found opcode in column 1. (call)
+001E   2???           00044 call temp
+Warning[203]: Found opcode in column 1. (call)
+001F   2???           00045 call temp
+Warning[203]: Found opcode in column 1. (call)
+0020   2???           00046 call temp
+Warning[203]: Found opcode in column 1. (call)
+0021   2???           00047 call temp
+Warning[203]: Found opcode in column 1. (call)
+0022   2???           00048 call temp
+Warning[203]: Found opcode in column 1. (call)
+0023   2???           00049 call temp
+Warning[203]: Found opcode in column 1. (call)
+0024   2???           00050 call temp
+Warning[203]: Found opcode in column 1. (call)
+0025   2???           00051 call temp
+                      00052 ;ENCENDEMOS EL LED ROJO
+Warning[203]: Found opcode in column 1. (bcf)
+0026   1186           00053 bcf portb,3
+Warning[203]: Found opcode in column 1. (bsf)
+0027   1606           00054 bsf portb,4
+                      00055 ;DEJAMOS PASAR EL TIEMPO
+Warning[203]: Found opcode in column 1. (call)
+0028   2???           00056 call temp
+Warning[203]: Found opcode in column 1. (call)
+0029   2???           00057 call temp
+Warning[203]: Found opcode in column 1. (call)
+002A   2???           00058 call temp
+Warning[203]: Found opcode in column 1. (call)
+002B   2???           00059 call temp
+Warning[203]: Found opcode in column 1. (call)
+MPASM 5.74                      SEMAFORO.ASM   5-4-2023  16:32:42         PAGE  3
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+002C   2???           00060 call temp
+Warning[203]: Found opcode in column 1. (call)
+002D   2???           00061 call temp
+Warning[203]: Found opcode in column 1. (call)
+002E   2???           00062 call temp
+Warning[203]: Found opcode in column 1. (call)
+002F   2???           00063 call temp
+Warning[203]: Found opcode in column 1. (call)
+0030   2???           00064 call temp
+Warning[203]: Found opcode in column 1. (call)
+0031   2???           00065 call temp
+Warning[203]: Found opcode in column 1. (call)
+0032   2???           00066 call temp
+Warning[203]: Found opcode in column 1. (call)
+0033   2???           00067 call temp
+Warning[203]: Found opcode in column 1. (call)
+0034   2???           00068 call temp
+                      00069 ;VOLVEMOS A EMPEZAR EN VERDE
+Warning[203]: Found opcode in column 1. (goto)
+0035   2???           00070 goto inicio
+                      00071 ;TIMER HASTA QUE SE DESBORDE AL BIT 7
+0036   0181           00072 temp clrf timer
+0037   1F81           00073 bucle btfss timer,7
+Warning[203]: Found opcode in column 1. (goto)
+0038   2???           00074 goto bucle
+Warning[203]: Found opcode in column 1. (return)
+0039   0008           00075 return
+Warning[205]: Found directive in column 1. (end)
+                      00076 end
+MPASM 5.74                      SEMAFORO.ASM   5-4-2023  16:32:42         PAGE  4
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+__16F84A                          00000001
+bucle                             00000037
+estatus                           00000003
+inicio                            00000007
+portb                             00000006
+temp                              00000036
+timer                             00000001
+
+Errors   :     0
+Warnings :    59 reported,     0 suppressed
+Messages :     0 reported,     0 suppressed
+
+

@@ -1,0 +1,44 @@
+MPLINK 5.08, LINKER
+Linker Map File - Created Fri May 05 10:33:58 2023
+
+                                 Section Info
+                  Section       Type    Address   Location Size(Bytes)
+                ---------  ---------  ---------  ---------  ---------
+                   .org_0       code   0x000000    program   0x000272
+                   .cinit    romdata   0x000139    program   0x000004
+
+
+
+                              Program Memory Usage 
+                               Start         End      
+                           ---------   ---------      
+                            0x000000    0x00013a      
+            315 out of 1094 program addresses used, program memory utilization is 28%
+
+
+
+                              Symbols - Sorted by Name
+                     Name    Address   Location    Storage File                     
+                ---------  ---------  ---------  --------- ---------                
+                    bucle   0x000136    program     static C:\SP_PROGRAMAS_UNIDAD4\luces_navideñas\luces_navidenas.X\luces_navidenas.asm
+                   cuarta   0x0000e4    program     static C:\SP_PROGRAMAS_UNIDAD4\luces_navideñas\luces_navidenas.X\luces_navidenas.asm
+                   inicio   0x000009    program     static C:\SP_PROGRAMAS_UNIDAD4\luces_navideñas\luces_navidenas.X\luces_navidenas.asm
+                  primera   0x000009    program     static C:\SP_PROGRAMAS_UNIDAD4\luces_navideñas\luces_navidenas.X\luces_navidenas.asm
+                  segunda   0x000072    program     static C:\SP_PROGRAMAS_UNIDAD4\luces_navideñas\luces_navidenas.X\luces_navidenas.asm
+                     temp   0x000135    program     static C:\SP_PROGRAMAS_UNIDAD4\luces_navideñas\luces_navidenas.X\luces_navidenas.asm
+                  tercera   0x0000ab    program     static C:\SP_PROGRAMAS_UNIDAD4\luces_navideñas\luces_navidenas.X\luces_navidenas.asm
+
+
+
+                              Symbols - Sorted by Address
+                     Name    Address   Location    Storage File                     
+                ---------  ---------  ---------  --------- ---------                
+                   inicio   0x000009    program     static C:\SP_PROGRAMAS_UNIDAD4\luces_navideñas\luces_navidenas.X\luces_navidenas.asm
+                  primera   0x000009    program     static C:\SP_PROGRAMAS_UNIDAD4\luces_navideñas\luces_navidenas.X\luces_navidenas.asm
+                  segunda   0x000072    program     static C:\SP_PROGRAMAS_UNIDAD4\luces_navideñas\luces_navidenas.X\luces_navidenas.asm
+                  tercera   0x0000ab    program     static C:\SP_PROGRAMAS_UNIDAD4\luces_navideñas\luces_navidenas.X\luces_navidenas.asm
+                   cuarta   0x0000e4    program     static C:\SP_PROGRAMAS_UNIDAD4\luces_navideñas\luces_navidenas.X\luces_navidenas.asm
+                     temp   0x000135    program     static C:\SP_PROGRAMAS_UNIDAD4\luces_navideñas\luces_navidenas.X\luces_navidenas.asm
+                    bucle   0x000136    program     static C:\SP_PROGRAMAS_UNIDAD4\luces_navideñas\luces_navidenas.X\luces_navidenas.asm
+
+
