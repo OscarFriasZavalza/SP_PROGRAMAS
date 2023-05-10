@@ -1,5 +1,8 @@
 list p=16f84
+__CONFIG _FOSC_XT & _WDTE_OFF & _PWRTE_ON & _CP_OFF
+
 ;INICIALIZACIÓN DE VARIABLES
+    
 portb equ h'06'
 timer equ h'01'
 estatus equ h'03'
