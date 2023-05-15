@@ -1,0 +1,311 @@
+MPASM 5.74                    SERVOMOTOR.ASM   5-14-2023  23:13:52         PAGE  1
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+                      00001 
+Warning[205]: Found directive in column 1. (__CONFIG)
+2007   3FF1           00002 __CONFIG _XT_OSC &_WDT_OFF & _PWRTE_ON
+                      00003 
+Warning[205]: Found directive in column 1. (LIST)
+                      00004 LIST P=16F84A
+Warning[205]: Found directive in column 1. (INCLUDE)
+                      00005 INCLUDE <P16F84A.INC>
+                      00001         LIST
+                      00002 
+                      00003 ;==========================================================================
+                      00004 ; Build date : May 17 2017
+                      00005 ;  MPASM PIC16F84A processor include
+                      00006 ; 
+                      00007 ;  (c) Copyright 1999-2017 Microchip Technology, All rights reserved
+                      00008 ;==========================================================================
+                      00009 
+                      00209         LIST
+                      00006 
+Warning[205]: Found directive in column 1. (CBLOCK)
+                      00007 CBLOCK 0X0C
+Warning[205]: Found directive in column 1. (ENDC)
+                      00008 ENDC
+                      00009 
+Warning[205]: Found directive in column 1. (ORG)
+                      00010 ORG 0
+                      00011 ;CONFIGURACION DE PUERTOS
+0000   1683           00012         BSF     STATUS,RP0
+                      00013 ;CONFIGURACION DE RBO PARA SALIDA PWM
+                      00014 
+Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
+0001   1006           00015         BCF     TRISB,0
+                      00016 ;CONFICURACION DE RBA0,1,2 PARA CAMBIAR POSICION
+                      00017         
+Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
+0002   1405           00018         BSF     TRISA,0
+Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
+0003   1485           00019         BSF     TRISA,1
+Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
+0004   1505           00020         BSF     TRISA,2
+                      00021 ;TIMER 0 ASIGNACION DE PRESCALER DE 64
+0005   3005           00022         MOVLW   B'00000101'
+Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
+0006   0081           00023         MOVWF   OPTION_REG
+                      00024 ;FIN DE CONFIGURACION
+0007   1283           00025         BCF     STATUS,RP0
+                      00026 
+                      00027 ;INICIO DE PROGRAMA 
+                      00028 
+Warning[203]: Found opcode in column 1. (GOTO)
+0008   2???           00029 GOTO HOME
+                      00030 
+                      00031 
+MPASM 5.74                    SERVOMOTOR.ASM   5-14-2023  23:13:52         PAGE  2
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+                      00032 ;**** TIEMPOS **
+                      00033 ;** 0.5 MS
+                      00034 
+  000000F8            00035 TIME_500US      EQU     D'248'
+                      00036 
+0009   30F8           00037 TIMEOF_500US    MOVLW   TIME_500US
+000A   0081           00038                                 MOVWF   TMR0
+000B   110B           00039                                 BCF             INTCON,T0IF
+000C   1D0B           00040 TIME_REB                BTFSS   INTCON,T0IF;DETECTA SI SE DESBORDO EL TEMPORIZADOR
+000D   2???           00041                                 GOTO    TIME_REB
+000E   0008           00042                                 RETURN
+                      00043 
+                      00044 ;*** 1MS ****
+                      00045 
+  000000F0            00046 TIME_1MS        EQU     D'240'
+                      00047 
+000F   30F0           00048 TIMEOF_1MS              MOVLW   TIME_1MS
+0010   0081           00049                                 MOVWF   TMR0
+0011   110B           00050                                 BCF             INTCON,T0IF
+0012   1D0B           00051 TIME_REB2               BTFSS   INTCON,T0IF
+0013   2???           00052                                 GOTO    TIME_REB2
+0014   0008           00053                                 RETURN
+                      00054 
+                      00055 ;*** 2MS ****
+                      00056 
+  000000E1            00057 TIME_2MS        EQU     D'225'
+                      00058 
+0015   30E1           00059 TIMEOF_2MS      MOVLW   TIME_2MS
+0016   0081           00060                         MOVWF   TMR0
+0017   110B           00061                         BCF             INTCON,T0IF
+0018   1D0B           00062 TIME_REB3       BTFSS   INTCON,T0IF
+0019   2???           00063                         GOTO    TIME_REB3
+001A   0008           00064                         RETURN
+                      00065 
+                      00066 ;*** 4MS ****
+                      00067 
+  000000C1            00068 TIME_4MS        EQU     D'193'
+                      00069 
+001B   30C1           00070 TIMEOF_4MS      MOVLW   TIME_4MS
+001C   0081           00071                         MOVWF   TMR0
+001D   110B           00072                         BCF             INTCON,T0IF
+001E   1D0B           00073 TIME_REB4       BTFSS   INTCON,T0IF
+001F   2???           00074                         GOTO    TIME_REB4
+0020   0008           00075                         RETURN
+                      00076 
+                      00077 ; *** 15 MS ****
+                      00078 
+  00000015            00079 TIME_15MS       EQU D'21'
+                      00080 
+0021   3015           00081 TIMEOF_15MS     MOVLW   TIME_15MS
+0022   0081           00082                         MOVWF   TMR0
+0023   110B           00083                         BCF             INTCON,T0IF
+0024   1D0B           00084 TIME_REB5       BTFSS   INTCON,T0IF
+MPASM 5.74                    SERVOMOTOR.ASM   5-14-2023  23:13:52         PAGE  3
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+0025   2???           00085                         GOTO    TIME_REB5
+0026   0008           00086                         RETURN
+                      00087 
+                      00088 ;*** 16 MS ***
+                      00089 
+  00000006            00090 TIME_16MS       EQU     D'6'
+                      00091 
+0027   3006           00092 TIMEOF_16MS     MOVLW   TIME_16MS
+0028   0081           00093                         MOVWF   TMR0
+0029   110B           00094                         BCF             INTCON,T0IF
+002A   1D0B           00095 TIME_REB6       BTFSS   INTCON,T0IF
+002B   2???           00096                         GOTO    TIME_REB6
+002C   0008           00097                         RETURN
+                      00098 
+                      00099 ;** DEFINICION DE POSICIONES **
+                      00100 
+                      00101 ;CERO GRADOS
+002D                  00102 HOME
+002D   1C05           00103                 BTFSS   PORTA,0
+002E   2???           00104                 GOTO    HOME_2
+002F   1406           00105 ZER             BSF             PORTB,0
+0030   2???           00106                 CALL    TIMEOF_500US
+0031   1006           00107                 BCF             PORTB,0
+0032   2???           00108                 CALL    TIMEOF_15MS
+0033   2???           00109                 CALL    TIMEOF_4MS
+0034   2???           00110                 CALL    TIMEOF_500US
+0035   1C85           00111 HOME_2  BTFSS   PORTA,1
+0036   2???           00112                 GOTO    HOME
+                      00113 ;NOVENTA GRADOS
+                      00114 
+0037   1406           00115 NOV             BSF             PORTB,0
+0038   2???           00116                 CALL    TIMEOF_1MS
+0039   2???           00117                 CALL    TIMEOF_500US
+003A   1006           00118                 BCF             PORTB,0
+003B   2???           00119                 CALL    TIMEOF_16MS
+003C   2???           00120                 CALL    TIMEOF_2MS
+003D   2???           00121                 CALL    TIMEOF_500US
+003E   2???           00122                 GOTO    HOME
+                      00123 
+                      00124 
+                      00125 
+Warning[205]: Found directive in column 1. (END)
+3FF1                  00126 END
+MPASM 5.74                    SERVOMOTOR.ASM   5-14-2023  23:13:52         PAGE  4
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+C                                 00000000
+DC                                00000001
+EEADR                             00000009
+EECON1                            00000088
+EECON2                            00000089
+EEDATA                            00000008
+EEIE                              00000006
+EEIF                              00000004
+F                                 00000001
+FSR                               00000004
+GIE                               00000007
+HOME                              0000002D
+HOME_2                            00000035
+INDF                              00000000
+INTCON                            0000000B
+INTE                              00000004
+INTEDG                            00000006
+INTF                              00000001
+IRP                               00000007
+NOT_PD                            00000003
+NOT_RBPU                          00000007
+NOT_TO                            00000004
+NOV                               00000037
+OPTION_REG                        00000081
+PCL                               00000002
+PCLATH                            0000000A
+PORTA                             00000005
+PORTB                             00000006
+PS0                               00000000
+PS1                               00000001
+PS2                               00000002
+PSA                               00000003
+RA0                               00000000
+RA1                               00000001
+RA2                               00000002
+RA3                               00000003
+RA4                               00000004
+RB0                               00000000
+RB1                               00000001
+RB2                               00000002
+RB3                               00000003
+RB4                               00000004
+RB5                               00000005
+RB6                               00000006
+RB7                               00000007
+RBIE                              00000003
+RBIF                              00000000
+RD                                00000000
+RP0                               00000005
+RP1                               00000006
+STATUS                            00000003
+T0CS                              00000005
+T0IE                              00000005
+MPASM 5.74                    SERVOMOTOR.ASM   5-14-2023  23:13:52         PAGE  5
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+T0IF                              00000002
+T0SE                              00000004
+TIMEOF_15MS                       00000021
+TIMEOF_16MS                       00000027
+TIMEOF_1MS                        0000000F
+TIMEOF_2MS                        00000015
+TIMEOF_4MS                        0000001B
+TIMEOF_500US                      00000009
+TIME_15MS                         00000015
+TIME_16MS                         00000006
+TIME_1MS                          000000F0
+TIME_2MS                          000000E1
+TIME_4MS                          000000C1
+TIME_500US                        000000F8
+TIME_REB                          0000000C
+TIME_REB2                         00000012
+TIME_REB3                         00000018
+TIME_REB4                         0000001E
+TIME_REB5                         00000024
+TIME_REB6                         0000002A
+TMR0                              00000001
+TMR0IE                            00000005
+TMR0IF                            00000002
+TRISA                             00000085
+TRISA0                            00000000
+TRISA1                            00000001
+TRISA2                            00000002
+TRISA3                            00000003
+TRISA4                            00000004
+TRISB                             00000086
+TRISB0                            00000000
+TRISB1                            00000001
+TRISB2                            00000002
+TRISB3                            00000003
+TRISB4                            00000004
+TRISB5                            00000005
+TRISB6                            00000006
+TRISB7                            00000007
+W                                 00000000
+WR                                00000001
+WREN                              00000002
+WRERR                             00000003
+Z                                 00000002
+ZER                               0000002F
+_CONFIG                           00002007
+_CP_OFF                           00003FFF
+_CP_ON                            0000000F
+_DEVID1                           00002006
+_FOSC_EXTRC                       00003FFF
+_FOSC_HS                          00003FFE
+_FOSC_LP                          00003FFC
+_FOSC_XT                          00003FFD
+_HS_OSC                           00003FFE
+MPASM 5.74                    SERVOMOTOR.ASM   5-14-2023  23:13:52         PAGE  6
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+_IDLOC0                           00002000
+_IDLOC1                           00002001
+_IDLOC2                           00002002
+_IDLOC3                           00002003
+_LP_OSC                           00003FFC
+_PWRTE_OFF                        00003FFF
+_PWRTE_ON                         00003FF7
+_RC_OSC                           00003FFF
+_WDTE_OFF                         00003FFB
+_WDTE_ON                          00003FFF
+_WDT_OFF                          00003FFB
+_WDT_ON                           00003FFF
+_XT_OSC                           00003FFD
+__16F84A                          00000001
+
+Errors   :     0
+Warnings :     8 reported,     0 suppressed
+Messages :     5 reported,     0 suppressed
+
+

@@ -1,0 +1,64 @@
+MPLINK 5.08, LINKER
+Linker Map File - Created Sun May 14 23:13:53 2023
+
+                                 Section Info
+                  Section       Type    Address   Location Size(Bytes)
+                ---------  ---------  ---------  ---------  ---------
+                   .org_0       code   0x000000    program   0x00007e
+                   .cinit    romdata   0x00003f    program   0x000004
+.config_2007_BUILD/DEFAULT/PRODUCTION/SERVOMO       code   0x002007    program   0x000002
+
+
+
+                              Program Memory Usage 
+                               Start         End      
+                           ---------   ---------      
+                            0x000000    0x000040      
+                            0x002007    0x002007      
+            66 out of 1094 program addresses used, program memory utilization is 6%
+
+
+
+                              Symbols - Sorted by Name
+                     Name    Address   Location    Storage File                     
+                ---------  ---------  ---------  --------- ---------                
+                     HOME   0x00002d    program     static C:\SP_PROGRAMAS\U5\ServoPic16f84A\servomotor.X\servomotor.asm
+                   HOME_2   0x000035    program     static C:\SP_PROGRAMAS\U5\ServoPic16f84A\servomotor.X\servomotor.asm
+                      NOV   0x000037    program     static C:\SP_PROGRAMAS\U5\ServoPic16f84A\servomotor.X\servomotor.asm
+              TIMEOF_15MS   0x000021    program     static C:\SP_PROGRAMAS\U5\ServoPic16f84A\servomotor.X\servomotor.asm
+              TIMEOF_16MS   0x000027    program     static C:\SP_PROGRAMAS\U5\ServoPic16f84A\servomotor.X\servomotor.asm
+               TIMEOF_1MS   0x00000f    program     static C:\SP_PROGRAMAS\U5\ServoPic16f84A\servomotor.X\servomotor.asm
+               TIMEOF_2MS   0x000015    program     static C:\SP_PROGRAMAS\U5\ServoPic16f84A\servomotor.X\servomotor.asm
+               TIMEOF_4MS   0x00001b    program     static C:\SP_PROGRAMAS\U5\ServoPic16f84A\servomotor.X\servomotor.asm
+             TIMEOF_500US   0x000009    program     static C:\SP_PROGRAMAS\U5\ServoPic16f84A\servomotor.X\servomotor.asm
+                 TIME_REB   0x00000c    program     static C:\SP_PROGRAMAS\U5\ServoPic16f84A\servomotor.X\servomotor.asm
+                TIME_REB2   0x000012    program     static C:\SP_PROGRAMAS\U5\ServoPic16f84A\servomotor.X\servomotor.asm
+                TIME_REB3   0x000018    program     static C:\SP_PROGRAMAS\U5\ServoPic16f84A\servomotor.X\servomotor.asm
+                TIME_REB4   0x00001e    program     static C:\SP_PROGRAMAS\U5\ServoPic16f84A\servomotor.X\servomotor.asm
+                TIME_REB5   0x000024    program     static C:\SP_PROGRAMAS\U5\ServoPic16f84A\servomotor.X\servomotor.asm
+                TIME_REB6   0x00002a    program     static C:\SP_PROGRAMAS\U5\ServoPic16f84A\servomotor.X\servomotor.asm
+                      ZER   0x00002f    program     static C:\SP_PROGRAMAS\U5\ServoPic16f84A\servomotor.X\servomotor.asm
+
+
+
+                              Symbols - Sorted by Address
+                     Name    Address   Location    Storage File                     
+                ---------  ---------  ---------  --------- ---------                
+             TIMEOF_500US   0x000009    program     static C:\SP_PROGRAMAS\U5\ServoPic16f84A\servomotor.X\servomotor.asm
+                 TIME_REB   0x00000c    program     static C:\SP_PROGRAMAS\U5\ServoPic16f84A\servomotor.X\servomotor.asm
+               TIMEOF_1MS   0x00000f    program     static C:\SP_PROGRAMAS\U5\ServoPic16f84A\servomotor.X\servomotor.asm
+                TIME_REB2   0x000012    program     static C:\SP_PROGRAMAS\U5\ServoPic16f84A\servomotor.X\servomotor.asm
+               TIMEOF_2MS   0x000015    program     static C:\SP_PROGRAMAS\U5\ServoPic16f84A\servomotor.X\servomotor.asm
+                TIME_REB3   0x000018    program     static C:\SP_PROGRAMAS\U5\ServoPic16f84A\servomotor.X\servomotor.asm
+               TIMEOF_4MS   0x00001b    program     static C:\SP_PROGRAMAS\U5\ServoPic16f84A\servomotor.X\servomotor.asm
+                TIME_REB4   0x00001e    program     static C:\SP_PROGRAMAS\U5\ServoPic16f84A\servomotor.X\servomotor.asm
+              TIMEOF_15MS   0x000021    program     static C:\SP_PROGRAMAS\U5\ServoPic16f84A\servomotor.X\servomotor.asm
+                TIME_REB5   0x000024    program     static C:\SP_PROGRAMAS\U5\ServoPic16f84A\servomotor.X\servomotor.asm
+              TIMEOF_16MS   0x000027    program     static C:\SP_PROGRAMAS\U5\ServoPic16f84A\servomotor.X\servomotor.asm
+                TIME_REB6   0x00002a    program     static C:\SP_PROGRAMAS\U5\ServoPic16f84A\servomotor.X\servomotor.asm
+                     HOME   0x00002d    program     static C:\SP_PROGRAMAS\U5\ServoPic16f84A\servomotor.X\servomotor.asm
+                      ZER   0x00002f    program     static C:\SP_PROGRAMAS\U5\ServoPic16f84A\servomotor.X\servomotor.asm
+                   HOME_2   0x000035    program     static C:\SP_PROGRAMAS\U5\ServoPic16f84A\servomotor.X\servomotor.asm
+                      NOV   0x000037    program     static C:\SP_PROGRAMAS\U5\ServoPic16f84A\servomotor.X\servomotor.asm
+
+
