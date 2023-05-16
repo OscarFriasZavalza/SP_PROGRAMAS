@@ -1,4 +1,4 @@
-MPASM 5.74                    SERVOMOTOR.ASM   5-15-2023  18:29:55         PAGE  1
+MPASM 5.74   SERVOMOTOR_DIFERENTES_PINES.ASM   5-15-2023  18:30:11         PAGE  1
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -34,13 +34,13 @@ Warning[205]: Found directive in column 1. (ORG)
                       00012 ;CONFIGURACION DE RBO PARA SALIDA PWM
                       00013 
 Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
-0001   1006           00014         BCF     TRISB,0
+0001   1306           00014         BCF     TRISB,6
                       00015 ;CONFICURACION DE RBA0,1,2 PARA CAMBIAR POSICION
                       00016         
 Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
-0002   1405           00017         BSF     TRISA,0
+0002   1505           00017         BSF     TRISA,2
 Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
-0003   1485           00018         BSF     TRISA,1
+0003   1605           00018         BSF     TRISA,4
                       00019         
                       00020 ;TIMER 0 ASIGNACION DE PRESCALER DE 64
 0004   3005           00021         MOVLW   B'00000101'
@@ -57,7 +57,7 @@ Warning[203]: Found opcode in column 1. (GOTO)
                       00030 
                       00031 ;**** TIEMPOS **
                       00032 ;** 0.5 MS
-MPASM 5.74                    SERVOMOTOR.ASM   5-15-2023  18:29:55         PAGE  2
+MPASM 5.74   SERVOMOTOR_DIFERENTES_PINES.ASM   5-15-2023  18:30:11         PAGE  2
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -116,7 +116,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
 0023   1D0B           00083 TIME_REB5       BTFSS   INTCON,T0IF
 0024   2???           00084                         GOTO    TIME_REB5
 0025   0008           00085                         RETURN
-MPASM 5.74                    SERVOMOTOR.ASM   5-15-2023  18:29:55         PAGE  3
+MPASM 5.74   SERVOMOTOR_DIFERENTES_PINES.ASM   5-15-2023  18:30:11         PAGE  3
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -138,22 +138,22 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
                       00099 
                       00100 ;CERO GRADOS
 002C                  00101 HOME
-002C   1C05           00102                 BTFSS   PORTA,0
+002C   1D05           00102                 BTFSS   PORTA,2
 002D   2???           00103                 GOTO    HOME_2
-002E   1406           00104 ZER             BSF             PORTB,0
+002E   1706           00104 ZER             BSF             PORTB,6
 002F   2???           00105                 CALL    TIMEOF_500US
-0030   1006           00106                 BCF             PORTB,0
+0030   1306           00106                 BCF             PORTB,6
 0031   2???           00107                 CALL    TIMEOF_15MS
 0032   2???           00108                 CALL    TIMEOF_4MS
 0033   2???           00109                 CALL    TIMEOF_500US
-0034   1C85           00110 HOME_2  BTFSS   PORTA,1
+0034   1E05           00110 HOME_2  BTFSS   PORTA,4
 0035   2???           00111                 GOTO    HOME
                       00112 ;NOVENTA GRADOS
                       00113 
-0036   1406           00114 NOV             BSF             PORTB,0
+0036   1706           00114 NOV             BSF             PORTB,6
 0037   2???           00115                 CALL    TIMEOF_1MS
 0038   2???           00116                 CALL    TIMEOF_500US
-0039   1006           00117                 BCF             PORTB,0
+0039   1306           00117                 BCF             PORTB,6
 003A   2???           00118                 CALL    TIMEOF_16MS
 003B   2???           00119                 CALL    TIMEOF_2MS
 003C   2???           00120                 CALL    TIMEOF_500US
@@ -163,7 +163,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
                       00124 
 Warning[205]: Found directive in column 1. (END)
 3FF1                  00125 END
-MPASM 5.74                    SERVOMOTOR.ASM   5-15-2023  18:29:55         PAGE  4
+MPASM 5.74   SERVOMOTOR_DIFERENTES_PINES.ASM   5-15-2023  18:30:11         PAGE  4
 
 
 SYMBOL TABLE
@@ -222,7 +222,7 @@ RP1                               00000006
 STATUS                            00000003
 T0CS                              00000005
 T0IE                              00000005
-MPASM 5.74                    SERVOMOTOR.ASM   5-15-2023  18:29:55         PAGE  5
+MPASM 5.74   SERVOMOTOR_DIFERENTES_PINES.ASM   5-15-2023  18:30:11         PAGE  5
 
 
 SYMBOL TABLE
@@ -281,7 +281,7 @@ _FOSC_HS                          00003FFE
 _FOSC_LP                          00003FFC
 _FOSC_XT                          00003FFD
 _HS_OSC                           00003FFE
-MPASM 5.74                    SERVOMOTOR.ASM   5-15-2023  18:29:55         PAGE  6
+MPASM 5.74   SERVOMOTOR_DIFERENTES_PINES.ASM   5-15-2023  18:30:11         PAGE  6
 
 
 SYMBOL TABLE

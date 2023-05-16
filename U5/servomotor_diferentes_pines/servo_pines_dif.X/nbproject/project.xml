@@ -3,8 +3,8 @@
     <type>com.microchip.mplab.nbide.embedded.makeproject</type>
     <configuration>
         <data xmlns="http://www.netbeans.org/ns/make-project/1">
-            <name>servomotor</name>
-            <creation-uuid>3f55d82e-cde4-4ba4-8de0-902635aa314b</creation-uuid>
+            <name>servo_pines_dif</name>
+            <creation-uuid>b1b396c5-2cc3-4f94-9493-7bc2182180e2</creation-uuid>
             <make-project-type>0</make-project-type>
             <c-extensions/>
             <cpp-extensions/>

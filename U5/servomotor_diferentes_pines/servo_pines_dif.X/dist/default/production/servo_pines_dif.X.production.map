@@ -1,0 +1,64 @@
+MPLINK 5.08, LINKER
+Linker Map File - Created Mon May 15 18:30:12 2023
+
+                                 Section Info
+                  Section       Type    Address   Location Size(Bytes)
+                ---------  ---------  ---------  ---------  ---------
+                   .org_0       code   0x000000    program   0x00007c
+                   .cinit    romdata   0x00003e    program   0x000004
+.config_2007_BUILD/DEFAULT/PRODUCTION/SERVOMO       code   0x002007    program   0x000002
+
+
+
+                              Program Memory Usage 
+                               Start         End      
+                           ---------   ---------      
+                            0x000000    0x00003f      
+                            0x002007    0x002007      
+            65 out of 1094 program addresses used, program memory utilization is 5%
+
+
+
+                              Symbols - Sorted by Name
+                     Name    Address   Location    Storage File                     
+                ---------  ---------  ---------  --------- ---------                
+                     HOME   0x00002c    program     static C:\SP_PROGRAMAS\U5\servomotor_diferentes_pines\servo_pines_dif.X\servomotor_diferentes_pines.asm
+                   HOME_2   0x000034    program     static C:\SP_PROGRAMAS\U5\servomotor_diferentes_pines\servo_pines_dif.X\servomotor_diferentes_pines.asm
+                      NOV   0x000036    program     static C:\SP_PROGRAMAS\U5\servomotor_diferentes_pines\servo_pines_dif.X\servomotor_diferentes_pines.asm
+              TIMEOF_15MS   0x000020    program     static C:\SP_PROGRAMAS\U5\servomotor_diferentes_pines\servo_pines_dif.X\servomotor_diferentes_pines.asm
+              TIMEOF_16MS   0x000026    program     static C:\SP_PROGRAMAS\U5\servomotor_diferentes_pines\servo_pines_dif.X\servomotor_diferentes_pines.asm
+               TIMEOF_1MS   0x00000e    program     static C:\SP_PROGRAMAS\U5\servomotor_diferentes_pines\servo_pines_dif.X\servomotor_diferentes_pines.asm
+               TIMEOF_2MS   0x000014    program     static C:\SP_PROGRAMAS\U5\servomotor_diferentes_pines\servo_pines_dif.X\servomotor_diferentes_pines.asm
+               TIMEOF_4MS   0x00001a    program     static C:\SP_PROGRAMAS\U5\servomotor_diferentes_pines\servo_pines_dif.X\servomotor_diferentes_pines.asm
+             TIMEOF_500US   0x000008    program     static C:\SP_PROGRAMAS\U5\servomotor_diferentes_pines\servo_pines_dif.X\servomotor_diferentes_pines.asm
+                 TIME_REB   0x00000b    program     static C:\SP_PROGRAMAS\U5\servomotor_diferentes_pines\servo_pines_dif.X\servomotor_diferentes_pines.asm
+                TIME_REB2   0x000011    program     static C:\SP_PROGRAMAS\U5\servomotor_diferentes_pines\servo_pines_dif.X\servomotor_diferentes_pines.asm
+                TIME_REB3   0x000017    program     static C:\SP_PROGRAMAS\U5\servomotor_diferentes_pines\servo_pines_dif.X\servomotor_diferentes_pines.asm
+                TIME_REB4   0x00001d    program     static C:\SP_PROGRAMAS\U5\servomotor_diferentes_pines\servo_pines_dif.X\servomotor_diferentes_pines.asm
+                TIME_REB5   0x000023    program     static C:\SP_PROGRAMAS\U5\servomotor_diferentes_pines\servo_pines_dif.X\servomotor_diferentes_pines.asm
+                TIME_REB6   0x000029    program     static C:\SP_PROGRAMAS\U5\servomotor_diferentes_pines\servo_pines_dif.X\servomotor_diferentes_pines.asm
+                      ZER   0x00002e    program     static C:\SP_PROGRAMAS\U5\servomotor_diferentes_pines\servo_pines_dif.X\servomotor_diferentes_pines.asm
+
+
+
+                              Symbols - Sorted by Address
+                     Name    Address   Location    Storage File                     
+                ---------  ---------  ---------  --------- ---------                
+             TIMEOF_500US   0x000008    program     static C:\SP_PROGRAMAS\U5\servomotor_diferentes_pines\servo_pines_dif.X\servomotor_diferentes_pines.asm
+                 TIME_REB   0x00000b    program     static C:\SP_PROGRAMAS\U5\servomotor_diferentes_pines\servo_pines_dif.X\servomotor_diferentes_pines.asm
+               TIMEOF_1MS   0x00000e    program     static C:\SP_PROGRAMAS\U5\servomotor_diferentes_pines\servo_pines_dif.X\servomotor_diferentes_pines.asm
+                TIME_REB2   0x000011    program     static C:\SP_PROGRAMAS\U5\servomotor_diferentes_pines\servo_pines_dif.X\servomotor_diferentes_pines.asm
+               TIMEOF_2MS   0x000014    program     static C:\SP_PROGRAMAS\U5\servomotor_diferentes_pines\servo_pines_dif.X\servomotor_diferentes_pines.asm
+                TIME_REB3   0x000017    program     static C:\SP_PROGRAMAS\U5\servomotor_diferentes_pines\servo_pines_dif.X\servomotor_diferentes_pines.asm
+               TIMEOF_4MS   0x00001a    program     static C:\SP_PROGRAMAS\U5\servomotor_diferentes_pines\servo_pines_dif.X\servomotor_diferentes_pines.asm
+                TIME_REB4   0x00001d    program     static C:\SP_PROGRAMAS\U5\servomotor_diferentes_pines\servo_pines_dif.X\servomotor_diferentes_pines.asm
+              TIMEOF_15MS   0x000020    program     static C:\SP_PROGRAMAS\U5\servomotor_diferentes_pines\servo_pines_dif.X\servomotor_diferentes_pines.asm
+                TIME_REB5   0x000023    program     static C:\SP_PROGRAMAS\U5\servomotor_diferentes_pines\servo_pines_dif.X\servomotor_diferentes_pines.asm
+              TIMEOF_16MS   0x000026    program     static C:\SP_PROGRAMAS\U5\servomotor_diferentes_pines\servo_pines_dif.X\servomotor_diferentes_pines.asm
+                TIME_REB6   0x000029    program     static C:\SP_PROGRAMAS\U5\servomotor_diferentes_pines\servo_pines_dif.X\servomotor_diferentes_pines.asm
+                     HOME   0x00002c    program     static C:\SP_PROGRAMAS\U5\servomotor_diferentes_pines\servo_pines_dif.X\servomotor_diferentes_pines.asm
+                      ZER   0x00002e    program     static C:\SP_PROGRAMAS\U5\servomotor_diferentes_pines\servo_pines_dif.X\servomotor_diferentes_pines.asm
+                   HOME_2   0x000034    program     static C:\SP_PROGRAMAS\U5\servomotor_diferentes_pines\servo_pines_dif.X\servomotor_diferentes_pines.asm
+                      NOV   0x000036    program     static C:\SP_PROGRAMAS\U5\servomotor_diferentes_pines\servo_pines_dif.X\servomotor_diferentes_pines.asm
+
+
