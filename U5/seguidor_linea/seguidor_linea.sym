@@ -1,0 +1,56 @@
+004-005 @READ_PROGRAM_MEMORY8.P1
+009-00A @READ_PROGRAM_MEMORY8.P1
+00C     @SCRATCH
+00D     @SCRATCH
+00D     _RETURN_
+00E     @SCRATCH
+00F     @SCRATCH
+010     pot_izq
+011     pot_der
+012     k_cerradas
+013     k
+014     MAIN.sensores
+015     MAIN.@SCRATCH1
+016     @delay_us1.P1
+
+ROM Allocation:
+000004  derecha_cerrada
+000009  derecha
+00000E  izquierda_cerrada
+000013  izquierda
+000018  frente
+00001C  @delay_us1
+00002F  MAIN
+00002F  @cinit1
+000037  @cinit2
+
+Project Directory:
+    C:\SP_PROGRAMAS\U5\seguidor_linea\
+
+Project Files:
+    seguidor_linea.c                                        [22-may.-23 15:19  CRC=545894FE]
+    ..\..\..\Program Files (x86)\PICC\Devices\16F84A.h      [12-nov.-13 14:34  CRC=4E09ACDB]
+
+Source signature=F06BEEB4
+
+Units:
+    seguidor_linea (main)
+
+Compiler Settings:
+    Processor:      PIC16F84A
+    Pointer Size:   8
+    Opt Level:      9
+    Short,Int,Long: UNSIGNED: 1,8,16
+    Float,Double:   32,32
+
+Output Files:
+    XREF file:   seguidor_linea.xsym
+    Errors:      seguidor_linea.err
+    Ext Symbols: seguidor_linea.esym
+    INHX8:       seguidor_linea.hex
+    Symbols:     seguidor_linea.sym
+    List:        seguidor_linea.lst
+    Debug/COFF:  seguidor_linea.cof
+    Project:     seguidor_linea.ccspjt
+    Call Tree:   seguidor_linea.tre
+    Statistics:  seguidor_linea.STA
