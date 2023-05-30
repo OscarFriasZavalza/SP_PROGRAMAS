@@ -1,0 +1,27 @@
+#include <16F84A.h>
+#fuses XT, NOWDT
+#use delay(clock = 4000000)
+#use standard_io(B)
+
+#define SERVO_PIN PIN_B0
+
+#include <servo_st.c>
+
+void main()
+{
+   set_tris_b(0b11111110);   // Configura el pin B0 como salida (pin del servo)
+   servo_init();             // Inicializa el módulo del servomotor
+   
+   while (1)
+   {
+      servo_1_write(0);       // Mueve el servomotor a 0 grados
+      delay_ms(1000);
+      
+      servo_1_write(90);      // Mueve el servomotor a 90 grados
+      delay_ms(1000);
+      
+      servo_1_write(180);     // Mueve el servomotor a 180 grados
+      delay_ms(1000);
+   }
+}
+

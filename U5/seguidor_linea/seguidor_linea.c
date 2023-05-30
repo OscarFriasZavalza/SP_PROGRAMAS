@@ -6,8 +6,8 @@
 
 int pot_izq = 0; // Potencia del motor izquierdo
 int pot_der = 0; // Potencia del motor derecho
-int k_cerradas = 0; // Constante para curvas cerradas (0-255) 0 es curva muy cerrada, 255 es una recta --> Se recomienda usar un valor mayor a 20
-int k = 230; // Constante para giro leve --> Se recomienda ajustar según las características del robot
+int k_cerradas = 20; // Constante para curvas cerradas (0-255) 0 es curva muy cerrada, 255 es una recta --> Se recomienda usar un valor mayor a 20
+int k = 150; // Constante para giro leve --> Se recomienda ajustar según las características del robot
 
 void frente(void) // Ambos motores al máximo de potencia
 {
@@ -42,9 +42,9 @@ void derecha_cerrada(void)
 void main(void)
 { 
    int sensores = 0b000;
-   set_tris_B(0x00); // Puerto B como salidas
-   set_tris_A(0xFF); // Puerto A como entradas digitales
-   OUTPUT_B(0); // Inicializamos en 0 el puerto B
+   set_tris_B(0b10000000); // Puerto B como salidas
+   set_tris_A(0b11111111); // Puerto A como entradas digitales
+  // OUTPUT_B(0); // Inicializamos en 0 el puerto B
 
    // Dirección de los motores hacia adelante
    output_high(PIN_B0);
@@ -79,6 +79,10 @@ void main(void)
 
       output_low(PIN_B5); // Desactiva el motor derecho
       delay_us(255 - pot_der); // Retardo complementario para mantener el ciclo de trabajo
+      
+      if(input_state(PIN_B7)==1){
+         output_high(PIN_B6);
+      } else output_low(PIN_b6);
    }
 }
 

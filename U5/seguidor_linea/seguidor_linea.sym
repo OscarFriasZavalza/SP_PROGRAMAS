@@ -22,16 +22,16 @@ ROM Allocation:
 00001C  @delay_us1
 00002F  MAIN
 00002F  @cinit1
-000037  @cinit2
+000038  @cinit2
 
 Project Directory:
     C:\SP_PROGRAMAS\U5\seguidor_linea\
 
 Project Files:
-    seguidor_linea.c                                        [22-may.-23 15:19  CRC=545894FE]
+    seguidor_linea.c                                        [25-may.-23 16:02  CRC=8E30D8BD]
     ..\..\..\Program Files (x86)\PICC\Devices\16F84A.h      [12-nov.-13 14:34  CRC=4E09ACDB]
 
-Source signature=F06BEEB4
+Source signature=2A443273
 
 Units:
     seguidor_linea (main)

@@ -1,0 +1,11 @@
+>>> Warning 203 "main.c" Line 13(1,1): Condition always TRUE
+>>> Warning 204 "main.c" Line 15(1,1): Condition always FALSE   RB0
+*** Error 12 "main.c" Line 15(7,10): Undefined identifier
+*** Error 12 "main.c" Line 16(13,14): Undefined identifier  -- _delay
+*** Error 12 "main.c" Line 17(7,10): Undefined identifier   RBO
+*** Error 12 "main.c" Line 20(7,10): Undefined identifier   RB1
+*** Error 12 "main.c" Line 21(13,14): Undefined identifier  -- _delay
+*** Error 12 "main.c" Line 22(7,10): Undefined identifier   RB1
+*** Error 12 "main.c" Line 25(10,13): Undefined identifier   RB2
+*** Error 12 "main.c" Line 26(13,14): Undefined identifier  -- _delay
+*** Error 12 "main.c" Line 27(7,10): Undefined identifier   RB2

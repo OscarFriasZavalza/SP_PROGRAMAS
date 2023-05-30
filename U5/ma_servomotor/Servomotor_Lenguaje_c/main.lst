@@ -1,0 +1,331 @@
+CCS PCM C Compiler, Version 5.015, 5967               25-may.-23 12:14
+
+               Filename:   C:\SP_PROGRAMAS\U5\ma_servomotor\Servomotor_Lenguaje_c\main.lst
+
+               ROM used:   154 words (15%)
+                           Largest free fragment is 870
+               RAM used:   6 (9%) at main() level
+                           7 (10%) worst case
+               Stack used: 1 locations
+               Stack size: 8
+
+*
+0000:  MOVLW  00
+0001:  MOVWF  0A
+0002:  GOTO   018
+0003:  NOP
+....................  
+....................  
+.................... //////////////////////////////////////////////////////////////////////////////// 
+.................... //////////////////////////////////////////////////////////////////////////////// 
+.................... ///          Parpadeo de LED´S    con PIC16F84A   /// 
+.................... ///          A velocidad dentro del rango de pulso      /// 
+.................... ///          en que trabajan los Servomotores             /// 
+.................... ////////////////////////////////////////////////////////////////////////////// 
+.................... ////////////////////////////////////////////////////////////////////////////// 
+....................  
+....................  
+.................... ///  Teoricamente deberia trabajar con .5ms, 1.5ms y 2.5ms 
+.................... ///  Pero el servo Vigor Vs-2 se atoraba un poco en los extremos asi que lo deje 
+.................... ///  En .6, 1.5 y 2.4, solo ajustar los valores con el tipo de servo, ya que varian 
+.................... ///  Un poco. 
+....................  
+....................  
+....................  
+.................... ///////////////////////////// DIRECTIVAS DE PREPROCESADO ////////////////////// 
+....................  
+.................... ///   libreria para el manejo del pic16f84a 
+.................... #include <16F84A.h> 
+.................... //////////// Standard Header file for the PIC16F84A device //////////////// 
+.................... /////////////////////////////////////////////////////////////////////////// 
+.................... ////        (C) Copyright 1996, 2013 Custom Computer Services          //// 
+.................... //// This source code may only be used by licensed users of the CCS C  //// 
+.................... //// compiler.  This source code may only be distributed to other      //// 
+.................... //// licensed users of the CCS C compiler.  No other use, reproduction //// 
+.................... //// or distribution is permitted without written permission.          //// 
+.................... //// Derivative programs created using this software in object code    //// 
+.................... //// form are not restricted in any way.                               //// 
+.................... /////////////////////////////////////////////////////////////////////////// 
+.................... #device PIC16F84A 
+....................  
+.................... #list 
+....................  
+....................  
+.................... ///   declara  la frecuencia del cristal a 4 Mhz 
+.................... #use delay(clock=4000000) 
+0004:  MOVLW  12
+0005:  MOVWF  04
+0006:  MOVF   00,W
+0007:  BTFSC  03.2
+0008:  GOTO   017
+0009:  MOVLW  01
+000A:  MOVWF  0D
+000B:  CLRF   0C
+000C:  DECFSZ 0C,F
+000D:  GOTO   00C
+000E:  DECFSZ 0D,F
+000F:  GOTO   00B
+0010:  MOVLW  4A
+0011:  MOVWF  0C
+0012:  DECFSZ 0C,F
+0013:  GOTO   012
+0014:  GOTO   015
+0015:  DECFSZ 00,F
+0016:  GOTO   009
+0017:  RETURN
+....................  
+.................... ///configura los fusibles 
+.................... /// HS es la configuraricion del oscilador la cual indica High speed es decir 
+.................... /// frecuencias altas esto es a partir de 8 Mhz. 
+.................... /// NOWDT deshabilita el Watch Dog Timer 
+.................... /// NOPUT deshabilita le reseteo de power up timer 
+.................... /// NOPROTECT deshabilita la proteccion del codigo del pic. 
+.................... #fuses HS,NOWDT,NOPUT,NOPROTECT 
+....................  
+.................... ///  asignamos a variable port_b el espacio memoria 0x06 que es la dir de port_b 
+.................... #byte port_b=0x06 
+....................  
+.................... //////////////////////////GLOBALES////////////////////////////////////////////// 
+.................... ///         Estos parámetros son visibles desde todo el código                /// 
+.................... ///                    por eso se les llama globales                                    /// 
+.................... ///          Al ser constantes,lo más práctico es declararlas aquí.           /// 
+.................... //////////////////////////////////////////////////////////////////////////////////// 
+.................... int i; 
+.................... int contador; 
+....................  
+.................... ////////////////////////// Principal  ////////////////////////////////////////// 
+....................  
+.................... void main(){       
+0018:  MOVF   03,W
+0019:  ANDLW  1F
+001A:  MOVWF  03
+....................  
+.................... /// declaramos el puerto B como salidas 
+.................... set_tris_b(0); 
+001B:  MOVLW  00
+001C:  BSF    03.5
+001D:  MOVWF  06
+....................  
+.................... /// lo igualamos con cero para que tengamos un valor inicial de lo contrario 
+.................... /// no sabriamos con que valor iniciaria al comienzo de nuestro programa 
+.................... port_b=0; 
+001E:  BCF    03.5
+001F:  CLRF   06
+....................  
+.................... /// bucle infinito para que las instrucciones que tiene siempre se ejecuten 
+.................... while (true) 
+....................  
+.................... { 
+.................... i=0; 
+0020:  CLRF   10
+....................  
+.................... for(i=0;i<50;i++) 
+0021:  CLRF   10
+0022:  MOVF   10,W
+0023:  SUBLW  31
+0024:  BTFSS  03.0
+0025:  GOTO   03D
+....................    { 
+.................... /// activa todos los pins del puerto B 
+.................... /// otra instruccion que podemos poner es contador=255 las dos son lo mismo 
+.................... contador=0xff;     
+0026:  MOVLW  FF
+0027:  MOVWF  11
+.................... port_b=contador; 
+0028:  MOVF   11,W
+0029:  MOVWF  06
+....................  
+....................  
+.................... /// Retardo de milisegundos es decir .6ms 
+....................  
+.................... delay_us(600); 
+002A:  MOVLW  C7
+002B:  MOVWF  0C
+002C:  DECFSZ 0C,F
+002D:  GOTO   02C
+002E:  GOTO   02F
+....................  
+.................... //// apaga todos los pins del puerto B 
+.................... contador=0x00; 
+002F:  CLRF   11
+.................... port_b=contador; 
+0030:  MOVF   11,W
+0031:  MOVWF  06
+....................  
+.................... /// Retardo de 1000 milisegundos es decir 1 segundo 
+.................... delay_ms(19); 
+0032:  MOVLW  13
+0033:  MOVWF  12
+0034:  CALL   004
+.................... delay_us(400); 
+0035:  MOVLW  84
+0036:  MOVWF  0C
+0037:  DECFSZ 0C,F
+0038:  GOTO   037
+0039:  GOTO   03A
+003A:  NOP
+003B:  INCF   10,F
+003C:  GOTO   022
+....................    } 
+.................... for(i=0;i<50;i++) 
+003D:  CLRF   10
+003E:  MOVF   10,W
+003F:  SUBLW  31
+0040:  BTFSS  03.0
+0041:  GOTO   05B
+....................    { 
+.................... /// activa todos los pins del puerto B 
+.................... /// otra instruccion que podemos poner es contador=255 las dos son lo mismo 
+.................... contador=0xff;     
+0042:  MOVLW  FF
+0043:  MOVWF  11
+.................... port_b=contador; 
+0044:  MOVF   11,W
+0045:  MOVWF  06
+....................  
+.................... /// Retardo de 1000 milisegundos es decir 1 segundo 
+.................... delay_ms(1); 
+0046:  MOVLW  01
+0047:  MOVWF  12
+0048:  CALL   004
+.................... delay_us(500); 
+0049:  MOVLW  A6
+004A:  MOVWF  0C
+004B:  DECFSZ 0C,F
+004C:  GOTO   04B
+004D:  NOP
+....................  
+.................... /// apaga todos los pins del puerto B 
+.................... contador=0x00; 
+004E:  CLRF   11
+.................... port_b=contador; 
+004F:  MOVF   11,W
+0050:  MOVWF  06
+....................  
+.................... /// Retardo de 18.5ms 
+.................... delay_ms(18); 
+0051:  MOVLW  12
+0052:  MOVWF  12
+0053:  CALL   004
+.................... delay_us(500); 
+0054:  MOVLW  A6
+0055:  MOVWF  0C
+0056:  DECFSZ 0C,F
+0057:  GOTO   056
+0058:  NOP
+0059:  INCF   10,F
+005A:  GOTO   03E
+....................    }  
+....................  
+.................... /// Del 0 al 49 son 50 veces que mandamos un pulso de 20ms 
+.................... ///  
+.................... for(i=0;i<50;i++) 
+005B:  CLRF   10
+005C:  MOVF   10,W
+005D:  SUBLW  31
+005E:  BTFSS  03.0
+005F:  GOTO   07A
+....................    { 
+.................... /// activa todos los pins del puerto B 
+.................... /// otra instruccion que podemos poner es contador=255 las dos son lo mismo 
+.................... contador=0xff;     
+0060:  MOVLW  FF
+0061:  MOVWF  11
+.................... port_b=contador; 
+0062:  MOVF   11,W
+0063:  MOVWF  06
+....................  
+....................  
+.................... /// Retardo de milisegundos es decir 1.4ms 
+.................... delay_ms(1); 
+0064:  MOVLW  01
+0065:  MOVWF  12
+0066:  CALL   004
+.................... delay_us(400); 
+0067:  MOVLW  84
+0068:  MOVWF  0C
+0069:  DECFSZ 0C,F
+006A:  GOTO   069
+006B:  GOTO   06C
+006C:  NOP
+....................  
+.................... //// apaga todos los pins del puerto B 
+.................... contador=0x00; 
+006D:  CLRF   11
+.................... port_b=contador; 
+006E:  MOVF   11,W
+006F:  MOVWF  06
+....................  
+.................... /// Retardo de 1000 milisegundos es decir 1 segundo 
+.................... delay_ms(18); 
+0070:  MOVLW  12
+0071:  MOVWF  12
+0072:  CALL   004
+.................... delay_us(600); 
+0073:  MOVLW  C7
+0074:  MOVWF  0C
+0075:  DECFSZ 0C,F
+0076:  GOTO   075
+0077:  GOTO   078
+0078:  INCF   10,F
+0079:  GOTO   05C
+....................    } 
+.................... for(i=0;i<50;i++) 
+007A:  CLRF   10
+007B:  MOVF   10,W
+007C:  SUBLW  31
+007D:  BTFSS  03.0
+007E:  GOTO   098
+....................    { 
+.................... /// activa todos los pins del puerto B 
+.................... /// otra instruccion que podemos poner es contador=255 las dos son lo mismo 
+.................... contador=0xff;     
+007F:  MOVLW  FF
+0080:  MOVWF  11
+.................... port_b=contador; 
+0081:  MOVF   11,W
+0082:  MOVWF  06
+....................  
+.................... /// Retardo de 1000 milisegundos es decir 1 segundo 
+.................... delay_ms(1); 
+0083:  MOVLW  01
+0084:  MOVWF  12
+0085:  CALL   004
+.................... delay_us(500); 
+0086:  MOVLW  A6
+0087:  MOVWF  0C
+0088:  DECFSZ 0C,F
+0089:  GOTO   088
+008A:  NOP
+....................  
+.................... /// apaga todos los pins del puerto B 
+.................... contador=0x00; 
+008B:  CLRF   11
+.................... port_b=contador; 
+008C:  MOVF   11,W
+008D:  MOVWF  06
+....................  
+.................... /// Retardo de 18.5ms 
+.................... delay_ms(18); 
+008E:  MOVLW  12
+008F:  MOVWF  12
+0090:  CALL   004
+.................... delay_us(500); 
+0091:  MOVLW  A6
+0092:  MOVWF  0C
+0093:  DECFSZ 0C,F
+0094:  GOTO   093
+0095:  NOP
+0096:  INCF   10,F
+0097:  GOTO   07B
+....................    }  
+0098:  GOTO   020
+....................  
+.................... /// Del 0 al 49 son 50 veces que mandamos un pulso de 20ms 
+.................... ///  
+.................... } /// fin de bucle while 
+.................... } /// fin de funcion principal main 
+0099:  SLEEP
+
+Configuration Fuses:
+   Word  1: 3FFA   HS NOWDT NOPUT NOPROTECT

@@ -1,8 +1,8 @@
 d G "INT_TIMER0" 1 401 "0x000B20"
-D G "__PCM__" 0 86 ""5.015""
-D G "__DEVICE__" 0 86 "84"
-D G "__DATE__" 0 86 ""22-may.-23""
-D G "__TIME__" 0 86 ""15:19:09"" "Standard Header file for the PIC16F84A device ////////////////"
+D G "__PCM__" 0 90 ""5.015""
+D G "__DEVICE__" 0 90 "84"
+D G "__DATE__" 0 90 ""25-may.-23""
+D G "__TIME__" 0 90 ""16:02:39"" "Standard Header file for the PIC16F84A device ////////////////"
 c L "set_tris_a" 1 3 6 "FUNCTION"
 v L "value" 1 35 "int8" `53 
 f B "set_tris_a" 1 35 "void(int8 value)" `52 
@@ -544,9 +544,9 @@ F G "derecha_cerrada" 0 37 "void()" `509
 F G "MAIN" 0 43 "void()" `510 
 V L "sensores" 0 44 "int8" `511 
 C L "MAIN" 0 7 1 "FUNCTION"
+C L "MAIN" 0 7 3 "FUNCTION"
+C L "MAIN" 0 7 2 "FUNCTION"
 C L "MAIN" 0 7 1 "FUNCTION"
-C L "MAIN" 0 7 2 "FUNCTION"
-C L "MAIN" 0 7 2 "FUNCTION"
 C L "MAIN" 0 7 1 "FUNCTION"
 C L "MAIN" 0 7 1 "FUNCTION"
 C L "MAIN" 0 7 1 "FUNCTION"

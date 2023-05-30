@@ -1,9 +1,9 @@
-CCS PCM C Compiler, Version 5.015, 5967               22-may.-23 15:19
+CCS PCM C Compiler, Version 5.015, 5967               25-may.-23 16:02
 
                Filename:   C:\SP_PROGRAMAS\U5\seguidor_linea\seguidor_linea.lst
 
-               ROM used:   112 words (11%)
-                           Largest free fragment is 912
+               ROM used:   117 words (11%)
+                           Largest free fragment is 907
                RAM used:   10 (15%) at main() level
                            11 (16%) worst case
                Stack used: 1 locations
@@ -56,8 +56,8 @@ CCS PCM C Compiler, Version 5.015, 5967               22-may.-23 15:19
 ....................  
 .................... int pot_izq = 0; // Potencia del motor izquierdo 
 .................... int pot_der = 0; // Potencia del motor derecho 
-.................... int k_cerradas = 0; // Constante para curvas cerradas (0-255) 0 es curva muy cerrada, 255 es una recta --> Se recomienda usar un valor mayor a 20 
-.................... int k = 230; // Constante para giro leve --> Se recomienda ajustar según las características del robot 
+.................... int k_cerradas = 20; // Constante para curvas cerradas (0-255) 0 es curva muy cerrada, 255 es una recta --> Se recomienda usar un valor mayor a 20 
+.................... int k = 150; // Constante para giro leve --> Se recomienda ajustar según las características del robot 
 ....................  
 .................... void frente(void) // Ambos motores al máximo de potencia 
 .................... { 
@@ -125,25 +125,25 @@ CCS PCM C Compiler, Version 5.015, 5967               22-may.-23 15:19
 0031:  MOVWF  03
 0032:  CLRF   10
 0033:  CLRF   11
-0034:  CLRF   12
-0035:  MOVLW  E6
-0036:  MOVWF  13
-0037:  CLRF   14
+0034:  MOVLW  14
+0035:  MOVWF  12
+0036:  MOVLW  96
+0037:  MOVWF  13
+0038:  CLRF   14
 .................... {  
 ....................    int sensores = 0b000; 
-....................    set_tris_B(0x00); // Puerto B como salidas 
-0038:  MOVLW  00
-0039:  BSF    03.5
-003A:  MOVWF  06
-....................    set_tris_A(0xFF); // Puerto A como entradas digitales 
-003B:  MOVLW  FF
-003C:  MOVWF  05
-....................    OUTPUT_B(0); // Inicializamos en 0 el puerto B 
-003D:  BCF    03.5
-003E:  CLRF   06
+....................    set_tris_B(0b10000000); // Puerto B como salidas 
+0039:  MOVLW  80
+003A:  BSF    03.5
+003B:  MOVWF  06
+....................    set_tris_A(0b11111111); // Puerto A como entradas digitales 
+003C:  MOVLW  FF
+003D:  MOVWF  05
+....................   // OUTPUT_B(0); // Inicializamos en 0 el puerto B 
 ....................  
 ....................    // Dirección de los motores hacia adelante 
 ....................    output_high(PIN_B0); 
+003E:  BCF    03.5
 003F:  BSF    06.0
 ....................    output_low(PIN_B1); 
 0040:  BCF    06.1
@@ -222,11 +222,20 @@ CCS PCM C Compiler, Version 5.015, 5967               22-may.-23 15:19
 006B:  MOVF   15,W
 006C:  MOVWF  16
 006D:  CALL   01C
-006E:  GOTO   043
+....................        
+....................       if(input_state(PIN_B7)==1){ 
+006E:  BTFSS  06.7
+006F:  GOTO   072
+....................          output_high(PIN_B6); 
+0070:  BSF    06.6
+....................       } else output_low(PIN_b6); 
+0071:  GOTO   073
+0072:  BCF    06.6
+0073:  GOTO   043
 ....................    } 
 .................... } 
 ....................  
-006F:  SLEEP
+0074:  SLEEP
 
 Configuration Fuses:
    Word  1: 3FF1   XT NOWDT PUT NOPROTECT

@@ -1,0 +1,148 @@
+
+Aqui el codigo ...
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+///          Parpadeo de LED´S    con PIC16F84A   ///
+///          A velocidad dentro del rango de pulso      ///
+///          en que trabajan los Servomotores             ///
+//////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////
+
+
+///  Teoricamente deberia trabajar con .5ms, 1.5ms y 2.5ms
+///  Pero el servo Vigor Vs-2 se atoraba un poco en los extremos asi que lo deje
+///  En .6, 1.5 y 2.4, solo ajustar los valores con el tipo de servo, ya que varian
+///  Un poco.
+
+
+
+///////////////////////////// DIRECTIVAS DE PREPROCESADO //////////////////////
+
+///   libreria para el manejo del pic16f84a
+#include <16F84A.h>
+
+///   declara  la frecuencia del cristal a 4 Mhz
+#use delay(clock=4000000)
+
+///configura los fusibles
+/// HS es la configuraricion del oscilador la cual indica High speed es decir
+/// frecuencias altas esto es a partir de 8 Mhz.
+/// NOWDT deshabilita el Watch Dog Timer
+/// NOPUT deshabilita le reseteo de power up timer
+/// NOPROTECT deshabilita la proteccion del codigo del pic.
+#fuses HS,NOWDT,NOPUT,NOPROTECT
+
+///  asignamos a variable port_b el espacio memoria 0x06 que es la dir de port_b
+#byte port_b=0x06
+
+//////////////////////////GLOBALES//////////////////////////////////////////////
+///         Estos parámetros son visibles desde todo el código                ///
+///                    por eso se les llama globales                                    ///
+///          Al ser constantes,lo más práctico es declararlas aquí.           ///
+////////////////////////////////////////////////////////////////////////////////////
+int i;
+int contador;
+
+////////////////////////// Principal  //////////////////////////////////////////
+
+void main(){      
+
+/// declaramos el puerto B como salidas
+set_tris_b(0);
+
+/// lo igualamos con cero para que tengamos un valor inicial de lo contrario
+/// no sabriamos con que valor iniciaria al comienzo de nuestro programa
+port_b=0;
+
+/// bucle infinito para que las instrucciones que tiene siempre se ejecuten
+while (true)
+
+{
+i=0;
+
+for(i=0;i<50;i++)
+   {
+/// activa todos los pins del puerto B
+/// otra instruccion que podemos poner es contador=255 las dos son lo mismo
+contador=0xff;    
+port_b=contador;
+
+
+/// Retardo de milisegundos es decir .6ms
+
+delay_us(600);
+
+//// apaga todos los pins del puerto B
+contador=0x00;
+port_b=contador;
+
+/// Retardo de 1000 milisegundos es decir 1 segundo
+delay_ms(19);
+delay_us(400);
+   }
+for(i=0;i<50;i++)
+   {
+/// activa todos los pins del puerto B
+/// otra instruccion que podemos poner es contador=255 las dos son lo mismo
+contador=0xff;    
+port_b=contador;
+
+/// Retardo de 1000 milisegundos es decir 1 segundo
+delay_ms(1);
+delay_us(500);
+
+/// apaga todos los pins del puerto B
+contador=0x00;
+port_b=contador;
+
+/// Retardo de 18.5ms
+delay_ms(18);
+delay_us(500);
+   } 
+
+/// Del 0 al 49 son 50 veces que mandamos un pulso de 20ms
+/// 
+for(i=0;i<50;i++)
+   {
+/// activa todos los pins del puerto B
+/// otra instruccion que podemos poner es contador=255 las dos son lo mismo
+contador=0xff;    
+port_b=contador;
+
+
+/// Retardo de milisegundos es decir 1.4ms
+delay_ms(1)
+delay_us(400);
+
+//// apaga todos los pins del puerto B
+contador=0x00;
+port_b=contador;
+
+/// Retardo de 1000 milisegundos es decir 1 segundo
+delay_ms(18);
+delay_us(600);
+   }
+for(i=0;i<50;i++)
+   {
+/// activa todos los pins del puerto B
+/// otra instruccion que podemos poner es contador=255 las dos son lo mismo
+contador=0xff;    
+port_b=contador;
+
+/// Retardo de 1000 milisegundos es decir 1 segundo
+delay_ms(1);
+delay_us(500);
+
+/// apaga todos los pins del puerto B
+contador=0x00;
+port_b=contador;
+
+/// Retardo de 18.5ms
+delay_ms(18);
+delay_us(500);
+   } 
+
+/// Del 0 al 49 son 50 veces que mandamos un pulso de 20ms
+/// 
+} /// fin de bucle while
+} /// fin de funcion principal main

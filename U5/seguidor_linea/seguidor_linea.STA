@@ -1,6 +1,6 @@
 
-ROM used:   112/1024 (11%)
-            112/1024 (11%) including unused fragments
+ROM used:   117/1024 (11%)
+            117/1024 (11%) including unused fragments
 
             0.2 Average locations per line
             2.9 Average locations per statement
@@ -13,38 +13,38 @@ Stack size: 8
 
 Lines Stmts  %   Files
 ----- ----- ---  -----
-   85    38 100  seguidor_linea.c
+   89    41 100  seguidor_linea.c
   404     0   0  ..\..\..\Program Files (x86)\PICC\Devices\16F84A.h
 ----- -----
-  489    38 Total
+  493    41 Total
 
 Page ROM  %  RAM   Vol Diff  Functions:
 ---- --- --- ---   --- ----  ----------
-0     19  17    1             @delay_us1
-0      4   4    0    38  1.4  frente
+0     19  16    1             @delay_us1
+0      4   3    0    38  1.4  frente
 0      5   4    0    38  1.4  izquierda
 0      5   4    0    38  1.4  izquierda_cerrada
 0      5   4    0    38  1.4  derecha
 0      5   4    0    38  1.4  derecha_cerrada
-0     65  58    2   726  3.9  MAIN
+0     70  60    2   821  4.4  MAIN
  Inline         0             @cinit1
 
 Program metrics:
     Functions               6
-    Statements              38
+    Statements              41
     Comments                90
-    Volume (V)              1218
-    Difficulty (D)          11.9
-    Effort to implement (E) 14482
-    Time to implement (T)   13 minutes
+    Volume (V)              1321
+    Difficulty (D)          12.4
+    Effort to implement (E) 16416
+    Time to implement (T)   15 minutes
     Est Delivered Bugs (B)  0
-    Cyclomatic Complexity   5
-    Maintainability (MI)    99
+    Cyclomatic Complexity   6
+    Maintainability (MI)    98
 
  Segment     Used  Free
 -----------  ----  ----
 00000-00003     4  0  
-00004-003FF   108  912  
+00004-003FF   113  907  
 
 
 

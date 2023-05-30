@@ -1,0 +1,38 @@
+#include <16F84A.h>
+#fuses XT, NOWDT
+#use delay(clock = 4000000)
+
+#define SERVO_PIN PIN_B0
+#define POS_HOME 0
+#define POS_90 90
+
+void delay_us(unsigned int time_us) {
+   unsigned int i;
+   for(i = 0; i < time_us; i++) {
+      delay_us(1);
+   }
+}
+
+void servo_write(unsigned int position) {
+   output_high(SERVO_PIN);
+   delay_us(position);
+   output_low(SERVO_PIN);
+   delay_us(20000 - position);
+}
+
+void main() {
+   set_tris_a(0b00000011);   // Configura los dos primeros pines del puerto A como entradas
+   set_tris_b(0b00000000);
+   
+   while (1) {
+      if (input(PIN_A0)) {
+         servo_write(POS_HOME);
+         delay_ms(1000);
+      }
+      else if (input(PIN_A1)) {
+         servo_write(POS_90);
+         delay_ms(1000);
+      }
+   }
+}
+

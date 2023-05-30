@@ -1,0 +1,38 @@
+#include <16F84A.h>
+#fuses XT, NOWDT
+#use delay(clock = 4000000)
+#use standard_io(B)
+#use standard_io(A)
+
+#define use_servo_1           // Utiliza el servo 1
+#define servo_1 PIN_B0        // Pin del servo 1
+#include <servo_st.c>         // Libreria para el manejo de servomotores
+
+void main()
+{
+   set_tris_a(0b00000011);   // Configura los dos primeros pines del puerto A como entradas
+
+   servo_init();             // Inicializa el servo
+
+   while (true)
+   {
+      int angle = 0;
+      
+      if (input(PIN_A0))
+      {
+         angle = 0;
+      }
+      else if (input(PIN_A1))
+      {
+         angle = 90;
+      }
+      else
+      {
+         angle = 180;
+      }
+      
+      servo_1_write(angle);
+      delay_ms(1000);
+   }
+}
+
