@@ -57,17 +57,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=EJERCICIO_5_1.asm
+SOURCEFILES_QUOTED_IF_SPACED=newpic_8b_simple.asm
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/EJERCICIO_5_1.o
-POSSIBLE_DEPFILES=${OBJECTDIR}/EJERCICIO_5_1.o.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/newpic_8b_simple.o
+POSSIBLE_DEPFILES=${OBJECTDIR}/newpic_8b_simple.o.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/EJERCICIO_5_1.o
+OBJECTFILES=${OBJECTDIR}/newpic_8b_simple.o
 
 # Source Files
-SOURCEFILES=EJERCICIO_5_1.asm
+SOURCEFILES=newpic_8b_simple.asm
 
 
 CFLAGS=
@@ -94,22 +94,22 @@ MP_LINKER_DEBUG_OPTION=
 # ------------------------------------------------------------------------------------
 # Rules for buildStep: assemble
 ifeq ($(TYPE_IMAGE), DEBUG_RUN)
-${OBJECTDIR}/EJERCICIO_5_1.o: EJERCICIO_5_1.asm  nbproject/Makefile-${CND_CONF}.mk
+${OBJECTDIR}/newpic_8b_simple.o: newpic_8b_simple.asm  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/EJERCICIO_5_1.o.d 
-	@${RM} ${OBJECTDIR}/EJERCICIO_5_1.o 
-	@${FIXDEPS} dummy.d -e "${OBJECTDIR}/EJERCICIO_5_1.err" $(SILENT) -c ${MP_AS} $(MP_EXTRA_AS_PRE) -d__DEBUG -d__MPLAB_DEBUGGER_ICD3=1 -q -p$(MP_PROCESSOR_OPTION)  -l\"${OBJECTDIR}/EJERCICIO_5_1.lst\" -e\"${OBJECTDIR}/EJERCICIO_5_1.err\" $(ASM_OPTIONS)    -o\"${OBJECTDIR}/EJERCICIO_5_1.o\" \"EJERCICIO_5_1.asm\" 
-	@${DEP_GEN} -d "${OBJECTDIR}/EJERCICIO_5_1.o"
-	@${FIXDEPS} "${OBJECTDIR}/EJERCICIO_5_1.o.d" $(SILENT) -rsi ${MP_AS_DIR} -c18 
+	@${RM} ${OBJECTDIR}/newpic_8b_simple.o.d 
+	@${RM} ${OBJECTDIR}/newpic_8b_simple.o 
+	@${FIXDEPS} dummy.d -e "${OBJECTDIR}/newpic_8b_simple.err" $(SILENT) -c ${MP_AS} $(MP_EXTRA_AS_PRE) -d__DEBUG -d__MPLAB_DEBUGGER_ICD3=1 -q -p$(MP_PROCESSOR_OPTION)  -l\"${OBJECTDIR}/newpic_8b_simple.lst\" -e\"${OBJECTDIR}/newpic_8b_simple.err\" $(ASM_OPTIONS)    -o\"${OBJECTDIR}/newpic_8b_simple.o\" \"newpic_8b_simple.asm\" 
+	@${DEP_GEN} -d "${OBJECTDIR}/newpic_8b_simple.o"
+	@${FIXDEPS} "${OBJECTDIR}/newpic_8b_simple.o.d" $(SILENT) -rsi ${MP_AS_DIR} -c18 
 	
 else
-${OBJECTDIR}/EJERCICIO_5_1.o: EJERCICIO_5_1.asm  nbproject/Makefile-${CND_CONF}.mk
+${OBJECTDIR}/newpic_8b_simple.o: newpic_8b_simple.asm  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/EJERCICIO_5_1.o.d 
-	@${RM} ${OBJECTDIR}/EJERCICIO_5_1.o 
-	@${FIXDEPS} dummy.d -e "${OBJECTDIR}/EJERCICIO_5_1.err" $(SILENT) -c ${MP_AS} $(MP_EXTRA_AS_PRE) -q -p$(MP_PROCESSOR_OPTION)  -l\"${OBJECTDIR}/EJERCICIO_5_1.lst\" -e\"${OBJECTDIR}/EJERCICIO_5_1.err\" $(ASM_OPTIONS)    -o\"${OBJECTDIR}/EJERCICIO_5_1.o\" \"EJERCICIO_5_1.asm\" 
-	@${DEP_GEN} -d "${OBJECTDIR}/EJERCICIO_5_1.o"
-	@${FIXDEPS} "${OBJECTDIR}/EJERCICIO_5_1.o.d" $(SILENT) -rsi ${MP_AS_DIR} -c18 
+	@${RM} ${OBJECTDIR}/newpic_8b_simple.o.d 
+	@${RM} ${OBJECTDIR}/newpic_8b_simple.o 
+	@${FIXDEPS} dummy.d -e "${OBJECTDIR}/newpic_8b_simple.err" $(SILENT) -c ${MP_AS} $(MP_EXTRA_AS_PRE) -q -p$(MP_PROCESSOR_OPTION)  -l\"${OBJECTDIR}/newpic_8b_simple.lst\" -e\"${OBJECTDIR}/newpic_8b_simple.err\" $(ASM_OPTIONS)    -o\"${OBJECTDIR}/newpic_8b_simple.o\" \"newpic_8b_simple.asm\" 
+	@${DEP_GEN} -d "${OBJECTDIR}/newpic_8b_simple.o"
+	@${FIXDEPS} "${OBJECTDIR}/newpic_8b_simple.o.d" $(SILENT) -rsi ${MP_AS_DIR} -c18 
 	
 endif
 

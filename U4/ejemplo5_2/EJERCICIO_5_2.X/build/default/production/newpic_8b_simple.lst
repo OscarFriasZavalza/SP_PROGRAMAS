@@ -1,12 +1,14 @@
-MPASM 5.74                 EJERCICIO_5_1.ASM   5-2-2023  16:52:33         PAGE  1
+MPASM 5.74              NEWPIC_8B_SIMPLE.ASM   5-31-2023  11:01:08         PAGE  1
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
   VALUE
 
-Warning[205]: Found directive in column 1. (LIST)
-                      00001 LIST P=16F84A
-                      00002    #include "p16f84a.inc"
+Warning[205]: Found directive in column 1. (__CONFIG)
+2007   3FF1           00001 __CONFIG _FOSC_XT & _WDTE_OFF & _PWRTE_ON & _CP_OFF
+                      00002 
+                      00003     LIST P=16F84A
+                      00004    #include "p16f84a.inc"
                       00001         LIST
                       00002 
                       00003 ;==========================================================================
@@ -17,25 +19,25 @@ Warning[205]: Found directive in column 1. (LIST)
                       00008 ;==========================================================================
                       00009 
                       00209         LIST
-                      00003    ORG 0
-                      00004    ;CONFIGURAMOS PORTA Y PORTB
-0000   1683           00005    BSF STATUS,RP0
-0001   300F           00006    MOVLW B'00001111'
+                      00005    ORG 0
+                      00006    ;CONFIGURAMOS PORTA Y PORTB
+0000   1683           00007    BSF STATUS,RP0
+0001   300F           00008    MOVLW B'00001111'
 Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
-0002   0085           00007    MOVWF TRISA
-0003   3000           00008    MOVLW B'00000000'
+0002   0085           00009    MOVWF TRISA
+0003   3000           00010    MOVLW B'00000000'
 Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
-0004   0086           00009    MOVWF TRISB
-0005   1283           00010    BCF STATUS,RP0
-                      00011    
+0004   0086           00011    MOVWF TRISB
+0005   1283           00012    BCF STATUS,RP0
+                      00013    
 Warning[207]: Found label after column 1. (INICIO)
-0006                  00012    INICIO
-0006   0805           00013    MOVF PORTA,0
-0007   390F           00014    ANDLW B'00001111'
-0008   0086           00015    MOVWF PORTB 
-0009   2???           00016    GOTO INICIO
-                      00017    END
-MPASM 5.74                 EJERCICIO_5_1.ASM   5-2-2023  16:52:33         PAGE  2
+0006                  00014    INICIO
+0006   0805           00015    MOVF PORTA,0
+0007   390F           00016    ANDLW B'00001111'
+0008   0086           00017    MOVWF PORTB 
+0009   2???           00018    GOTO INICIO
+3FF1                  00019    END
+MPASM 5.74              NEWPIC_8B_SIMPLE.ASM   5-31-2023  11:01:08         PAGE  2
 
 
 SYMBOL TABLE
@@ -94,7 +96,7 @@ T0CS                              00000005
 T0IE                              00000005
 T0IF                              00000002
 T0SE                              00000004
-MPASM 5.74                 EJERCICIO_5_1.ASM   5-2-2023  16:52:33         PAGE  3
+MPASM 5.74              NEWPIC_8B_SIMPLE.ASM   5-31-2023  11:01:08         PAGE  3
 
 
 SYMBOL TABLE

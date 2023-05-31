@@ -1,0 +1,4 @@
+Warning[205] C:\SP_PROGRAMAS\U4\EJEMPLO5_2\EJERCICIO_5_2.X\NEWPIC_8B_SIMPLE.ASM 1 : Found directive in column 1. (__CONFIG)
+Message[302] C:\SP_PROGRAMAS\U4\EJEMPLO5_2\EJERCICIO_5_2.X\NEWPIC_8B_SIMPLE.ASM 9 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\SP_PROGRAMAS\U4\EJEMPLO5_2\EJERCICIO_5_2.X\NEWPIC_8B_SIMPLE.ASM 11 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Warning[207] C:\SP_PROGRAMAS\U4\EJEMPLO5_2\EJERCICIO_5_2.X\NEWPIC_8B_SIMPLE.ASM 14 : Found label after column 1. (INICIO)
