@@ -1,0 +1,51 @@
+004-005 @READ_PROGRAM_MEMORY8.P1
+009-00A @READ_PROGRAM_MEMORY8.P1
+00C     @SCRATCH
+00D     @SCRATCH
+00D     _RETURN_
+00E     @SCRATCH
+00F     @SCRATCH
+011     pasos_izquierda.velocidad
+011     pasos_derecha.velocidad
+011     main.@SCRATCH1
+012     @delay_ms1.P1
+
+ROM Allocation:
+000004  pasos_off
+000015  @delay_ms1
+000029  pasos_izquierda
+000076  pasos_derecha
+0000C3  main
+0000C3  @cinit1
+0000C6  @cinit2
+
+Project Directory:
+    C:\SP_PROGRAMAS\U5\ma_motor_paso_paso\Motor_paso_paso_pic16f84a\
+
+Project Files:
+    main.c                                                  [01-jun.-23 11:42  CRC=0BED56D6]
+    ..\..\..\..\Program Files (x86)\PICC\Devices\16f84a.h   [12-nov.-13 14:34  CRC=4E09ACDB]
+
+Source signature=A800B08C
+
+Units:
+    main (main)
+
+Compiler Settings:
+    Processor:      PIC16F84A
+    Pointer Size:   8
+    Opt Level:      9
+    Short,Int,Long: UNSIGNED: 1,8,16
+    Float,Double:   32,32
+
+Output Files:
+    XREF file:   main.xsym
+    Errors:      main.err
+    Ext Symbols: main.esym
+    INHX8:       main.hex
+    Symbols:     main.sym
+    List:        main.lst
+    Debug/COFF:  main.cof
+    Project:     main.ccspjt
+    Call Tree:   main.tre
+    Statistics:  main.STA

@@ -1,0 +1,11 @@
+#include <servomotor_16f84a.h>
+
+void main()
+{
+
+	while(TRUE)
+	{
+		//TODO: User Code
+	}
+
+}

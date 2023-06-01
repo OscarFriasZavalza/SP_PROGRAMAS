@@ -1,8 +1,8 @@
-#include <16f877a.h>
-#fuses HS,NOWDT,NOPROTECT,NOPUT,NOLVP,BROWNOUT
-#use delay(clock=20M)
-#use standard_io(B)
-#use standard_io(A)
+#include <16F84A.h>
+#fuses HS, NOWDT, NOPROTECT, NOPUT, BROWNOUT
+#use delay(clock=20000000)
+#use fast_io(B)
+#use fast_io(A)
 
 #define bobina_1 PIN_B0
 #define bobina_2 PIN_B1
@@ -18,7 +18,11 @@ void pasos_off(void);
 
 void main()
 {
-   while(true)
+   set_tris_b(0x00);
+   set_tris_a(0xFF);
+   output_b(0x00);
+   
+   while(1)
    {
       pasos_off();
       
@@ -95,3 +99,4 @@ void pasos_off(void)
    output_low(bobina_3);
    output_low(bobina_4);
 }
+

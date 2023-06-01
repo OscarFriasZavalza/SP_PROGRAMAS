@@ -1,6 +1,6 @@
-#include <16f877a.h>
-#fuses HS,NOWDT,NOPROTECT,NOPUT,NOLVP,BROWNOUT
-#use delay(clock=20M)
+#include <16f84a.h>
+#fuses XT, NOWDT
+#use delay(clock = 4000000)
 #use standard_io(B)
 #use standard_io(A)
 

@@ -31,16 +31,16 @@ ROM Allocation:
 0000D3  @cinit2
 
 Project Directory:
-    C:\SP_PROGRAMAS\U5\ma_motor_paso_paso\Motor PAP Unipolar\
+    C:\SP_PROGRAMAS\U5\ma_servomotor\Servomotor_Lenguaje_c\
 
 Project Files:
-    Motor PAP Unipolar.c                                    [01-jun.-23 10:55  CRC=740FC22B]
+    servomotor_16f84a.c                                     [01-jun.-23 11:04  CRC=740FC22B]
     ..\..\..\..\Program Files (x86)\PICC\Devices\16f877a.h  [12-nov.-13 14:35  CRC=81334808]
 
 Source signature=7676523B
 
 Units:
-    Motor PAP Unipolar (main)
+    servomotor_16f84a (main)
 
 Compiler Settings:
     Processor:      PIC16F877A
@@ -51,13 +51,13 @@ Compiler Settings:
     Float,Double:   32,32
 
 Output Files:
-    XREF file:   Motor PAP Unipolar.xsym
-    Errors:      Motor PAP Unipolar.err
-    Ext Symbols: Motor PAP Unipolar.esym
-    INHX8:       Motor PAP Unipolar.hex
-    Symbols:     Motor PAP Unipolar.sym
-    List:        Motor PAP Unipolar.lst
-    Debug/COFF:  Motor PAP Unipolar.cof
-    Project:     Motor PAP Unipolar.ccspjt
-    Call Tree:   Motor PAP Unipolar.tre
-    Statistics:  Motor PAP Unipolar.STA
+    XREF file:   servomotor_16f84a.xsym
+    Errors:      servomotor_16f84a.err
+    Ext Symbols: servomotor_16f84a.esym
+    INHX8:       servomotor_16f84a.hex
+    Symbols:     servomotor_16f84a.sym
+    List:        servomotor_16f84a.lst
+    Debug/COFF:  servomotor_16f84a.cof
+    Project:     servomotor_16f84a.ccspjt
+    Call Tree:   servomotor_16f84a.tre
+    Statistics:  servomotor_16f84a.STA

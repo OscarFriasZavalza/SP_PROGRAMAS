@@ -2,15 +2,15 @@
 #fuses HS,NOWDT,NOPROTECT,NOPUT,NOLVP,BROWNOUT
 #use delay(clock=20M)
 #use standard_io(B)
-#use standard_io(A)
+#use standard_io(D)
 
 #define bobina_1 PIN_B0
 #define bobina_2 PIN_B1
 #define bobina_3 PIN_B2
 #define bobina_4 PIN_B3
 
-#define pulsador_izq PIN_A0
-#define pulsador_der PIN_A1
+#define pulsador_izq PIN_D0
+#define pulsador_der PIN_D1
 
 void pasos_izquierda(int velocidad);
 void pasos_derecha(int velocidad);

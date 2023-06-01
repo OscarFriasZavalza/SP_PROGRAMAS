@@ -1,0 +1,14 @@
+ÀÄservomotor_16f84a
+   ÀÄmain  0/31  Ram=1
+      ÃÄ@cinit1  (Inline)  Ram=0
+      ÃÄpasos_off  0/19  Ram=0
+      ÃÄpasos_izquierda  0/79  Ram=1
+      ³  ÃÄ@delay_ms1  0/20  Ram=1
+      ³  ÃÄ@delay_ms1  0/20  Ram=1
+      ³  ÃÄ@delay_ms1  0/20  Ram=1
+      ³  ÀÄ@delay_ms1  0/20  Ram=1
+      ÀÄpasos_derecha  0/79  Ram=1
+         ÃÄ@delay_ms1  0/20  Ram=1
+         ÃÄ@delay_ms1  0/20  Ram=1
+         ÃÄ@delay_ms1  0/20  Ram=1
+         ÀÄ@delay_ms1  0/20  Ram=1

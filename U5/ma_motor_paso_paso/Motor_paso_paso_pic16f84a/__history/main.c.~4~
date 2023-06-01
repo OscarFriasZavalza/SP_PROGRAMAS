@@ -1,8 +1,7 @@
-#include <16f877a.h>
-#fuses HS,NOWDT,NOPROTECT,NOPUT,NOLVP,BROWNOUT
-#use delay(clock=20M)
-#use standard_io(B)
-#use standard_io(A)
+#include <16F84A.h>
+#use delay(clock=20000000)
+#use fast_io(B)
+#use fast_io(A)
 
 #define bobina_1 PIN_B0
 #define bobina_2 PIN_B1
@@ -16,9 +15,16 @@ void pasos_izquierda(int velocidad);
 void pasos_derecha(int velocidad);
 void pasos_off(void);
 
+#byte PORTB = 6
+#byte PORTA = 5
+
 void main()
 {
-   while(true)
+   TRISB = 0x00;
+   TRISA = 0xFF;
+   PORTB = 0x00;
+   
+   while(1)
    {
       pasos_off();
       
@@ -95,3 +101,4 @@ void pasos_off(void)
    output_low(bobina_3);
    output_low(bobina_4);
 }
+
