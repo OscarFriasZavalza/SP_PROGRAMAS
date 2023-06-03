@@ -25,19 +25,19 @@ Page ROM  %  RAM   Vol Diff  Functions:
 0     77  35    1   467  1.4  pasos_izquierda
 0     77  35    1   467  1.4  pasos_derecha
 0     17   8    0    72  1.2  pasos_off
- Inline         0    72  1.2  @cinit1
+ Inline         0             @cinit1
 
 Program metrics:
-    Functions               5
+    Functions               4
     Statements              53
     Comments                69
-    Volume (V)              1711
-    Difficulty (D)          8.2
-    Effort to implement (E) 14046
-    Time to implement (T)   13 minutes
+    Volume (V)              1545
+    Difficulty (D)          6.8
+    Effort to implement (E) 10579
+    Time to implement (T)   10 minutes
     Est Delivered Bugs (B)  0
     Cyclomatic Complexity   2
-    Maintainability (MI)    77
+    Maintainability (MI)    106
 
  Segment     Used  Free
 -----------  ----  ----

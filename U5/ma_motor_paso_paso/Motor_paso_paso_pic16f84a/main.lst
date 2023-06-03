@@ -1,4 +1,4 @@
-CCS PCM C Compiler, Version 5.015, 5967               01-jun.-23 11:46
+CCS PCM C Compiler, Version 5.015, 5967               02-jun.-23 21:06
 
                Filename:   C:\SP_PROGRAMAS\U5\ma_motor_paso_paso\Motor_paso_paso_pic16f84a\main.lst
 
@@ -85,8 +85,8 @@ CCS PCM C Compiler, Version 5.015, 5967               01-jun.-23 11:46
 00CA:  BTFSS  05.0
 00CB:  GOTO   0CF
 ....................       { 
-....................          pasos_izquierda(80); 
-00CC:  MOVLW  50
+....................          pasos_izquierda(10); 
+00CC:  MOVLW  0A
 00CD:  MOVWF  11
 00CE:  GOTO   029
 ....................       } 
@@ -98,8 +98,8 @@ CCS PCM C Compiler, Version 5.015, 5967               01-jun.-23 11:46
 00D2:  BTFSS  05.1
 00D3:  GOTO   0D7
 ....................       { 
-....................          pasos_derecha(80); 
-00D4:  MOVLW  50
+....................          pasos_derecha(10); 
+00D4:  MOVLW  0A
 00D5:  MOVWF  11
 00D6:  GOTO   076
 ....................       } 

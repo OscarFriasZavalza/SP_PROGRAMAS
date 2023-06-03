@@ -38,11 +38,7 @@ void derecha_cerrada(void)
    pot_izq = 255;
    pot_der = k_cerradas;
 }
-void detener(void)
-{
-output_low(PIN_B2);
-output_low(pIN_B5);
-}
+
 void main(void)
 { 
    int sensores = 0b000;
@@ -71,10 +67,6 @@ void main(void)
          izquierda();
       if(sensores==0b010)
          frente();
-      if(sensores==0b111){
-          detener();
-      } else {
-     
       // Control de los motores izquierdo y derecho mediante el ajuste de los pines B2 y B5
       output_high(PIN_B2); // Activa el motor izquierdo
       delay_us(pot_izq); // Retardo proporcionado por la potencia establecida en "pot_izq"
@@ -87,8 +79,8 @@ void main(void)
 
       output_low(PIN_B5); // Desactiva el motor derecho
       delay_us(255 - pot_der); // Retardo complementario para mantener el ciclo de trabajo
-      }
-      if(input_state(PIN_B7)==1){//motor dc para accionar el agua
+      
+      if(input_state(PIN_B7)==1){
          output_high(PIN_B6);
       } else output_low(PIN_b6);
    }
