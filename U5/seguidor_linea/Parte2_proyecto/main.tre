@@ -1,0 +1,17 @@
+ÀÄmain
+   ÀÄMAIN  0/45  Ram=2
+      ÃÄ@cinit1  (Inline)  Ram=0
+      ÃÄpasos_off  0/17  Ram=0
+      ÃÄpasos_izquierda  0/77  Ram=1
+      ³  ÃÄ@delay_ms1  0/20  Ram=1
+      ³  ÃÄ@delay_ms1  0/20  Ram=1
+      ³  ÃÄ@delay_ms1  0/20  Ram=1
+      ³  ÀÄ@delay_ms1  0/20  Ram=1
+      ÃÄpasos_derecha  0/77  Ram=1
+      ³  ÃÄ@delay_ms1  0/20  Ram=1
+      ³  ÃÄ@delay_ms1  0/20  Ram=1
+      ³  ÃÄ@delay_ms1  0/20  Ram=1
+      ³  ÀÄ@delay_ms1  0/20  Ram=1
+      ÃÄsacar_chorro  0/9  Ram=0
+      ÃÄmeter  0/9  Ram=0
+      ÀÄdetener  0/9  Ram=0

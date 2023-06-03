@@ -1,0 +1,51 @@
+
+ROM used:   267/1024 (26%)
+            267/1024 (26%) including unused fragments
+
+            0.5 Average locations per line
+            3.8 Average locations per statement
+
+RAM used:   6/68 (9%) at main() level
+            7/68 (10%) worst case
+
+Stack used: 2 worst case (2 in main + 0 for interrupts)
+Stack size: 8
+
+Lines Stmts  %   Files
+----- ----- ---  -----
+  141    71 100  main.c
+  404     0   0  ..\..\..\..\Program Files (x86)\PICC\Devices\16F84A.h
+----- -----
+  545    71 Total
+
+Page ROM  %  RAM   Vol Diff  Functions:
+---- --- --- ---   --- ----  ----------
+0     20   7    1             @delay_ms1
+0      9   3    0    37  1.1  detener
+0      9   3    0    37  1.1  sacar_chorro
+0      9   3    0    37  1.1  meter
+0     77  29    1   467  1.4  pasos_izquierda
+0     77  29    1   467  1.4  pasos_derecha
+0     17   6    0    72  1.2  pasos_off
+0     45  17    2   420  3.3  MAIN
+ Inline         0             @cinit1
+
+Program metrics:
+    Functions               7
+    Statements              71
+    Comments                79
+    Volume (V)              2240
+    Difficulty (D)          11.2
+    Effort to implement (E) 25110
+    Time to implement (T)   23 minutes
+    Est Delivered Bugs (B)  0
+    Cyclomatic Complexity   5
+    Maintainability (MI)    59
+
+ Segment     Used  Free
+-----------  ----  ----
+00000-00003     4  0  
+00004-003FF   263  757  
+
+
+

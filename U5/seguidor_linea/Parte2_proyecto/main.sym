@@ -1,0 +1,55 @@
+004-005 @READ_PROGRAM_MEMORY8.P1
+009-00A @READ_PROGRAM_MEMORY8.P1
+00C     @SCRATCH
+00D     @SCRATCH
+00D     _RETURN_
+00E     @SCRATCH
+00F     @SCRATCH
+011     MAIN.entradas
+012     pasos_derecha.velocidad
+012     pasos_izquierda.velocidad
+012     MAIN.@SCRATCH1
+013     @delay_ms1.P1
+
+ROM Allocation:
+000004  pasos_off
+000015  @delay_ms1
+000029  pasos_izquierda
+000076  pasos_derecha
+0000C3  sacar_chorro
+0000CC  meter
+0000D5  detener
+0000DE  @cinit1
+0000DE  MAIN
+0000E1  @cinit2
+
+Project Directory:
+    C:\SP_PROGRAMAS\U5\seguidor_linea\Parte2_proyecto\
+
+Project Files:
+    main.c                                                  [03-jun.-23 11:50  CRC=B5DB4A05]
+    ..\..\..\..\Program Files (x86)\PICC\Devices\16F84A.h   [12-nov.-13 14:34  CRC=4E09ACDB]
+
+Source signature=51EEA3BB
+
+Units:
+    main (main)
+
+Compiler Settings:
+    Processor:      PIC16F84A
+    Pointer Size:   8
+    Opt Level:      9
+    Short,Int,Long: UNSIGNED: 1,8,16
+    Float,Double:   32,32
+
+Output Files:
+    XREF file:   main.xsym
+    Errors:      main.err
+    Ext Symbols: main.esym
+    INHX8:       main.hex
+    Symbols:     main.sym
+    List:        main.lst
+    Debug/COFF:  main.cof
+    Project:     main.ccspjt
+    Call Tree:   main.tre
+    Statistics:  main.STA

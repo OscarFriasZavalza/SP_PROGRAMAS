@@ -1,0 +1,50 @@
+#include <16F84A.h>
+#fuses XT, NOWDT
+#use delay(clock = 4000000)
+#use fast_io(B) // Configuramos los TRIS solo una vez, es la forma más rápida de trabajar con los puertos
+#use fast_io(A)
+
+
+void detener(void)
+{
+output_low(PIN_B2);
+output_low(PIN_B3);
+}
+void sacar_chorro(void){
+output_high(PIN_B2);
+output_low(PIN_B3);
+}
+void meter(void){
+output_low(PIN_B2);
+output_high(PIN_B3);
+}
+void main(void)
+{ 
+   int entradas = 0b00;
+   set_tris_B(0b00000000); // Puerto B como salidas
+   set_tris_A(0b11111111); // Puerto A como entradas digitales
+  // OUTPUT_B(0); // Inicializamos en 0 el puerto B
+
+
+   while (1)
+   {  
+      // Lectura de los sensores en el puerto A
+      entradas = input_A(); 
+
+      // Control del movimiento del robot en función de los sensores
+      //controlamos sacar chorro
+      if (entradas == 0b11){
+         sacar_chorro();
+      }
+      //controlamos regresar chorrro
+      if(entradas==0b01){
+         meter();
+      }
+      //controlamos detener motor
+      if(entradas==0b00){
+         detener();
+      }
+    
+      
+   }
+}
