@@ -24,12 +24,12 @@ void main()
       
       if(input(pulsador_izq) == 1)
       {
-         pasos_izquierda(2);
+         pasos_izquierda(15);
       }
       
       if(input(pulsador_der) == 1)
       {
-         pasos_derecha(2);
+         pasos_derecha(15);
       }
    }
 }
