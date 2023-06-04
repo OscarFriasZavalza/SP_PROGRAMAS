@@ -9,10 +9,10 @@
 
 ROM Allocation:
 000004  arrancar
-000007  detener
-00000A  izquierda
-00000D  derecha
-000010  frente
+000007  frente
+00000A  derecha
+00000D  izquierda
+000010  detener
 000013  MAIN
 000013  @cinit1
 000016  @cinit2
@@ -21,7 +21,7 @@ Project Directory:
     C:\SP_PROGRAMAS\U5\seguidor_linea\parte1_proyecto\
 
 Project Files:
-    seguidor_linea.c                                        [04-jun.-23 15:35  CRC=613990EB]
+    seguidor_linea.c                                        [04-jun.-23 15:58  CRC=613990EB]
     ..\..\..\..\Program Files (x86)\PICC\Devices\16F84A.h   [12-nov.-13 14:34  CRC=4E09ACDB]
 
 Source signature=FD4CEAA1

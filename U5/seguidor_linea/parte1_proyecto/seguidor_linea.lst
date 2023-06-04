@@ -1,4 +1,4 @@
-CCS PCM C Compiler, Version 5.015, 5967               04-jun.-23 15:35
+CCS PCM C Compiler, Version 5.015, 5967               04-jun.-23 15:58
 
                Filename:   C:\SP_PROGRAMAS\U5\seguidor_linea\parte1_proyecto\seguidor_linea.lst
 
@@ -39,29 +39,30 @@ CCS PCM C Compiler, Version 5.015, 5967               04-jun.-23 15:35
 .................... { 
 ....................    output_high(PIN_B0); 
 *
-0010:  BSF    06.0
+0007:  BSF    06.0
 ....................    output_high(PIN_B3); 
-0011:  BSF    06.3
-0012:  GOTO   032 (RETURN)
+0008:  BSF    06.3
+0009:  GOTO   027 (RETURN)
 .................... } 
 ....................  
 .................... void izquierda(void) // La potencia del motor derecho es mayor a la del izquierdo 
 .................... { 
 ....................    output_low(PIN_B0); 
 *
-000A:  BCF    06.0
+000D:  BCF    06.0
 ....................    output_high(PIN_B3); 
-000B:  BSF    06.3
-000C:  GOTO   02A (RETURN)
+000E:  BSF    06.3
+000F:  GOTO   02E (RETURN)
 .................... } 
 ....................  
 .................... void derecha(void) 
 .................... { 
 ....................   output_high(PIN_B0); 
-000D:  BSF    06.0
+*
+000A:  BSF    06.0
 ....................    output_low(PIN_B3); 
-000E:  BCF    06.3
-000F:  GOTO   02E (RETURN)
+000B:  BCF    06.3
+000C:  GOTO   02A (RETURN)
 .................... } 
 ....................  
 ....................  
@@ -69,10 +70,10 @@ CCS PCM C Compiler, Version 5.015, 5967               04-jun.-23 15:35
 .................... { 
 .................... output_low(PIN_B0); 
 *
-0007:  BCF    06.0
+0010:  BCF    06.0
 .................... output_low(pIN_B3); 
-0008:  BCF    06.3
-0009:  GOTO   027 (RETURN)
+0011:  BCF    06.3
+0012:  GOTO   032 (RETURN)
 .................... } 
 .................... void arrancar(void){ 
 .................... output_high(PIN_B2); 
@@ -124,24 +125,24 @@ CCS PCM C Compiler, Version 5.015, 5967               04-jun.-23 15:35
 ....................       if (sensores == 0b00) 
 0024:  MOVF   11,F
 0025:  BTFSC  03.2
-....................          detener(); 
+....................          frente(); 
 0026:  GOTO   007
 ....................       if (sensores == 0b01) 
 0027:  DECFSZ 11,W
 0028:  GOTO   02A
-....................          izquierda(); 
+....................          derecha(); 
 0029:  GOTO   00A
 ....................       if(sensores==0b10) 
 002A:  MOVF   11,W
 002B:  SUBLW  02
 002C:  BTFSC  03.2
-....................          derecha(); 
+....................          izquierda(); 
 002D:  GOTO   00D
 ....................       if(sensores==0b11) 
 002E:  MOVF   11,W
 002F:  SUBLW  03
 0030:  BTFSC  03.2
-....................          frente(); 
+....................          detener(); 
 0031:  GOTO   010
 0032:  GOTO   022
 ....................        
