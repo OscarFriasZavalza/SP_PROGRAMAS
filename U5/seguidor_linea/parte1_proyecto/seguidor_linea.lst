@@ -1,4 +1,4 @@
-CCS PCM C Compiler, Version 5.015, 5967               04-jun.-23 14:38
+CCS PCM C Compiler, Version 5.015, 5967               04-jun.-23 15:35
 
                Filename:   C:\SP_PROGRAMAS\U5\seguidor_linea\parte1_proyecto\seguidor_linea.lst
 
@@ -39,15 +39,16 @@ CCS PCM C Compiler, Version 5.015, 5967               04-jun.-23 14:38
 .................... { 
 ....................    output_high(PIN_B0); 
 *
-0007:  BSF    06.0
+0010:  BSF    06.0
 ....................    output_high(PIN_B3); 
-0008:  BSF    06.3
-0009:  GOTO   027 (RETURN)
+0011:  BSF    06.3
+0012:  GOTO   032 (RETURN)
 .................... } 
 ....................  
 .................... void izquierda(void) // La potencia del motor derecho es mayor a la del izquierdo 
 .................... { 
 ....................    output_low(PIN_B0); 
+*
 000A:  BCF    06.0
 ....................    output_high(PIN_B3); 
 000B:  BSF    06.3
@@ -67,10 +68,11 @@ CCS PCM C Compiler, Version 5.015, 5967               04-jun.-23 14:38
 .................... void detener(void) 
 .................... { 
 .................... output_low(PIN_B0); 
-0010:  BCF    06.0
+*
+0007:  BCF    06.0
 .................... output_low(pIN_B3); 
-0011:  BCF    06.3
-0012:  GOTO   032 (RETURN)
+0008:  BCF    06.3
+0009:  GOTO   027 (RETURN)
 .................... } 
 .................... void arrancar(void){ 
 .................... output_high(PIN_B2); 
@@ -122,7 +124,7 @@ CCS PCM C Compiler, Version 5.015, 5967               04-jun.-23 14:38
 ....................       if (sensores == 0b00) 
 0024:  MOVF   11,F
 0025:  BTFSC  03.2
-....................          frente(); 
+....................          detener(); 
 0026:  GOTO   007
 ....................       if (sensores == 0b01) 
 0027:  DECFSZ 11,W
@@ -139,7 +141,7 @@ CCS PCM C Compiler, Version 5.015, 5967               04-jun.-23 14:38
 002E:  MOVF   11,W
 002F:  SUBLW  03
 0030:  BTFSC  03.2
-....................           detener(); 
+....................          frente(); 
 0031:  GOTO   010
 0032:  GOTO   022
 ....................        
