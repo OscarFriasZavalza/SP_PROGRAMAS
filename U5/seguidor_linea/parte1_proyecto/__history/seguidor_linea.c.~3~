@@ -7,20 +7,20 @@
 
 void frente(void) // Ambos motores al máximo de potencia
 {
-   output_high(PIN_B0);
-   output_high(PIN_B3);
+   pot_izq = 255;
+   pot_der = 255;
 }
 
 void izquierda(void) // La potencia del motor derecho es mayor a la del izquierdo
 {
-   output_low(PIN_B0);
-   output_high(PIN_B3);
+   pot_izq = k;
+   pot_der = 255;
 }
 
 void derecha(void)
 {
-  output_high(PIN_B0);
-   output_low(PIN_B3);
+   pot_izq = 255;
+   pot_der = k;
 }
 
 
@@ -31,7 +31,7 @@ output_low(pIN_B5);
 }
 void main(void)
 { 
-   int sensores = 0b00;
+   int sensores = 0b000;
    set_tris_B(0b00000000); // Puerto B como salidas
    set_tris_A(0b11111111); // Puerto A como entradas digitales
   // OUTPUT_B(0); // Inicializamos en 0 el puerto B
@@ -48,12 +48,12 @@ void main(void)
       // Control del movimiento del robot en función de los sensores
     
       if (sensores == 0b00)
-         frente();
-      if (sensores == 0b01)
-         izquierda();
-      if(sensores==0b10)
          derecha();
-      if(sensores==0b11){
+      if (sensores == 0b001)
+         izquierda();
+      if(sensores==0b010)
+         frente();
+      if(sensores==0b111){
           detener();
       } 
   
