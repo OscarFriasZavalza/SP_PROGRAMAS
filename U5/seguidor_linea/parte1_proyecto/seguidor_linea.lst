@@ -1,6 +1,6 @@
-CCS PCM C Compiler, Version 5.015, 5967               02-jun.-23 21:01
+CCS PCM C Compiler, Version 5.015, 5967               03-jun.-23 20:15
 
-               Filename:   C:\SP_PROGRAMAS\U5\seguidor_linea\seguidor_linea.lst
+               Filename:   C:\SP_PROGRAMAS\U5\seguidor_linea\parte1_proyecto\seguidor_linea.lst
 
                ROM used:   126 words (12%)
                            Largest free fragment is 898
@@ -91,7 +91,7 @@ CCS PCM C Compiler, Version 5.015, 5967               02-jun.-23 21:01
 ....................    pot_der = 255; 
 0010:  MOVLW  FF
 0011:  MOVWF  11
-0012:  GOTO   053 (RETURN)
+0012:  GOTO   054 (RETURN)
 .................... } 
 ....................  
 .................... void derecha(void) 
@@ -103,7 +103,7 @@ CCS PCM C Compiler, Version 5.015, 5967               02-jun.-23 21:01
 ....................    pot_der = k; 
 000B:  MOVF   13,W
 000C:  MOVWF  11
-000D:  GOTO   04F (RETURN)
+000D:  GOTO   050 (RETURN)
 .................... } 
 ....................  
 .................... void derecha_cerrada(void) 
@@ -115,7 +115,7 @@ CCS PCM C Compiler, Version 5.015, 5967               02-jun.-23 21:01
 ....................    pot_der = k_cerradas; 
 0006:  MOVF   12,W
 0007:  MOVWF  11
-0008:  GOTO   04B (RETURN)
+0008:  GOTO   04C (RETURN)
 .................... } 
 .................... void detener(void) 
 .................... { 
@@ -167,27 +167,27 @@ CCS PCM C Compiler, Version 5.015, 5967               02-jun.-23 21:01
 0047:  MOVWF  14
 ....................  
 ....................       // Control del movimiento del robot en función de los sensores 
-....................       if (sensores == 0b001) 
-0048:  DECFSZ 14,W
-0049:  GOTO   04B
-....................          derecha_cerrada(); 
-004A:  GOTO   004
-....................       if (sensores == 0b011) 
-004B:  MOVF   14,W
-004C:  SUBLW  03
-004D:  BTFSC  03.2
-....................          derecha(); 
-004E:  GOTO   009
-....................       if (sensores == 0b100) 
-004F:  MOVF   14,W
-0050:  SUBLW  04
-0051:  BTFSC  03.2
-....................          izquierda_cerrada(); 
-0052:  GOTO   00E
 ....................       if (sensores == 0b110) 
-0053:  MOVF   14,W
-0054:  SUBLW  06
-0055:  BTFSC  03.2
+0048:  MOVF   14,W
+0049:  SUBLW  06
+004A:  BTFSC  03.2
+....................          derecha_cerrada(); 
+004B:  GOTO   004
+....................       if (sensores == 0b100) 
+004C:  MOVF   14,W
+004D:  SUBLW  04
+004E:  BTFSC  03.2
+....................          derecha(); 
+004F:  GOTO   009
+....................       if (sensores == 0b011) 
+0050:  MOVF   14,W
+0051:  SUBLW  03
+0052:  BTFSC  03.2
+....................          izquierda_cerrada(); 
+0053:  GOTO   00E
+....................       if (sensores == 0b001) 
+0054:  DECFSZ 14,W
+0055:  GOTO   057
 ....................          izquierda(); 
 0056:  GOTO   013
 ....................       if(sensores==0b010) 

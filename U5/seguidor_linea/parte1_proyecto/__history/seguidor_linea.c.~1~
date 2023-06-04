@@ -61,13 +61,13 @@ void main(void)
       sensores = input_A(); // Lectura de los sensores en el puerto A
 
       // Control del movimiento del robot en función de los sensores
-      if (sensores == 0b110)
-         derecha_cerrada();
-      if (sensores == 0b100)
-         derecha();
-      if (sensores == 0b011)
-         izquierda_cerrada();
       if (sensores == 0b001)
+         derecha_cerrada();
+      if (sensores == 0b011)
+         derecha();
+      if (sensores == 0b100)
+         izquierda_cerrada();
+      if (sensores == 0b110)
          izquierda();
       if(sensores==0b010)
          frente();

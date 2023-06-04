@@ -26,11 +26,11 @@ ROM Allocation:
 00003B  @cinit2
 
 Project Directory:
-    C:\SP_PROGRAMAS\U5\seguidor_linea\
+    C:\SP_PROGRAMAS\U5\seguidor_linea\parte1_proyecto\
 
 Project Files:
-    seguidor_linea.c                                        [02-jun.-23 21:01  CRC=8727AF8B]
-    ..\..\..\Program Files (x86)\PICC\Devices\16F84A.h      [12-nov.-13 14:34  CRC=4E09ACDB]
+    seguidor_linea.c                                        [03-jun.-23 20:15  CRC=8727AF8B]
+    ..\..\..\..\Program Files (x86)\PICC\Devices\16F84A.h   [12-nov.-13 14:34  CRC=4E09ACDB]
 
 Source signature=233B0941
 
