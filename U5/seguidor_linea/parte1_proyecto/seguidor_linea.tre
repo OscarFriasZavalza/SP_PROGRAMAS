@@ -1,6 +1,7 @@
 ÀÄseguidor_linea
-   ÀÄMAIN  0/30  Ram=1
+   ÀÄMAIN  0/33  Ram=1
       ÃÄ@cinit1  (Inline)  Ram=0
+      ÃÄarrancar  0/3  Ram=0
       ÃÄfrente  0/3  Ram=0
       ÃÄizquierda  0/3  Ram=0
       ÃÄderecha  0/3  Ram=0

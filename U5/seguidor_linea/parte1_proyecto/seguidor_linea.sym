@@ -8,22 +8,23 @@
 011     MAIN.sensores
 
 ROM Allocation:
-000004  frente
-000007  izquierda
-00000A  derecha
-00000D  detener
-000010  MAIN
-000010  @cinit1
-000013  @cinit2
+000004  arrancar
+000007  frente
+00000A  izquierda
+00000D  derecha
+000010  detener
+000013  MAIN
+000013  @cinit1
+000016  @cinit2
 
 Project Directory:
     C:\SP_PROGRAMAS\U5\seguidor_linea\parte1_proyecto\
 
 Project Files:
-    seguidor_linea.c                                        [04-jun.-23 11:47  CRC=5B197C9D]
+    seguidor_linea.c                                        [04-jun.-23 14:37  CRC=613990EB]
     ..\..\..\..\Program Files (x86)\PICC\Devices\16F84A.h   [12-nov.-13 14:34  CRC=4E09ACDB]
 
-Source signature=F72CD653
+Source signature=FD4CEAA1
 
 Units:
     seguidor_linea (main)

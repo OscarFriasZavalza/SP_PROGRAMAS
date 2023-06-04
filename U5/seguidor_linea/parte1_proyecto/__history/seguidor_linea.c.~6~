@@ -26,8 +26,8 @@ void derecha(void)
 
 void detener(void)
 {
-output_low(PIN_B0);
-output_low(pIN_B3);
+output_low(PIN_B2);
+output_low(pIN_B5);
 }
 void arrancar(void){
 output_high(PIN_B2);

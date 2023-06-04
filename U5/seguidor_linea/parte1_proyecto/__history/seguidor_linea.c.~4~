@@ -26,26 +26,19 @@ void derecha(void)
 
 void detener(void)
 {
-output_low(PIN_B0);
-output_low(pIN_B3);
-}
-void arrancar(void){
-output_high(PIN_B2);
-output_high(pIN_B5);
+output_low(PIN_B2);
+output_low(pIN_B5);
 }
 void main(void)
 { 
    int sensores = 0b00;
    set_tris_B(0b00000000); // Puerto B como salidas
    set_tris_A(0b11111111); // Puerto A como entradas digitales
-
-   arrancar();
+  // OUTPUT_B(0); // Inicializamos en 0 el puerto B
 
    // Dirección de los motores hacia adelante
    output_high(PIN_B0);
-   output_low(PIN_B1);
    output_high(PIN_B3);
-   output_low(PIN_B4);
 
 
    while (1)
@@ -60,9 +53,9 @@ void main(void)
          izquierda();
       if(sensores==0b10)
          derecha();
-      if(sensores==0b11)
+      if(sensores==0b11){
           detener();
-      
+      } 
   
    }
 }

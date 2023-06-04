@@ -1,9 +1,9 @@
-CCS PCM C Compiler, Version 5.015, 5967               04-jun.-23 11:47
+CCS PCM C Compiler, Version 5.015, 5967               04-jun.-23 14:38
 
                Filename:   C:\SP_PROGRAMAS\U5\seguidor_linea\parte1_proyecto\seguidor_linea.lst
 
-               ROM used:   46 words (4%)
-                           Largest free fragment is 978
+               ROM used:   52 words (5%)
+                           Largest free fragment is 972
                RAM used:   5 (7%) at main() level
                            5 (7%) worst case
                Stack used: 1 locations
@@ -12,7 +12,7 @@ CCS PCM C Compiler, Version 5.015, 5967               04-jun.-23 11:47
 *
 0000:  MOVLW  00
 0001:  MOVWF  0A
-0002:  GOTO   010
+0002:  GOTO   013
 0003:  NOP
 .................... #include <16F84A.h> 
 .................... //////////// Standard Header file for the PIC16F84A device //////////////// 
@@ -38,100 +38,116 @@ CCS PCM C Compiler, Version 5.015, 5967               04-jun.-23 11:47
 .................... void frente(void) // Ambos motores al máximo de potencia 
 .................... { 
 ....................    output_high(PIN_B0); 
-0004:  BSF    06.0
+*
+0007:  BSF    06.0
 ....................    output_high(PIN_B3); 
-0005:  BSF    06.3
-0006:  GOTO   021 (RETURN)
+0008:  BSF    06.3
+0009:  GOTO   027 (RETURN)
 .................... } 
 ....................  
 .................... void izquierda(void) // La potencia del motor derecho es mayor a la del izquierdo 
 .................... { 
 ....................    output_low(PIN_B0); 
-0007:  BCF    06.0
+000A:  BCF    06.0
 ....................    output_high(PIN_B3); 
-0008:  BSF    06.3
-0009:  GOTO   024 (RETURN)
+000B:  BSF    06.3
+000C:  GOTO   02A (RETURN)
 .................... } 
 ....................  
 .................... void derecha(void) 
 .................... { 
 ....................   output_high(PIN_B0); 
-000A:  BSF    06.0
+000D:  BSF    06.0
 ....................    output_low(PIN_B3); 
-000B:  BCF    06.3
-000C:  GOTO   028 (RETURN)
+000E:  BCF    06.3
+000F:  GOTO   02E (RETURN)
 .................... } 
 ....................  
 ....................  
 .................... void detener(void) 
 .................... { 
-.................... output_low(PIN_B2); 
-000D:  BCF    06.2
-.................... output_low(pIN_B5); 
-000E:  BCF    06.5
-000F:  GOTO   02C (RETURN)
+.................... output_low(PIN_B0); 
+0010:  BCF    06.0
+.................... output_low(pIN_B3); 
+0011:  BCF    06.3
+0012:  GOTO   032 (RETURN)
+.................... } 
+.................... void arrancar(void){ 
+.................... output_high(PIN_B2); 
+*
+0004:  BSF    06.2
+.................... output_high(pIN_B5); 
+0005:  BSF    06.5
+0006:  GOTO   01E (RETURN)
 .................... } 
 .................... void main(void) 
-0010:  MOVF   03,W
-0011:  ANDLW  1F
-0012:  MOVWF  03
-0013:  CLRF   11
+*
+0013:  MOVF   03,W
+0014:  ANDLW  1F
+0015:  MOVWF  03
+0016:  CLRF   11
 .................... {  
 ....................    int sensores = 0b00; 
 ....................    set_tris_B(0b00000000); // Puerto B como salidas 
-0014:  MOVLW  00
-0015:  BSF    03.5
-0016:  MOVWF  06
+0017:  MOVLW  00
+0018:  BSF    03.5
+0019:  MOVWF  06
 ....................    set_tris_A(0b11111111); // Puerto A como entradas digitales 
-0017:  MOVLW  FF
-0018:  MOVWF  05
-....................   // OUTPUT_B(0); // Inicializamos en 0 el puerto B 
+001A:  MOVLW  FF
+001B:  MOVWF  05
+....................  
+....................    arrancar(); 
+001C:  BCF    03.5
+001D:  GOTO   004
 ....................  
 ....................    // Dirección de los motores hacia adelante 
 ....................    output_high(PIN_B0); 
-0019:  BCF    03.5
-001A:  BSF    06.0
+001E:  BSF    06.0
+....................    output_low(PIN_B1); 
+001F:  BCF    06.1
 ....................    output_high(PIN_B3); 
-001B:  BSF    06.3
+0020:  BSF    06.3
+....................    output_low(PIN_B4); 
+0021:  BCF    06.4
 ....................  
 ....................  
 ....................    while (1) 
 ....................    { 
 ....................       sensores = input_A(); // Lectura de los sensores en el puerto A 
-001C:  MOVF   05,W
-001D:  MOVWF  11
+0022:  MOVF   05,W
+0023:  MOVWF  11
 ....................  
 ....................       // Control del movimiento del robot en función de los sensores 
 ....................      
 ....................       if (sensores == 0b00) 
-001E:  MOVF   11,F
-001F:  BTFSC  03.2
+0024:  MOVF   11,F
+0025:  BTFSC  03.2
 ....................          frente(); 
-0020:  GOTO   004
+0026:  GOTO   007
 ....................       if (sensores == 0b01) 
-0021:  DECFSZ 11,W
-0022:  GOTO   024
+0027:  DECFSZ 11,W
+0028:  GOTO   02A
 ....................          izquierda(); 
-0023:  GOTO   007
+0029:  GOTO   00A
 ....................       if(sensores==0b10) 
-0024:  MOVF   11,W
-0025:  SUBLW  02
-0026:  BTFSC  03.2
+002A:  MOVF   11,W
+002B:  SUBLW  02
+002C:  BTFSC  03.2
 ....................          derecha(); 
-0027:  GOTO   00A
-....................       if(sensores==0b11){ 
-0028:  MOVF   11,W
-0029:  SUBLW  03
-002A:  BTFSC  03.2
+002D:  GOTO   00D
+....................       if(sensores==0b11) 
+002E:  MOVF   11,W
+002F:  SUBLW  03
+0030:  BTFSC  03.2
 ....................           detener(); 
-002B:  GOTO   00D
-....................       }  
-002C:  GOTO   01C
+0031:  GOTO   010
+0032:  GOTO   022
+....................        
 ....................    
 ....................    } 
 .................... } 
 ....................  
-002D:  SLEEP
+0033:  SLEEP
 
 Configuration Fuses:
    Word  1: 3FF1   XT NOWDT PUT NOPROTECT
