@@ -5,26 +5,33 @@
 00D     _RETURN_
 00E     @SCRATCH
 00F     @SCRATCH
-011     MAIN.sensores
+010     pot_izq
+011     pot_der
+012     k_cerradas
+013     k
+014     MAIN.sensores
+015     MAIN.@SCRATCH1
+016     @delay_us1.P1
 
 ROM Allocation:
-000004  arrancar
+000004  prender
 000007  frente
-00000A  derecha
-00000D  izquierda
-000010  detener
-000013  MAIN
-000013  @cinit1
-000016  @cinit2
+00000B  derecha_cerrada
+000010  izquierda_cerrada
+000015  detener
+000018  @delay_us1
+00002B  MAIN
+00002B  @cinit1
+000033  @cinit2
 
 Project Directory:
     C:\SP_PROGRAMAS\U5\seguidor_linea\parte1_proyecto\
 
 Project Files:
-    seguidor_linea.c                                        [04-jun.-23 15:58  CRC=613990EB]
+    seguidor_linea.c                                        [04-jun.-23 16:57  CRC=23B72E1B]
     ..\..\..\..\Program Files (x86)\PICC\Devices\16F84A.h   [12-nov.-13 14:34  CRC=4E09ACDB]
 
-Source signature=FD4CEAA1
+Source signature=BFCA87D1
 
 Units:
     seguidor_linea (main)

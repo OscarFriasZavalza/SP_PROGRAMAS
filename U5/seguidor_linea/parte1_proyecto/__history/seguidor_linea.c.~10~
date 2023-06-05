@@ -1,0 +1,122 @@
+#include <16F84A.h>
+#fuses XT, NOWDT
+#use delay(clock = 4000000)
+#use fast_io(B) // Configuramos los TRIS solo una vez, es la forma más rápida de trabajar con los puertos
+#use fast_io(A)
+
+
+#define bobina_1 PIN_B0
+#define bobina_2 PIN_B1
+#define bobina_3 PIN_B3
+#define bobina_4 PIN_B4
+
+#define enable1 PIN_B2
+#define enable2 PIN_B5
+
+#define sensor_izq PIN_A0
+#define sensor_der PIN_A1
+
+void pasos_izquierda(int velocidad);
+void pasos_derecha(int velocidad);
+void pasos_off(void);
+
+void pasos_izquierda(int velocidad)
+{
+   output_low(bobina_1);
+   output_low(bobina_2);
+   output_high(bobina_3);
+   output_high(bobina_4);
+   delay_ms(velocidad);
+   
+   output_low(bobina_1);
+   output_high(bobina_2);
+   output_high(bobina_3);
+   output_low(bobina_4);
+   delay_ms(velocidad);
+   
+   output_high(bobina_1);
+   output_high(bobina_2);
+   output_low(bobina_3);
+   output_low(bobina_4);
+   delay_ms(velocidad);
+   
+   output_high(bobina_1);
+   output_low(bobina_2);
+   output_low(bobina_3);
+   output_high(bobina_4);
+   delay_ms(velocidad);
+}
+
+void pasos_derecha(int velocidad)
+{
+   output_high(bobina_1);
+   output_high(bobina_2);
+   output_low(bobina_3);
+   output_low(bobina_4);
+   delay_ms(velocidad);
+   
+   output_low(bobina_1);
+   output_high(bobina_2);
+   output_high(bobina_3);
+   output_low(bobina_4);
+   delay_ms(velocidad);
+   
+   output_low(bobina_1);
+   output_low(bobina_2);
+   output_high(bobina_3);
+   output_high(bobina_4);
+   delay_ms(velocidad);
+   
+   output_high(bobina_1);
+   output_low(bobina_2);
+   output_low(bobina_3);
+   output_high(bobina_4);
+   delay_ms(velocidad);
+}
+
+void pasos_off(void)
+{
+   output_low(bobina_1);
+   output_low(bobina_2);
+   output_low(bobina_3);
+   output_low(bobina_4);
+}
+void prender(void){
+output_high(enable1);
+output_high(enable2);
+}
+
+void main(void)
+{ 
+   int sensores = 0b00;
+   set_tris_B(0b00000000); // Puerto B como salidas
+   set_tris_A(0b11111111); // Puerto A como entradas digitales
+
+   prender();
+
+   // Dirección de los motores hacia adelante
+   pasos_derecha(20);
+   pasos_izquierda(20);
+
+
+   while (1)
+   {
+      sensores = input_A(); // Lectura de los sensores en el puerto A
+
+      // Control del movimiento del robot en función de los sensores
+    
+      if (sensores == 0b00){
+         pasos_derecha(20);
+         pasos_izquierda(20);
+      }
+      if (sensores == 0b01)
+         pasos_derecha(20);
+      if(sensores==0b10)
+         pasos_izquierda(20);
+      if(sensores==0b11)
+         pasos_off();
+      
+  
+   }
+}
+
