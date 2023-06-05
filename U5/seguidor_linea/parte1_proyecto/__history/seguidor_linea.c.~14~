@@ -11,21 +11,21 @@ int k = 150; // Constante para giro leve --> Se recomienda ajustar según las car
 
 void frente(void) // Ambos motores al máximo de potencia
 {
-   pot_izq = 220;
-   pot_der = 220;
+   pot_izq = 250;
+   pot_der = 250;
 }
 
 
 void izquierda_cerrada(void)
 {
    pot_izq = k_cerradas;
-   pot_der = 220;
+   pot_der = 250;
 }
 
 
 void derecha_cerrada(void)
 {
-   pot_izq = 220;
+   pot_izq = 250;
    pot_der = k_cerradas;
 }
 void detener(void)

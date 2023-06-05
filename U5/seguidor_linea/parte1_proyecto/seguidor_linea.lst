@@ -1,4 +1,4 @@
-CCS PCM C Compiler, Version 5.015, 5967               04-jun.-23 16:59
+CCS PCM C Compiler, Version 5.015, 5967               04-jun.-23 17:07
 
                Filename:   C:\SP_PROGRAMAS\U5\seguidor_linea\parte1_proyecto\seguidor_linea.lst
 
@@ -61,11 +61,11 @@ CCS PCM C Compiler, Version 5.015, 5967               04-jun.-23 16:59
 ....................  
 .................... void frente(void) // Ambos motores al máximo de potencia 
 .................... { 
-....................    pot_izq = 150; 
+....................    pot_izq = 220; 
 *
-0007:  MOVLW  96
+0007:  MOVLW  DC
 0008:  MOVWF  10
-....................    pot_der = 150; 
+....................    pot_der = 220; 
 0009:  MOVWF  11
 000A:  GOTO   044 (RETURN)
 .................... } 
@@ -77,8 +77,8 @@ CCS PCM C Compiler, Version 5.015, 5967               04-jun.-23 16:59
 *
 0010:  MOVF   12,W
 0011:  MOVWF  10
-....................    pot_der = 150; 
-0012:  MOVLW  96
+....................    pot_der = 220; 
+0012:  MOVLW  DC
 0013:  MOVWF  11
 0014:  GOTO   04B (RETURN)
 .................... } 
@@ -86,9 +86,9 @@ CCS PCM C Compiler, Version 5.015, 5967               04-jun.-23 16:59
 ....................  
 .................... void derecha_cerrada(void) 
 .................... { 
-....................    pot_izq = 150; 
+....................    pot_izq = 220; 
 *
-000B:  MOVLW  96
+000B:  MOVLW  DC
 000C:  MOVWF  10
 ....................    pot_der = k_cerradas; 
 000D:  MOVF   12,W
