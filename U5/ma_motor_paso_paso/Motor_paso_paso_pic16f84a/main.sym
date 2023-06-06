@@ -23,16 +23,16 @@ Project Directory:
     C:\SP_PROGRAMAS\U5\ma_motor_paso_paso\Motor_paso_paso_pic16f84a\
 
 Project Files:
-    main.c                                                  [06-jun.-23 00:01  CRC=D6C351C0]
-    ..\..\..\..\Program Files (x86)\PICC\Devices\16f84.h    [12-nov.-13 14:34  CRC=AB8CD18B]
+    main.c                                                  [06-jun.-23 00:06  CRC=F6D927F1]
+    ..\..\..\..\Program Files (x86)\PICC\Devices\16f84a.h   [12-nov.-13 14:34  CRC=4E09ACDB]
 
-Source signature=2DDCF4D6
+Source signature=92EC81A7
 
 Units:
     main (main)
 
 Compiler Settings:
-    Processor:      PIC16F84
+    Processor:      PIC16F84A
     Pointer Size:   8
     Opt Level:      9
     Short,Int,Long: UNSIGNED: 1,8,16
