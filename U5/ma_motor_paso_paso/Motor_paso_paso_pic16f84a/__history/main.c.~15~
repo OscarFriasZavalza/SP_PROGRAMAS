@@ -22,12 +22,12 @@ void main()
    {
       pasos_off();
       
-      if(input(pulsador_izq) == 0)
+      if(input(pulsador_izq) == 1)
       {
          pasos_izquierda(10);
       }
       
-      if(input(pulsador_der) == 0)
+      if(input(pulsador_der) == 1)
       {
          pasos_derecha(10);
       }

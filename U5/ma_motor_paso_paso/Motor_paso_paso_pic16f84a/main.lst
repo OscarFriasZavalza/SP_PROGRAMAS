@@ -1,4 +1,4 @@
-CCS PCM C Compiler, Version 5.015, 5967               02-jun.-23 23:29
+CCS PCM C Compiler, Version 5.015, 5967               06-jun.-23 00:01
 
                Filename:   C:\SP_PROGRAMAS\U5\ma_motor_paso_paso\Motor_paso_paso_pic16f84a\main.lst
 
@@ -14,8 +14,8 @@ CCS PCM C Compiler, Version 5.015, 5967               02-jun.-23 23:29
 0001:  MOVWF  0A
 0002:  GOTO   0C3
 0003:  NOP
-.................... #include <16f84a.h> 
-.................... //////////// Standard Header file for the PIC16F84A device //////////////// 
+.................... #include <16f84.h> 
+.................... //////////// Standard Header file for the PIC16F84 device //////////////// 
 .................... /////////////////////////////////////////////////////////////////////////// 
 .................... ////        (C) Copyright 1996, 2013 Custom Computer Services          //// 
 .................... //// This source code may only be used by licensed users of the CCS C  //// 
@@ -25,7 +25,7 @@ CCS PCM C Compiler, Version 5.015, 5967               02-jun.-23 23:29
 .................... //// Derivative programs created using this software in object code    //// 
 .................... //// form are not restricted in any way.                               //// 
 .................... /////////////////////////////////////////////////////////////////////////// 
-.................... #device PIC16F84A 
+.................... #device PIC16F84 
 ....................  
 .................... #list 
 ....................  
@@ -78,28 +78,28 @@ CCS PCM C Compiler, Version 5.015, 5967               02-jun.-23 23:29
 ....................       pasos_off(); 
 00C6:  GOTO   004
 ....................        
-....................       if(input(pulsador_izq) == 1) 
+....................       if(input(pulsador_izq) == 0) 
 00C7:  BSF    03.5
 00C8:  BSF    05.0
 00C9:  BCF    03.5
-00CA:  BTFSS  05.0
+00CA:  BTFSC  05.0
 00CB:  GOTO   0CF
 ....................       { 
-....................          pasos_izquierda(2); 
-00CC:  MOVLW  02
+....................          pasos_izquierda(10); 
+00CC:  MOVLW  0A
 00CD:  MOVWF  11
 00CE:  GOTO   029
 ....................       } 
 ....................        
-....................       if(input(pulsador_der) == 1) 
+....................       if(input(pulsador_der) == 0) 
 00CF:  BSF    03.5
 00D0:  BSF    05.1
 00D1:  BCF    03.5
-00D2:  BTFSS  05.1
+00D2:  BTFSC  05.1
 00D3:  GOTO   0D7
 ....................       { 
-....................          pasos_derecha(2); 
-00D4:  MOVLW  02
+....................          pasos_derecha(10); 
+00D4:  MOVLW  0A
 00D5:  MOVWF  11
 00D6:  GOTO   076
 ....................       } 

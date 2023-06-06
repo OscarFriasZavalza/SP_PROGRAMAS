@@ -14,9 +14,9 @@ Stack size: 8
 Lines Stmts  %   Files
 ----- ----- ---  -----
    98    53 100  main.c
-  404     0   0  ..\..\..\..\Program Files (x86)\PICC\Devices\16f84a.h
+  403     0   0  ..\..\..\..\Program Files (x86)\PICC\Devices\16f84.h
 ----- -----
-  502    53 Total
+  501    53 Total
 
 Page ROM  %  RAM   Vol Diff  Functions:
 ---- --- --- ---   --- ----  ----------
@@ -25,19 +25,19 @@ Page ROM  %  RAM   Vol Diff  Functions:
 0     77  35    1   467  1.4  pasos_izquierda
 0     77  35    1   467  1.4  pasos_derecha
 0     17   8    0    72  1.2  pasos_off
- Inline         0             @cinit1
+ Inline         0    37  1.1  @cinit1
 
 Program metrics:
-    Functions               4
+    Functions               5
     Statements              53
     Comments                69
-    Volume (V)              1545
-    Difficulty (D)          6.8
-    Effort to implement (E) 10579
-    Time to implement (T)   10 minutes
+    Volume (V)              1644
+    Difficulty (D)          8.2
+    Effort to implement (E) 13455
+    Time to implement (T)   12 minutes
     Est Delivered Bugs (B)  0
     Cyclomatic Complexity   2
-    Maintainability (MI)    106
+    Maintainability (MI)    77
 
  Segment     Used  Free
 -----------  ----  ----
