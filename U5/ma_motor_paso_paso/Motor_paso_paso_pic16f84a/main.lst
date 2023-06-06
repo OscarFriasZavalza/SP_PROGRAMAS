@@ -1,4 +1,4 @@
-CCS PCM C Compiler, Version 5.015, 5967               06-jun.-23 00:10
+CCS PCM C Compiler, Version 5.015, 5967               06-jun.-23 00:15
 
                Filename:   C:\SP_PROGRAMAS\U5\ma_motor_paso_paso\Motor_paso_paso_pic16f84a\main.lst
 
@@ -78,28 +78,28 @@ CCS PCM C Compiler, Version 5.015, 5967               06-jun.-23 00:10
 ....................       pasos_off(); 
 00C6:  GOTO   004
 ....................        
-....................       if(input(pulsador_izq) == 0) 
+....................       if(input(pulsador_izq) == 1) 
 00C7:  BSF    03.5
 00C8:  BSF    05.0
 00C9:  BCF    03.5
-00CA:  BTFSC  05.0
+00CA:  BTFSS  05.0
 00CB:  GOTO   0CF
 ....................       { 
-....................          pasos_izquierda(2); 
-00CC:  MOVLW  02
+....................          pasos_izquierda(4); 
+00CC:  MOVLW  04
 00CD:  MOVWF  11
 00CE:  GOTO   029
 ....................       } 
 ....................        
-....................       if(input(pulsador_der) == 0) 
+....................       if(input(pulsador_der) == 1) 
 00CF:  BSF    03.5
 00D0:  BSF    05.1
 00D1:  BCF    03.5
-00D2:  BTFSC  05.1
+00D2:  BTFSS  05.1
 00D3:  GOTO   0D7
 ....................       { 
-....................          pasos_derecha(2); 
-00D4:  MOVLW  02
+....................          pasos_derecha(4); 
+00D4:  MOVLW  04
 00D5:  MOVWF  11
 00D6:  GOTO   076
 ....................       } 
