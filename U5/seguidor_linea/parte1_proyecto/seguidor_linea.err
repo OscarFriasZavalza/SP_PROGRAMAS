@@ -1,5 +1,5 @@
->>> Warning 203 "seguidor_linea.c" Line 55(1,1): Condition always TRUE
+>>> Warning 203 "seguidor_linea.c" Line 56(1,1): Condition always TRUE
 >>> Warning 202 "seguidor_linea.c" Line 10(5,6): Variable never used:   k
-      Memory usage:   ROM=10%      RAM=15% - 16%
+      Memory usage:   ROM=9%      RAM=15% - 16%
       0 Errors,  2 Warnings.
 Build Successful.

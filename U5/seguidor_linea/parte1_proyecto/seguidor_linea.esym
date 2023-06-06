@@ -1,8 +1,7 @@
-C L "MAIN" 0 7 1 "FUNCTION"
-D G "__PCM__" 0 85 ""5.015""
-D G "__DEVICE__" 0 85 "84"
-D G "__DATE__" 0 85 ""05-jun.-23""
-D G "__TIME__" 0 85 ""19:49:46"" "Standard Header file for the PIC16F84A device ////////////////"
+D G "__PCM__" 0 81 ""5.015""
+D G "__DEVICE__" 0 81 "84"
+D G "__DATE__" 0 81 ""05-jun.-23""
+D G "__TIME__" 0 81 ""20:09:16"" "Standard Header file for the PIC16F84A device ////////////////"
 c L "set_tris_a" 1 3 6 "FUNCTION"
 v L "value" 1 35 "int8" `53 
 f B "set_tris_a" 1 35 "void(int8 value)" `52 
@@ -545,15 +544,8 @@ V L "sensores" 0 42 "int8" `511
 C L "MAIN" 0 7 1 "FUNCTION"
 C L "MAIN" 0 7 1 "FUNCTION"
 C L "MAIN" 0 7 1 "FUNCTION"
+C L "MAIN" 0 7 1 "FUNCTION"
 C L "MAIN" 0 7 2 "FUNCTION"
-C L "MAIN" 0 7 1 "FUNCTION"
-C L "MAIN" 0 7 1 "FUNCTION"
-C L "MAIN" 0 7 1 "FUNCTION"
-C L "MAIN" 0 7 1 "FUNCTION"
-C L "MAIN" 0 7 1 "FUNCTION"
-C L "MAIN" 0 7 1 "FUNCTION"
-C L "MAIN" 0 7 1 "FUNCTION"
-C L "MAIN" 0 7 1 "FUNCTION"
 F B "reset_cpu" 0 0
 F B "abs" 1 0
 F B "sleep" 0 0

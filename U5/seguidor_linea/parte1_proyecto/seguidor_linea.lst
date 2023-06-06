@@ -1,9 +1,9 @@
-CCS PCM C Compiler, Version 5.015, 5967               05-jun.-23 19:49
+CCS PCM C Compiler, Version 5.015, 5967               05-jun.-23 20:09
 
                Filename:   C:\SP_PROGRAMAS\U5\seguidor_linea\parte1_proyecto\seguidor_linea.lst
 
-               ROM used:   104 words (10%)
-                           Largest free fragment is 920
+               ROM used:   91 words (9%)
+                           Largest free fragment is 933
                RAM used:   10 (15%) at main() level
                            11 (16%) worst case
                Stack used: 1 locations
@@ -12,7 +12,7 @@ CCS PCM C Compiler, Version 5.015, 5967               05-jun.-23 19:49
 *
 0000:  MOVLW  00
 0001:  MOVWF  0A
-0002:  GOTO   02C
+0002:  GOTO   024
 0003:  NOP
 .................... #include <16F84A.h> 
 .................... //////////// Standard Header file for the PIC16F84A device //////////////// 
@@ -32,43 +32,37 @@ CCS PCM C Compiler, Version 5.015, 5967               05-jun.-23 19:49
 .................... #fuses XT, NOWDT 
 .................... #use delay(clock = 4000000) 
 *
-0019:  MOVLW  12
-001A:  SUBWF  16,F
-001B:  BTFSS  03.0
-001C:  GOTO   02B
-001D:  MOVLW  16
-001E:  MOVWF  04
-001F:  MOVLW  FC
-0020:  ANDWF  00,F
-0021:  BCF    03.0
-0022:  RRF    00,F
-0023:  RRF    00,F
-0024:  MOVF   00,W
-0025:  BTFSC  03.2
-0026:  GOTO   02B
-0027:  GOTO   029
-0028:  NOP
-0029:  DECFSZ 00,F
-002A:  GOTO   028
-002B:  RETURN
+0011:  MOVLW  12
+0012:  SUBWF  16,F
+0013:  BTFSS  03.0
+0014:  GOTO   023
+0015:  MOVLW  16
+0016:  MOVWF  04
+0017:  MOVLW  FC
+0018:  ANDWF  00,F
+0019:  BCF    03.0
+001A:  RRF    00,F
+001B:  RRF    00,F
+001C:  MOVF   00,W
+001D:  BTFSC  03.2
+001E:  GOTO   023
+001F:  GOTO   021
+0020:  NOP
+0021:  DECFSZ 00,F
+0022:  GOTO   020
+0023:  RETURN
 .................... #use fast_io(B) // Configuramos los TRIS solo una vez, es la forma más rápida de trabajar con los puertos 
 .................... #use fast_io(A) 
 ....................  
 .................... int pot_izq = 0; // Potencia del motor izquierdo 
 .................... int pot_der = 0; // Potencia del motor derecho 
-.................... int k_cerradas = 0; // Constante para curvas cerradas (0-255) 0 es curva muy cerrada, 255 es una recta --> Se recomienda usar un valor mayor a 20 
+.................... int k_cerradas =20; // Constante para curvas cerradas (0-255) 0 es curva muy cerrada, 255 es una recta --> Se recomienda usar un valor mayor a 20 
 .................... int k = 150; // Constante para giro leve --> Se recomienda ajustar según las características del robot 
 ....................  
 .................... void frente(void) // Ambos motores al máximo de potencia 
 .................... { 
-....................    pot_izq = 30; 
-*
-0007:  MOVLW  1E
-0008:  MOVWF  10
-....................    pot_der = 300; 
-0009:  MOVLW  2C
-000A:  MOVWF  11
-000B:  GOTO   045 (RETURN)
+....................    pot_izq = 255; 
+....................    pot_der = 255; 
 .................... } 
 ....................  
 ....................  
@@ -76,34 +70,30 @@ CCS PCM C Compiler, Version 5.015, 5967               05-jun.-23 19:49
 .................... { 
 ....................    pot_izq = k_cerradas; 
 *
-0011:  MOVF   12,W
-0012:  MOVWF  10
-....................    pot_der = 300; 
-0013:  MOVLW  2C
-0014:  MOVWF  11
-0015:  GOTO   04C (RETURN)
+000C:  MOVF   12,W
+000D:  MOVWF  10
+....................    pot_der = 255; 
+000E:  MOVLW  FF
+000F:  MOVWF  11
+0010:  GOTO   043 (RETURN)
 .................... } 
 ....................  
 ....................  
 .................... void derecha_cerrada(void) 
 .................... { 
-....................    pot_izq = 300; 
+....................    pot_izq = 255; 
 *
-000C:  MOVLW  2C
-000D:  MOVWF  10
+0007:  MOVLW  FF
+0008:  MOVWF  10
 ....................    pot_der = k_cerradas; 
-000E:  MOVF   12,W
-000F:  MOVWF  11
-0010:  GOTO   048 (RETURN)
+0009:  MOVF   12,W
+000A:  MOVWF  11
+000B:  GOTO   03F (RETURN)
 .................... } 
 .................... void detener(void) 
 .................... { 
 .................... output_low(PIN_B2); 
-*
-0016:  BCF    06.2
 .................... output_low(pIN_B5); 
-0017:  BCF    06.5
-0018:  GOTO   050 (RETURN)
 .................... } 
 .................... void prender(void){ 
 .................... output_high(PIN_B2); 
@@ -111,113 +101,104 @@ CCS PCM C Compiler, Version 5.015, 5967               05-jun.-23 19:49
 0004:  BSF    06.2
 .................... output_high(pIN_B5); 
 0005:  BSF    06.5
-0006:  GOTO   03C (RETURN)
+0006:  GOTO   036 (RETURN)
 .................... } 
 .................... void main(void) 
 *
-002C:  MOVF   03,W
-002D:  ANDLW  1F
-002E:  MOVWF  03
-002F:  CLRF   10
-0030:  CLRF   11
-0031:  CLRF   12
-0032:  MOVLW  96
-0033:  MOVWF  13
-0034:  CLRF   14
+0024:  MOVF   03,W
+0025:  ANDLW  1F
+0026:  MOVWF  03
+0027:  CLRF   10
+0028:  CLRF   11
+0029:  MOVLW  14
+002A:  MOVWF  12
+002B:  MOVLW  96
+002C:  MOVWF  13
+002D:  CLRF   14
 .................... {  
 ....................    int sensores = 0b00; 
 ....................    set_tris_B(0b00000000); // Puerto B como salidas 
-0035:  MOVLW  00
-0036:  BSF    03.5
-0037:  MOVWF  06
+002E:  MOVLW  00
+002F:  BSF    03.5
+0030:  MOVWF  06
 ....................    set_tris_A(0b11111111); // Puerto A como entradas digitales 
-0038:  MOVLW  FF
-0039:  MOVWF  05
+0031:  MOVLW  FF
+0032:  MOVWF  05
+....................    OUTPUT_B(0); //inicializamos en 0 el puerto B 
+0033:  BCF    03.5
+0034:  CLRF   06
 ....................  
 ....................    prender(); 
-003A:  BCF    03.5
-003B:  GOTO   004
+0035:  GOTO   004
 ....................  
 ....................    // Dirección de los motores hacia adelante 
 ....................    output_high(PIN_B0); 
-003C:  BSF    06.0
+0036:  BSF    06.0
 ....................    output_low(PIN_B1); 
-003D:  BCF    06.1
+0037:  BCF    06.1
 ....................    output_high(PIN_B3); 
-003E:  BSF    06.3
+0038:  BSF    06.3
 ....................    output_low(PIN_B4); 
-003F:  BCF    06.4
+0039:  BCF    06.4
 ....................  
 ....................  
 ....................    while (1) 
 ....................    { 
 ....................       sensores = input_A(); // Lectura de los sensores en el puerto A 
-0040:  MOVF   05,W
-0041:  MOVWF  14
+003A:  MOVF   05,W
+003B:  MOVWF  14
 ....................  
 ....................       // Control del movimiento del robot en función de los sensores 
-....................       if (sensores == 0b00) 
-0042:  MOVF   14,F
-0043:  BTFSC  03.2
-....................          frente(); 
-0044:  GOTO   007
 ....................       if (sensores == 0b01) 
-0045:  DECFSZ 14,W
-0046:  GOTO   048
+003C:  DECFSZ 14,W
+003D:  GOTO   03F
 ....................          derecha_cerrada(); 
-0047:  GOTO   00C
+003E:  GOTO   007
 ....................       if(sensores==0b10) 
-0048:  MOVF   14,W
-0049:  SUBLW  02
-004A:  BTFSC  03.2
+003F:  MOVF   14,W
+0040:  SUBLW  02
+0041:  BTFSC  03.2
 ....................          izquierda_cerrada(); 
-004B:  GOTO   011
-....................       if(sensores==0b11) 
-004C:  MOVF   14,W
-004D:  SUBLW  03
-004E:  BTFSC  03.2
-....................          detener(); 
-004F:  GOTO   016
+0042:  GOTO   00C
 ....................       
-....................       // Control de los motores izquierdo y derecho mediante el ajuste de los pines B2 y B5 
-....................       output_high(PIN_B2); // Activa el motor izquierdo 
-0050:  BSF    06.2
-....................       delay_us(pot_izq); // Retardo proporcionado por la potencia establecida en "pot_izq" 
-0051:  MOVF   10,W
-0052:  MOVWF  16
-0053:  CALL   019
-....................  
-....................       output_low(PIN_B2); // Desactiva el motor izquierdo 
-0054:  BCF    06.2
-....................       delay_us(255 - pot_izq); // Retardo complementario para mantener el ciclo de trabajo 
-0055:  MOVF   10,W
-0056:  SUBLW  FF
-0057:  MOVWF  15
-0058:  MOVF   15,W
-0059:  MOVWF  16
-005A:  CALL   019
-....................  
-....................       output_high(PIN_B5); // Activa el motor derecho 
-005B:  BSF    06.5
-....................       delay_us(pot_der); // Retardo proporcionado por la potencia establecida en "pot_der" 
-005C:  MOVF   11,W
-005D:  MOVWF  16
-005E:  CALL   019
-....................  
-....................       output_low(PIN_B5); // Desactiva el motor derecho 
-005F:  BCF    06.5
-....................       delay_us(255 - pot_der); // Retardo complementario para mantener el ciclo de trabajo 
-0060:  MOVF   11,W
-0061:  SUBLW  FF
-0062:  MOVWF  15
-0063:  MOVF   15,W
-0064:  MOVWF  16
-0065:  CALL   019
-0066:  GOTO   040
 ....................       
+....................           output_high(PIN_B2); 
+0043:  BSF    06.2
+....................          delay_us(pot_izq); 
+0044:  MOVF   10,W
+0045:  MOVWF  16
+0046:  CALL   011
+....................  
+....................          output_low(PIN_B2); 
+0047:  BCF    06.2
+....................          delay_us(255 - pot_izq); 
+0048:  MOVF   10,W
+0049:  SUBLW  FF
+004A:  MOVWF  15
+004B:  MOVF   15,W
+004C:  MOVWF  16
+004D:  CALL   011
+....................  
+....................          output_high(PIN_B5); 
+004E:  BSF    06.5
+....................          delay_us(pot_der); 
+004F:  MOVF   11,W
+0050:  MOVWF  16
+0051:  CALL   011
+....................  
+....................          output_low(PIN_B5); 
+0052:  BCF    06.5
+....................          delay_us(255 - pot_der); 
+0053:  MOVF   11,W
+0054:  SUBLW  FF
+0055:  MOVWF  15
+0056:  MOVF   15,W
+0057:  MOVWF  16
+0058:  CALL   011
+0059:  GOTO   03A
 ....................    } 
 .................... } 
-0067:  SLEEP
+005A:  SLEEP
 
 Configuration Fuses:
    Word  1: 3FF1   XT NOWDT PUT NOPROTECT
