@@ -21,12 +21,12 @@ Lines Stmts  %   Files
 Page ROM  %  RAM   Vol Diff  Functions:
 ---- --- --- ---   --- ----  ----------
 0     19  18    1             @delay_us1
-0      4   4    0    38  1.4  frente
+0      5   5    0    38  1.4  frente
 0      5   5    0    38  1.4  izquierda_cerrada
 0      5   5    0    38  1.4  derecha_cerrada
 0      3   3    0    37  1.1  detener
 0      3   3    0    37  1.1  prender
-0     61  59    2   662  3.8  MAIN
+0     60  58    2   662  3.8  MAIN
  Inline         0   898  4.4  @cinit1
 
 Program metrics:

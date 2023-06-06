@@ -1,8 +1,8 @@
 ÀÄseguidor_linea
-   ÀÄMAIN  0/61  Ram=2
+   ÀÄMAIN  0/60  Ram=2
       ÃÄ@cinit1  (Inline)  Ram=0
       ÃÄprender  0/3  Ram=0
-      ÃÄfrente  0/4  Ram=0
+      ÃÄfrente  0/5  Ram=0
       ÃÄderecha_cerrada  0/5  Ram=0
       ÃÄizquierda_cerrada  0/5  Ram=0
       ÃÄdetener  0/3  Ram=0

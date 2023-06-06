@@ -16,22 +16,22 @@
 ROM Allocation:
 000004  prender
 000007  frente
-00000B  derecha_cerrada
-000010  izquierda_cerrada
-000015  detener
-000018  @delay_us1
-00002B  MAIN
-00002B  @cinit1
+00000C  derecha_cerrada
+000011  izquierda_cerrada
+000016  detener
+000019  @delay_us1
+00002C  MAIN
+00002C  @cinit1
 000034  @cinit2
 
 Project Directory:
     C:\SP_PROGRAMAS\U5\seguidor_linea\parte1_proyecto\
 
 Project Files:
-    seguidor_linea.c                                        [05-jun.-23 19:41  CRC=93BD837F]
+    seguidor_linea.c                                        [05-jun.-23 19:49  CRC=3E94037B]
     ..\..\..\..\Program Files (x86)\PICC\Devices\16F84A.h   [12-nov.-13 14:34  CRC=4E09ACDB]
 
-Source signature=2FD0DD35
+Source signature=DAA75D31
 
 Units:
     seguidor_linea (main)
