@@ -1,4 +1,4 @@
-#include <16f84.h>
+#include <16f84a.h>
 #fuses XT, NOWDT
 #use delay(clock = 4000000)
 #use standard_io(B)
@@ -24,12 +24,12 @@ void main()
       
       if(input(pulsador_izq) == 0)
       {
-         pasos_izquierda(2);
+         pasos_izquierda(4);
       }
       
       if(input(pulsador_der) == 0)
       {
-         pasos_derecha(2);
+         pasos_derecha(4);
       }
    }
 }
