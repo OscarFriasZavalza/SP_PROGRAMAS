@@ -1,8 +1,8 @@
-C L "MAIN" 0 8 1 "FUNCTION"
-D G "__PCM__" 0 93 ""5.015""
-D G "__DEVICE__" 0 93 "84"
-D G "__DATE__" 0 93 ""05-jun.-23""
-D G "__TIME__" 0 93 ""22:57:09"" "Standard Header file for the PIC16F84A device ////////////////"
+C L "MAIN" 0 7 1 "FUNCTION"
+D G "__PCM__" 0 84 ""5.015""
+D G "__DEVICE__" 0 84 "84"
+D G "__DATE__" 0 84 ""05-jun.-23""
+D G "__TIME__" 0 84 ""23:20:13"" "Standard Header file for the PIC16F84A device ////////////////"
 c L "set_tris_a" 1 3 6 "FUNCTION"
 v L "value" 1 35 "int8" `53 
 f B "set_tris_a" 1 35 "void(int8 value)" `52 
@@ -526,32 +526,19 @@ d G "INT_EXT_H2L" 1 398 "0x60000B10"
 d G "INT_EXT" 1 399 "0x000B10"
 d G "INT_EEPROM" 1 400 "0x000B40"
 d G "INT_TIMER0" 1 401 "0x000B20"
-V G "pot_izq" 0 7 "int8" `501 
-C L "jump_to_irs" 0 7 1 "FUNCTION"
-V G "pot_der" 0 8 "int8" `502 
-C L "jump_to_irs" 0 7 1 "FUNCTION"
-V G "k_cerradas" 0 9 "int8" `503 
-C L "jump_to_irs" 0 7 1 "FUNCTION"
-C L "frente" 0 7 1 "FUNCTION"
-F G "frente" 0 12 "void()" `504 
-F G "izquierda_cerrada" 0 19 "void()" `505 
-F G "derecha_cerrada" 0 26 "void()" `506 
-F G "detener" 0 31 "void()" `507 
-F G "prender" 0 35 "void()" `508 
-F G "MAIN" 0 40 "void()" `509 
-V L "sensores" 0 41 "int8" `510 
-C L "MAIN" 0 7 1 "FUNCTION"
-C L "MAIN" 0 7 1 "FUNCTION"
-C L "MAIN" 0 7 1 "FUNCTION"
-C L "MAIN" 0 7 2 "FUNCTION"
-C L "MAIN" 0 7 1 "FUNCTION"
-C L "MAIN" 0 7 1 "FUNCTION"
-C L "MAIN" 0 7 1 "FUNCTION"
-C L "MAIN" 0 7 1 "FUNCTION"
-C L "MAIN" 0 7 1 "FUNCTION"
-C L "MAIN" 0 7 1 "FUNCTION"
-C L "MAIN" 0 7 1 "FUNCTION"
-C L "MAIN" 0 7 1 "FUNCTION"
+C L "frente" 0 8 1 "FUNCTION"
+F G "frente" 0 9 "void()" `501 
+C L "izquierda" 0 8 1 "FUNCTION"
+F G "izquierda" 0 15 "void()" `502 
+F G "derecha" 0 21 "void()" `503 
+F G "detener" 0 28 "void()" `504 
+F G "arrancar" 0 32 "void()" `505 
+F G "MAIN" 0 37 "void()" `506 
+V L "sensores" 0 38 "int8" `507 
+C L "MAIN" 0 8 1 "FUNCTION"
+C L "MAIN" 0 8 1 "FUNCTION"
+C L "MAIN" 0 8 1 "FUNCTION"
+C L "MAIN" 0 8 2 "FUNCTION"
 F B "reset_cpu" 0 0
 F B "abs" 1 0
 F B "sleep" 0 0

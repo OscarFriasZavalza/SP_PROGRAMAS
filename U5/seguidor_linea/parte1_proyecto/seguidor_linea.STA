@@ -1,50 +1,49 @@
 
-ROM used:   101/1024 (10%)
-            101/1024 (10%) including unused fragments
+ROM used:   52/1024 (5%)
+            52/1024 (5%) including unused fragments
 
-            0.2 Average locations per line
-            2.8 Average locations per statement
+            0.1 Average locations per line
+            1.9 Average locations per statement
 
-RAM used:   9/68 (13%) at main() level
-            10/68 (15%) worst case
+RAM used:   5/68 (7%) at main() level
+            5/68 (7%) worst case
 
 Stack used: 1 worst case (1 in main + 0 for interrupts)
 Stack size: 8
 
 Lines Stmts  %   Files
 ----- ----- ---  -----
-   83    36 100  seguidor_linea.c
+   69    28 100  seguidor_linea.c
   404     0   0  ..\..\..\..\Program Files (x86)\PICC\Devices\16F84A.h
 ----- -----
-  487    36 Total
+  473    28 Total
 
 Page ROM  %  RAM   Vol Diff  Functions:
 ---- --- --- ---   --- ----  ----------
-0     19  19    1             @delay_us1
-0      4   4    0    38  1.4  frente
-0      5   5    0    38  1.4  izquierda_cerrada
-0      5   5    0    38  1.4  derecha_cerrada
-0      3   3    0    37  1.1  detener
-0      3   3    0    37  1.1  prender
-0     58  57    2   662  3.8  MAIN
+0      3   6    0    37  1.1  frente
+0      3   6    0    37  1.1  izquierda
+0      3   6    0    37  1.1  derecha
+0      3   6    0    37  1.1  detener
+0      3   6    0    37  1.1  arrancar
+0     33  63    1   407  3.3  MAIN
  Inline         0   627  3.8  @cinit1
 
 Program metrics:
     Functions               7
-    Statements              36
-    Comments                87
-    Volume (V)              2035
-    Difficulty (D)          15.2
-    Effort to implement (E) 30832
-    Time to implement (T)   29 minutes
+    Statements              28
+    Comments                76
+    Volume (V)              1718
+    Difficulty (D)          13.2
+    Effort to implement (E) 22740
+    Time to implement (T)   21 minutes
     Est Delivered Bugs (B)  0
     Cyclomatic Complexity   7
-    Maintainability (MI)    78
+    Maintainability (MI)    73
 
  Segment     Used  Free
 -----------  ----  ----
 00000-00003     4  0  
-00004-003FF    97  923  
+00004-003FF    48  972  
 
 
 

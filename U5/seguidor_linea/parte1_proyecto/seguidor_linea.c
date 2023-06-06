@@ -1,38 +1,35 @@
 #include <16F84A.h>
 #fuses XT, NOWDT
 #use delay(clock = 4000000)
-#use fast_io(B) // Configuramos los TRIS solo una vez, es la forma m?s r?pida de trabajar con los puertos
+#use fast_io(B) // Configuramos los TRIS solo una vez, es la forma más rápida de trabajar con los puertos
 #use fast_io(A)
 
-int pot_izq = 0; // Potencia del motor izquierdo
-int pot_der = 0; // Potencia del motor derecho
-int k_cerradas = 0; // Constante para curvas cerradas (0-255) 0 es curva muy cerrada, 255 es una recta --> Se recomienda usar un valor mayor a 20
 
-void frente(void) // Ambos motores al m?ximo de potencia
+void frente(void) // Ambos motores al máximo de potencia
 {
-   pot_izq = 255;
-   pot_der = 255;
+   output_high(PIN_B0);
+   output_high(PIN_B3);
+}
+
+void izquierda(void) // La potencia del motor derecho es mayor a la del izquierdo
+{
+   output_low(PIN_B0);
+   output_high(PIN_B3);
+}
+
+void derecha(void)
+{
+  output_high(PIN_B0);
+   output_low(PIN_B3);
 }
 
 
-void izquierda_cerrada(void)
-{
-   pot_izq = k_cerradas;
-   pot_der = 255;
-}
-
-
-void derecha_cerrada(void)
-{
-   pot_izq = 255;
-   pot_der = k_cerradas;
-}
 void detener(void)
 {
-output_low(PIN_B2);
-output_low(pIN_B5);
+output_low(PIN_B0);
+output_low(pIN_B3);
 }
-void prender(void){
+void arrancar(void){
 output_high(PIN_B2);
 output_high(pIN_B5);
 }
@@ -42,9 +39,9 @@ void main(void)
    set_tris_B(0b00000000); // Puerto B como salidas
    set_tris_A(0b11111111); // Puerto A como entradas digitales
 
-   prender();
+   arrancar();
 
-   // Direcci?n de los motores hacia adelante
+   // Dirección de los motores hacia adelante
    output_high(PIN_B0);
    output_low(PIN_B1);
    output_high(PIN_B3);
@@ -55,28 +52,17 @@ void main(void)
    {
       sensores = input_A(); // Lectura de los sensores en el puerto A
 
-      // Control del movimiento del robot en funci?n de los sensores
+      // Control del movimiento del robot en función de los sensores
+    
       if (sensores == 0b00)
          frente();
       if (sensores == 0b01)
-         derecha_cerrada();
+         derecha();
       if(sensores==0b10)
-         izquierda_cerrada();
+         izquierda();
       if(sensores==0b11)
          detener();
-
-      // Control de los motores izquierdo y derecho mediante el ajuste de los pines B2 y B5
-      output_high(PIN_B2); // Activa el motor izquierdo
-      delay_us(pot_izq); // Retardo proporcionado por la potencia establecida en "pot_izq"
-
-      output_low(PIN_B2); // Desactiva el motor izquierdo
-      delay_us(255 - pot_izq); // Retardo complementario para mantener el ciclo de trabajo
-
-      output_high(PIN_B5); // Activa el motor derecho
-      delay_us(pot_der); // Retardo proporcionado por la potencia establecida en "pot_der"
-
-      output_low(PIN_B5); // Desactiva el motor derecho
-      delay_us(255 - pot_der); // Retardo complementario para mantener el ciclo de trabajo
-
+      
+  
    }
 }
