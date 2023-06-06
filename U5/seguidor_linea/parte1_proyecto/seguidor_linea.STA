@@ -1,49 +1,50 @@
 
-ROM used:   50/1024 (5%)
-            50/1024 (5%) including unused fragments
+ROM used:   100/1024 (10%)
+            100/1024 (10%) including unused fragments
 
-            0.1 Average locations per line
-            1.5 Average locations per statement
+            0.2 Average locations per line
+            2.7 Average locations per statement
 
-RAM used:   5/68 (7%) at main() level
-            5/68 (7%) worst case
+RAM used:   10/68 (15%) at main() level
+            11/68 (16%) worst case
 
 Stack used: 1 worst case (1 in main + 0 for interrupts)
 Stack size: 8
 
 Lines Stmts  %   Files
 ----- ----- ---  -----
-   76    33 100  seguidor_linea.c
+   92    37 100  seguidor_linea.c
   404     0   0  ..\..\..\..\Program Files (x86)\PICC\Devices\16F84A.h
 ----- -----
-  480    33 Total
+  496    37 Total
 
 Page ROM  %  RAM   Vol Diff  Functions:
 ---- --- --- ---   --- ----  ----------
-0      3   6    0    37  1.1  frente
-0      3   6    0    37  1.1  izquierda
-0      3   6    0    37  1.1  derecha
-0      3   6    0    37  1.1  detener
-0      3   6    0    37  1.1  arrancar
-0     31  62    1   472  3.3  MAIN
- Inline         0   898  4.4  @cinit1
+0     19  19    1             @delay_us1
+0      3   3    0    37  1.1  frente2
+0      5   5    0    38  1.4  izquierda_cerrada
+0      5   5    0    38  1.4  derecha_cerrada
+0      3   3    0    37  1.1  detener
+0      3   3    0    37  1.1  prender
+0     58  58    2   627  3.8  MAIN
+ Inline         0             @cinit1
 
 Program metrics:
-    Functions               7
-    Statements              33
-    Comments                76
-    Volume (V)              2114
-    Difficulty (D)          13.9
-    Effort to implement (E) 29421
-    Time to implement (T)   27 minutes
+    Functions               6
+    Statements              37
+    Comments                89
+    Volume (V)              1103
+    Difficulty (D)          10.5
+    Effort to implement (E) 11567
+    Time to implement (T)   11 minutes
     Est Delivered Bugs (B)  0
-    Cyclomatic Complexity   10
-    Maintainability (MI)    70
+    Cyclomatic Complexity   3
+    Maintainability (MI)    99
 
  Segment     Used  Free
 -----------  ----  ----
 00000-00003     4  0  
-00004-003FF    46  974  
+00004-003FF    96  924  
 
 
 

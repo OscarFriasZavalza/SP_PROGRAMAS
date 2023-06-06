@@ -60,12 +60,11 @@ void main(void)
 
    while (1)
    {
- 
       sensores = input_A(); // Lectura de los sensores en el puerto A
 
       // Control del movimiento del robot en funci?n de los sensores
-    
-     
+     if(sensores!=0b00){
+
      if (sensores == 0b01)
          derecha_cerrada();
       if(sensores==0b10)
@@ -86,6 +85,6 @@ void main(void)
 
       output_low(PIN_B5); // Desactiva el motor derecho
       delay_us(255 - pot_der); // Retardo complementario para mantener el ciclo de trabajo
-
+}
    }
 }
