@@ -2,7 +2,7 @@
    읕MAIN  0/58  Ram=2
       쳐@cinit1  (Inline)  Ram=0
       쳐prender  0/3  Ram=0
-      쳐frente2  0/3  Ram=0
+      쳐frente  0/4  Ram=0
       쳐derecha_cerrada  0/5  Ram=0
       쳐izquierda_cerrada  0/5  Ram=0
       쳐detener  0/3  Ram=0
