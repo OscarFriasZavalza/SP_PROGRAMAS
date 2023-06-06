@@ -57,15 +57,14 @@ void main(void)
       sensores = input_A(); // Lectura de los sensores en el puerto A
 
       // Control del movimiento del robot en funci?n de los sensores
-     
+      if (sensores == 0b00)
+         frente();
       if (sensores == 0b01)
          derecha_cerrada();
       if(sensores==0b10)
          izquierda_cerrada();
       if(sensores==0b11)
          detener();
-      if (sensores == 0b00)
-         frente();
 
       // Control de los motores izquierdo y derecho mediante el ajuste de los pines B2 y B5
       output_high(PIN_B2); // Activa el motor izquierdo
