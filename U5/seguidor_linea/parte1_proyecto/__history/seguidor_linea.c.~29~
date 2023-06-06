@@ -64,8 +64,8 @@ void main(void)
          izquierda_cerrada();
       if(sensores==0b11)
          detener();
-     
-        
+      if (sensores == 0b00)
+         frente();
 
       // Control de los motores izquierdo y derecho mediante el ajuste de los pines B2 y B5
       output_high(PIN_B2); // Activa el motor izquierdo
