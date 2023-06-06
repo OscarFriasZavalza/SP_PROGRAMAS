@@ -55,12 +55,12 @@ void main(void)
       // Control del movimiento del robot en función de los sensores
     
        if (sensores == 0b01){
-            derecha();
+            derecha_cerrada();
              delay_us(1000000);
        }
          
       if(sensores==0b10){
-         izquierda();
+         izquierda_cerrada();
          delay_us(1000000);
 
       }

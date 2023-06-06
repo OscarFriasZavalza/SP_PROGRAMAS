@@ -1,4 +1,1 @@
 >>> Warning 203 "seguidor_linea.c" Line 51(1,1): Condition always TRUE
-      Memory usage:   ROM=5%      RAM=7% - 7%
-      0 Errors,  1 Warnings.
-Build Successful.
