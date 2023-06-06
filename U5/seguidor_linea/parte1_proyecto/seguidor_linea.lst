@@ -1,9 +1,9 @@
-CCS PCM C Compiler, Version 5.015, 5967               05-jun.-23 20:24
+CCS PCM C Compiler, Version 5.015, 5967               05-jun.-23 20:28
 
                Filename:   C:\SP_PROGRAMAS\U5\seguidor_linea\parte1_proyecto\seguidor_linea.lst
 
-               ROM used:   98 words (10%)
-                           Largest free fragment is 926
+               ROM used:   99 words (10%)
+                           Largest free fragment is 925
                RAM used:   10 (15%) at main() level
                            11 (16%) worst case
                Stack used: 1 locations
@@ -67,7 +67,7 @@ CCS PCM C Compiler, Version 5.015, 5967               05-jun.-23 20:24
 0008:  MOVWF  10
 ....................    pot_der = 255; 
 0009:  MOVWF  11
-000A:  GOTO   043 (RETURN)
+000A:  GOTO   044 (RETURN)
 .................... } 
 ....................  
 ....................  
@@ -80,7 +80,7 @@ CCS PCM C Compiler, Version 5.015, 5967               05-jun.-23 20:24
 ....................    pot_der = 255; 
 0012:  MOVLW  FF
 0013:  MOVWF  11
-0014:  GOTO   04A (RETURN)
+0014:  GOTO   04B (RETURN)
 .................... } 
 ....................  
 ....................  
@@ -93,7 +93,7 @@ CCS PCM C Compiler, Version 5.015, 5967               05-jun.-23 20:24
 ....................    pot_der = k_cerradas; 
 000D:  MOVF   12,W
 000E:  MOVWF  11
-000F:  GOTO   046 (RETURN)
+000F:  GOTO   047 (RETURN)
 .................... } 
 .................... void detener(void) 
 .................... { 
@@ -152,62 +152,63 @@ CCS PCM C Compiler, Version 5.015, 5967               05-jun.-23 20:24
 ....................       sensores = input_A(); // Lectura de los sensores en el puerto A 
 003E:  MOVF   05,W
 003F:  MOVWF  14
-....................         if (sensores == 0b00) 
-0040:  MOVF   14,F
-0041:  BTFSC  03.2
+....................         if (sensores == 0b11) 
+0040:  MOVF   14,W
+0041:  SUBLW  03
+0042:  BTFSC  03.2
 ....................          frente(); 
-0042:  GOTO   007
+0043:  GOTO   007
 ....................       // Control del movimiento del robot en función de los sensores 
 ....................       if (sensores == 0b01) 
-0043:  DECFSZ 14,W
-0044:  GOTO   046
+0044:  DECFSZ 14,W
+0045:  GOTO   047
 ....................          derecha_cerrada(); 
-0045:  GOTO   00B
+0046:  GOTO   00B
 ....................       if(sensores==0b10) 
-0046:  MOVF   14,W
-0047:  SUBLW  02
-0048:  BTFSC  03.2
+0047:  MOVF   14,W
+0048:  SUBLW  02
+0049:  BTFSC  03.2
 ....................          izquierda_cerrada(); 
-0049:  GOTO   010
+004A:  GOTO   010
 ....................       
 ....................       
 ....................           output_high(PIN_B2); 
-004A:  BSF    06.2
+004B:  BSF    06.2
 ....................          delay_us(pot_izq); 
-004B:  MOVF   10,W
-004C:  MOVWF  16
-004D:  CALL   015
+004C:  MOVF   10,W
+004D:  MOVWF  16
+004E:  CALL   015
 ....................  
 ....................          output_low(PIN_B2); 
-004E:  BCF    06.2
+004F:  BCF    06.2
 ....................          delay_us(255 - pot_izq); 
-004F:  MOVF   10,W
-0050:  SUBLW  FF
-0051:  MOVWF  15
-0052:  MOVF   15,W
-0053:  MOVWF  16
-0054:  CALL   015
+0050:  MOVF   10,W
+0051:  SUBLW  FF
+0052:  MOVWF  15
+0053:  MOVF   15,W
+0054:  MOVWF  16
+0055:  CALL   015
 ....................  
 ....................          output_high(PIN_B5); 
-0055:  BSF    06.5
+0056:  BSF    06.5
 ....................          delay_us(pot_der); 
-0056:  MOVF   11,W
-0057:  MOVWF  16
-0058:  CALL   015
+0057:  MOVF   11,W
+0058:  MOVWF  16
+0059:  CALL   015
 ....................  
 ....................          output_low(PIN_B5); 
-0059:  BCF    06.5
+005A:  BCF    06.5
 ....................          delay_us(255 - pot_der); 
-005A:  MOVF   11,W
-005B:  SUBLW  FF
-005C:  MOVWF  15
-005D:  MOVF   15,W
-005E:  MOVWF  16
-005F:  CALL   015
-0060:  GOTO   03E
+005B:  MOVF   11,W
+005C:  SUBLW  FF
+005D:  MOVWF  15
+005E:  MOVF   15,W
+005F:  MOVWF  16
+0060:  CALL   015
+0061:  GOTO   03E
 ....................    } 
 .................... } 
-0061:  SLEEP
+0062:  SLEEP
 
 Configuration Fuses:
    Word  1: 3FF1   XT NOWDT PUT NOPROTECT

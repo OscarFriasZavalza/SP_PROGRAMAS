@@ -1,6 +1,6 @@
 
-ROM used:   98/1024 (10%)
-            98/1024 (10%) including unused fragments
+ROM used:   99/1024 (10%)
+            99/1024 (10%) including unused fragments
 
             0.2 Average locations per line
             2.8 Average locations per statement
@@ -25,7 +25,7 @@ Page ROM  %  RAM   Vol Diff  Functions:
 0      5   5    0    38  1.4  izquierda_cerrada
 0      5   5    0    38  1.4  derecha_cerrada
 0      3   3    0    37  1.1  prender
-0     58  59    2   635  3.8  MAIN
+0     59  60    2   635  3.8  MAIN
  Inline         0   898  4.4  @cinit1
 
 Program metrics:
@@ -43,7 +43,7 @@ Program metrics:
  Segment     Used  Free
 -----------  ----  ----
 00000-00003     4  0  
-00004-003FF    94  926  
+00004-003FF    95  925  
 
 
 
