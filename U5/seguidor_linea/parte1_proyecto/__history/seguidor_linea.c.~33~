@@ -47,7 +47,6 @@ void main(void)
    output_high(PIN_B3);
    output_low(PIN_B4);
 
-   frente();
 
    while (1)
    {
@@ -70,6 +69,10 @@ void main(void)
          delay_us(1000000);
 
       }
-            
+      if (sensores == 0b00){
+         frente();
+         delay_us(1000000);
+      }
+         
    }
 }

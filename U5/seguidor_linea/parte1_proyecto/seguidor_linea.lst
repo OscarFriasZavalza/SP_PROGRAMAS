@@ -1,9 +1,9 @@
-CCS PCM C Compiler, Version 5.015, 5967               05-jun.-23 22:19
+CCS PCM C Compiler, Version 5.015, 5967               05-jun.-23 22:23
 
                Filename:   C:\SP_PROGRAMAS\U5\seguidor_linea\parte1_proyecto\seguidor_linea.lst
 
-               ROM used:   52 words (5%)
-                           Largest free fragment is 972
+               ROM used:   50 words (5%)
+                           Largest free fragment is 974
                RAM used:   5 (7%) at main() level
                            5 (7%) worst case
                Stack used: 1 locations
@@ -39,30 +39,30 @@ CCS PCM C Compiler, Version 5.015, 5967               05-jun.-23 22:19
 .................... { 
 ....................    output_high(PIN_B0); 
 *
-0010:  BSF    06.0
+0007:  BSF    06.0
 ....................    output_high(PIN_B3); 
-0011:  BSF    06.3
-0012:  GOTO   032 (RETURN)
+0008:  BSF    06.3
+0009:  GOTO   023 (RETURN)
 .................... } 
 ....................  
 .................... void izquierda(void) // La potencia del motor derecho es mayor a la del izquierdo 
 .................... { 
 ....................    output_low(PIN_B0); 
 *
-000A:  BCF    06.0
+000D:  BCF    06.0
 ....................    output_high(PIN_B3); 
-000B:  BSF    06.3
-000C:  GOTO   02B (RETURN)
+000E:  BSF    06.3
+000F:  GOTO   02C (RETURN)
 .................... } 
 ....................  
 .................... void derecha(void) 
 .................... { 
 ....................   output_high(PIN_B0); 
 *
-0007:  BSF    06.0
+000A:  BSF    06.0
 ....................    output_low(PIN_B3); 
-0008:  BCF    06.3
-0009:  GOTO   027 (RETURN)
+000B:  BCF    06.3
+000C:  GOTO   028 (RETURN)
 .................... } 
 ....................  
 ....................  
@@ -70,10 +70,10 @@ CCS PCM C Compiler, Version 5.015, 5967               05-jun.-23 22:19
 .................... { 
 .................... output_low(PIN_B0); 
 *
-000D:  BCF    06.0
+0010:  BCF    06.0
 .................... output_low(pIN_B3); 
-000E:  BCF    06.3
-000F:  GOTO   02F (RETURN)
+0011:  BCF    06.3
+0012:  GOTO   030 (RETURN)
 .................... } 
 .................... void arrancar(void){ 
 .................... output_high(PIN_B2); 
@@ -113,53 +113,48 @@ CCS PCM C Compiler, Version 5.015, 5967               05-jun.-23 22:19
 ....................    output_low(PIN_B4); 
 0021:  BCF    06.4
 ....................  
+....................    frente(); 
+0022:  GOTO   007
 ....................  
 ....................    while (1) 
 ....................    { 
 ....................       sensores = input_A(); // Lectura de los sensores en el puerto A 
-0022:  MOVF   05,W
-0023:  MOVWF  11
+0023:  MOVF   05,W
+0024:  MOVWF  11
 ....................  
 ....................       // Control del movimiento del robot en función de los sensores 
 ....................      
 ....................        if (sensores == 0b01){ 
-0024:  DECFSZ 11,W
-0025:  GOTO   027
+0025:  DECFSZ 11,W
+0026:  GOTO   028
 ....................             derecha(); 
-0026:  GOTO   007
+0027:  GOTO   00A
 ....................              delay_us(1000000); 
 ....................        } 
 ....................           
 ....................       if(sensores==0b10){ 
-0027:  MOVF   11,W
-0028:  SUBLW  02
-0029:  BTFSC  03.2
+0028:  MOVF   11,W
+0029:  SUBLW  02
+002A:  BTFSC  03.2
 ....................          izquierda(); 
-002A:  GOTO   00A
+002B:  GOTO   00D
 ....................          delay_us(1000000); 
 ....................  
 ....................       } 
 ....................       if(sensores==0b11){ 
-002B:  MOVF   11,W
-002C:  SUBLW  03
-002D:  BTFSC  03.2
+002C:  MOVF   11,W
+002D:  SUBLW  03
+002E:  BTFSC  03.2
 ....................          detener(); 
-002E:  GOTO   00D
+002F:  GOTO   010
 ....................          delay_us(1000000); 
 ....................  
 ....................       } 
-....................       if (sensores == 0b00){ 
-002F:  MOVF   11,F
-0030:  BTFSC  03.2
-....................          frente(); 
-0031:  GOTO   010
-....................          delay_us(1000000); 
-....................       } 
-0032:  GOTO   022
-....................           
+0030:  GOTO   023
+....................              
 ....................    } 
 .................... } 
-0033:  SLEEP
+0031:  SLEEP
 
 Configuration Fuses:
    Word  1: 3FF1   XT NOWDT PUT NOPROTECT
