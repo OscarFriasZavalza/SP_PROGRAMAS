@@ -30,7 +30,8 @@ void main()
          output_low(BOMBA_PIN);
          output_low(SERVO_PIN); // Desactivar el servo
       }
-        
+      delay_us(5000);
+      
    }
 }
 

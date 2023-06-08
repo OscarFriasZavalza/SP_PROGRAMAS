@@ -1,9 +1,9 @@
-CCS PCM C Compiler, Version 5.015, 5967               08-jun.-23 08:49
+CCS PCM C Compiler, Version 5.015, 5967               08-jun.-23 14:43
 
                Filename:   C:\SP_PROGRAMAS\U5\PROYECTO FINAL\Servo y Bomba\main.lst
 
-               ROM used:   86 words (8%)
-                           Largest free fragment is 938
+               ROM used:   83 words (8%)
+                           Largest free fragment is 941
                RAM used:   5 (7%) at main() level
                            6 (9%) worst case
                Stack used: 1 locations
@@ -137,16 +137,12 @@ CCS PCM C Compiler, Version 5.015, 5967               08-jun.-23 08:49
 004F:  BCF    03.5
 0050:  BCF    06.0
 ....................       } 
-....................       delay_us(5000); 
-0051:  MOVLW  05
-0052:  MOVWF  12
-0053:  CALL   004
-0054:  GOTO   01B
-....................        
+0051:  GOTO   01B
+....................          
 ....................    } 
 .................... } 
 ....................  
-0055:  SLEEP
+0052:  SLEEP
 
 Configuration Fuses:
    Word  1: 3FF1   XT NOWDT PUT NOPROTECT
