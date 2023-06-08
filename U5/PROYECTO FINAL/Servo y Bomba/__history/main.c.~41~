@@ -14,11 +14,7 @@ void main()
    while (1)
    {
       if(input(PIN_A0)==0){
-         //prendemos la bomba
-         output_high(BOMBA_PIN);
-         output_high(PIN_B3);
-         output_low(PIN_B2);
-
+       output_high(BOMBA_PIN);
          //prendemos servomotor
          output_high(SERVO_PIN); // Activar el servo
          delay_us(1000); // Retardo proporcional a la posición
