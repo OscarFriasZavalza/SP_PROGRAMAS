@@ -18,16 +18,16 @@ Project Directory:
     C:\SP_PROGRAMAS\U5\PROYECTO FINAL\Servo y Bomba\
 
 Project Files:
-    main.c                                                  [08-jun.-23 14:43  CRC=FEA4F57B]
-    ..\..\..\..\Program Files (x86)\PICC\Devices\16F84A.h   [12-nov.-13 14:34  CRC=4E09ACDB]
+    main.c                                                  [08-jun.-23 14:45  CRC=6A5EFE52]
+    ..\..\..\..\Program Files (x86)\PICC\Devices\16F84.h    [12-nov.-13 14:34  CRC=AB8CD18B]
 
-Source signature=9AB84F31
+Source signature=C178A168
 
 Units:
     main (main)
 
 Compiler Settings:
-    Processor:      PIC16F84A
+    Processor:      PIC16F84
     Pointer Size:   8
     Opt Level:      9
     Short,Int,Long: UNSIGNED: 1,8,16

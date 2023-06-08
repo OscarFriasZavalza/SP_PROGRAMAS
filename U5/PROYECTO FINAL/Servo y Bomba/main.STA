@@ -14,9 +14,9 @@ Stack size: 8
 Lines Stmts  %   Files
 ----- ----- ---  -----
    37    16 100  main.c
-  404     0   0  ..\..\..\..\Program Files (x86)\PICC\Devices\16F84A.h
+  403     0   0  ..\..\..\..\Program Files (x86)\PICC\Devices\16F84.h
 ----- -----
-  441    16 Total
+  440    16 Total
 
 Page ROM  %  RAM   Vol Diff  Functions:
 ---- --- --- ---   --- ----  ----------
