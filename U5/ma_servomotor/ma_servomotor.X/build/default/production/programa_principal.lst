@@ -1,4 +1,4 @@
-MPASM 5.74            PROGRAMA_PRINCIPAL.ASM   5-17-2023  21:35:04         PAGE  1
+MPASM 5.74            PROGRAMA_PRINCIPAL.ASM   6-7-2023  11:40:30         PAGE  1
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -57,7 +57,7 @@ Warning[203]: Found opcode in column 1. (GOTO)
 0008   2???           00029 GOTO HOME
                       00030 
                       00031 
-MPASM 5.74            PROGRAMA_PRINCIPAL.ASM   5-17-2023  21:35:04         PAGE  2
+MPASM 5.74            PROGRAMA_PRINCIPAL.ASM   6-7-2023  11:40:30         PAGE  2
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -116,7 +116,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
 0022   0081           00082                         MOVWF   TMR0
 0023   110B           00083                         BCF             INTCON,T0IF
 0024   1D0B           00084 TIME_REB5       BTFSS   INTCON,T0IF
-MPASM 5.74            PROGRAMA_PRINCIPAL.ASM   5-17-2023  21:35:04         PAGE  3
+MPASM 5.74            PROGRAMA_PRINCIPAL.ASM   6-7-2023  11:40:30         PAGE  3
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -165,7 +165,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
                       00125 
 Warning[205]: Found directive in column 1. (END)
 3FF1                  00126 END
-MPASM 5.74            PROGRAMA_PRINCIPAL.ASM   5-17-2023  21:35:04         PAGE  4
+MPASM 5.74            PROGRAMA_PRINCIPAL.ASM   6-7-2023  11:40:30         PAGE  4
 
 
 SYMBOL TABLE
@@ -224,7 +224,7 @@ RP1                               00000006
 STATUS                            00000003
 T0CS                              00000005
 T0IE                              00000005
-MPASM 5.74            PROGRAMA_PRINCIPAL.ASM   5-17-2023  21:35:04         PAGE  5
+MPASM 5.74            PROGRAMA_PRINCIPAL.ASM   6-7-2023  11:40:30         PAGE  5
 
 
 SYMBOL TABLE
@@ -283,7 +283,7 @@ _FOSC_HS                          00003FFE
 _FOSC_LP                          00003FFC
 _FOSC_XT                          00003FFD
 _HS_OSC                           00003FFE
-MPASM 5.74            PROGRAMA_PRINCIPAL.ASM   5-17-2023  21:35:04         PAGE  6
+MPASM 5.74            PROGRAMA_PRINCIPAL.ASM   6-7-2023  11:40:30         PAGE  6
 
 
 SYMBOL TABLE

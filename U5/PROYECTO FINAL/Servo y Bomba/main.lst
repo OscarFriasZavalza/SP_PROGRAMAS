@@ -1,0 +1,152 @@
+CCS PCM C Compiler, Version 5.015, 5967               08-jun.-23 08:49
+
+               Filename:   C:\SP_PROGRAMAS\U5\PROYECTO FINAL\Servo y Bomba\main.lst
+
+               ROM used:   86 words (8%)
+                           Largest free fragment is 938
+               RAM used:   5 (7%) at main() level
+                           6 (9%) worst case
+               Stack used: 1 locations
+               Stack size: 8
+
+*
+0000:  MOVLW  00
+0001:  MOVWF  0A
+0002:  GOTO   018
+0003:  NOP
+.................... #include <16F84A.h> 
+.................... //////////// Standard Header file for the PIC16F84A device //////////////// 
+.................... /////////////////////////////////////////////////////////////////////////// 
+.................... ////        (C) Copyright 1996, 2013 Custom Computer Services          //// 
+.................... //// This source code may only be used by licensed users of the CCS C  //// 
+.................... //// compiler.  This source code may only be distributed to other      //// 
+.................... //// licensed users of the CCS C compiler.  No other use, reproduction //// 
+.................... //// or distribution is permitted without written permission.          //// 
+.................... //// Derivative programs created using this software in object code    //// 
+.................... //// form are not restricted in any way.                               //// 
+.................... /////////////////////////////////////////////////////////////////////////// 
+.................... #device PIC16F84A 
+....................  
+.................... #list 
+....................  
+.................... #fuses XT, NOWDT 
+.................... #use delay(clock = 4000000) 
+0004:  MOVLW  12
+0005:  MOVWF  04
+0006:  MOVF   00,W
+0007:  BTFSC  03.2
+0008:  GOTO   017
+0009:  MOVLW  01
+000A:  MOVWF  0D
+000B:  CLRF   0C
+000C:  DECFSZ 0C,F
+000D:  GOTO   00C
+000E:  DECFSZ 0D,F
+000F:  GOTO   00B
+0010:  MOVLW  4A
+0011:  MOVWF  0C
+0012:  DECFSZ 0C,F
+0013:  GOTO   012
+0014:  GOTO   015
+0015:  DECFSZ 00,F
+0016:  GOTO   009
+0017:  RETURN
+.................... #USE STANDARD_IO(A) 
+.................... #USE STANDARD_IO(B) 
+.................... #define SERVO_PIN PIN_B0 
+.................... #define BOMBA_PIN PIN_B1 
+....................  
+....................  
+.................... void main() 
+0018:  MOVF   03,W
+0019:  ANDLW  1F
+001A:  MOVWF  03
+.................... { 
+....................   
+....................  
+....................    while (1) 
+....................    { 
+....................       if(input(PIN_A0)==0){ 
+001B:  BSF    03.5
+001C:  BSF    05.0
+001D:  BCF    03.5
+001E:  BTFSC  05.0
+001F:  GOTO   049
+....................        output_high(BOMBA_PIN); 
+0020:  BSF    03.5
+0021:  BCF    06.1
+0022:  BCF    03.5
+0023:  BSF    06.1
+....................          //prendemos servomotor 
+....................          output_high(SERVO_PIN); // Activar el servo 
+0024:  BSF    03.5
+0025:  BCF    06.0
+0026:  BCF    03.5
+0027:  BSF    06.0
+....................          delay_us(1000); // Retardo proporcional a la posición 
+0028:  MOVLW  01
+0029:  MOVWF  12
+002A:  CALL   004
+....................          output_low(SERVO_PIN); // Desactivar el servo 
+002B:  BSF    03.5
+002C:  BCF    06.0
+002D:  BCF    03.5
+002E:  BCF    06.0
+....................          delay_ms(500); // Retardo entre posiciones 
+002F:  MOVLW  02
+0030:  MOVWF  11
+0031:  MOVLW  FA
+0032:  MOVWF  12
+0033:  CALL   004
+0034:  DECFSZ 11,F
+0035:  GOTO   031
+....................      
+....................          output_high(SERVO_PIN); // Activar el servo 
+0036:  BSF    03.5
+0037:  BCF    06.0
+0038:  BCF    03.5
+0039:  BSF    06.0
+....................          delay_us(2000); // Retardo proporcional a la posición 
+003A:  MOVLW  02
+003B:  MOVWF  12
+003C:  CALL   004
+....................          output_low(SERVO_PIN); // Desactivar el servo 
+003D:  BSF    03.5
+003E:  BCF    06.0
+003F:  BCF    03.5
+0040:  BCF    06.0
+....................          delay_ms(500); // Retardo entre posiciones 
+0041:  MOVLW  02
+0042:  MOVWF  11
+0043:  MOVLW  FA
+0044:  MOVWF  12
+0045:  CALL   004
+0046:  DECFSZ 11,F
+0047:  GOTO   043
+....................                  
+....................       }else{ 
+0048:  GOTO   051
+....................          output_low(BOMBA_PIN); 
+0049:  BSF    03.5
+004A:  BCF    06.1
+004B:  BCF    03.5
+004C:  BCF    06.1
+....................          output_low(SERVO_PIN); // Desactivar el servo 
+004D:  BSF    03.5
+004E:  BCF    06.0
+004F:  BCF    03.5
+0050:  BCF    06.0
+....................       } 
+....................       delay_us(5000); 
+0051:  MOVLW  05
+0052:  MOVWF  12
+0053:  CALL   004
+0054:  GOTO   01B
+....................        
+....................    } 
+.................... } 
+....................  
+0055:  SLEEP
+
+Configuration Fuses:
+   Word  1: 3FF1   XT NOWDT PUT NOPROTECT

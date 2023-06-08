@@ -1,0 +1,31 @@
+#include <16F84A.h>
+#include <servo.h>
+
+#fuses XT, NOWDT
+#use delay(clock = 4000000)
+
+#define SERVO_PIN PIN_B0
+
+void main()
+{
+   int position = 0; // Variable para almacenar la posición del servo
+
+   setup_servo(SERVO_PIN); // Configurar el pin del servo motor
+
+   while (1)
+   {
+      // Mover el servo de 0° a 90° a 180°
+      for (position = 0; position <= 180; position += 10)
+      {
+         set_servo_position(SERVO_PIN, position); // Establecer la posición del servo
+         delay_ms(500); // Retardo entre posiciones
+      }
+
+      // Mover el servo de 180° a 90° a 0°
+      for (position = 180; position >= 0; position -= 10)
+      {
+         set_servo_position(SERVO_PIN, position); // Establecer la posición del servo
+         delay_ms(500); // Retardo entre posiciones
+      }
+   }
+}

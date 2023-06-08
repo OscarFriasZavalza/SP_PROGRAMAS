@@ -26,19 +26,19 @@ Page ROM  %  RAM   Vol Diff  Functions:
 0      3   6    0    37  1.1  detener
 0      3   6    0    37  1.1  arrancar
 0     33  63    1   407  3.3  MAIN
- Inline         0   627  3.8  @cinit1
+ Inline         0   505  3.3  @cinit1
 
 Program metrics:
     Functions               7
     Statements              28
     Comments                76
-    Volume (V)              1718
-    Difficulty (D)          13.2
-    Effort to implement (E) 22740
-    Time to implement (T)   21 minutes
+    Volume (V)              1578
+    Difficulty (D)          12.6
+    Effort to implement (E) 19943
+    Time to implement (T)   18 minutes
     Est Delivered Bugs (B)  0
-    Cyclomatic Complexity   7
-    Maintainability (MI)    73
+    Cyclomatic Complexity   9
+    Maintainability (MI)    74
 
  Segment     Used  Free
 -----------  ----  ----

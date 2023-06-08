@@ -1,4 +1,4 @@
-CCS PCM C Compiler, Version 5.015, 5967               05-jun.-23 23:20
+CCS PCM C Compiler, Version 5.015, 5967               07-jun.-23 17:18
 
                Filename:   C:\SP_PROGRAMAS\U5\seguidor_linea\parte1_proyecto\seguidor_linea.lst
 
@@ -31,11 +31,11 @@ CCS PCM C Compiler, Version 5.015, 5967               05-jun.-23 23:20
 ....................  
 .................... #fuses XT, NOWDT 
 .................... #use delay(clock = 4000000) 
-.................... #use fast_io(B) // Configuramos los TRIS solo una vez, es la forma más rápida de trabajar con los puertos 
+.................... #use fast_io(B) // Configuramos los TRIS solo una vez, es la forma m?s r?pida de trabajar con los puertos 
 .................... #use fast_io(A) 
 ....................  
 ....................  
-.................... void frente(void) // Ambos motores al máximo de potencia 
+.................... void frente(void) // Ambos motores al m?ximo de potencia 
 .................... { 
 ....................    output_high(PIN_B0); 
 *
@@ -103,7 +103,7 @@ CCS PCM C Compiler, Version 5.015, 5967               05-jun.-23 23:20
 001C:  BCF    03.5
 001D:  GOTO   004
 ....................  
-....................    // Dirección de los motores hacia adelante 
+....................    // Direcci?n de los motores hacia adelante 
 ....................    output_high(PIN_B0); 
 001E:  BSF    06.0
 ....................    output_low(PIN_B1); 
@@ -120,7 +120,7 @@ CCS PCM C Compiler, Version 5.015, 5967               05-jun.-23 23:20
 0022:  MOVF   05,W
 0023:  MOVWF  11
 ....................  
-....................       // Control del movimiento del robot en función de los sensores 
+....................       // Control del movimiento del robot en funci?n de los sensores 
 ....................      
 ....................       if (sensores == 0b00) 
 0024:  MOVF   11,F
