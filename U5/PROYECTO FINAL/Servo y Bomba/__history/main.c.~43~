@@ -13,7 +13,7 @@ void main()
 
    while (1)
    {
-      if(input(PIN_A0)==1){
+      if(input(PIN_A0)==0){
          //prendemos la bomba
          output_high(BOMBA_PIN);
          output_high(PIN_B3);

@@ -1,4 +1,4 @@
-CCS PCM C Compiler, Version 5.015, 5967               08-jun.-23 15:38
+CCS PCM C Compiler, Version 5.015, 5967               08-jun.-23 21:12
 
                Filename:   C:\SP_PROGRAMAS\U5\PROYECTO FINAL\Servo y Bomba\main.lst
 
@@ -66,11 +66,11 @@ CCS PCM C Compiler, Version 5.015, 5967               08-jun.-23 15:38
 ....................  
 ....................    while (1) 
 ....................    { 
-....................       if(input(PIN_A0)==0){ 
+....................       if(input(PIN_A0)==1){ 
 001B:  BSF    03.5
 001C:  BSF    05.0
 001D:  BCF    03.5
-001E:  BTFSC  05.0
+001E:  BTFSS  05.0
 001F:  GOTO   051
 ....................          //prendemos la bomba 
 ....................          output_high(BOMBA_PIN); 
